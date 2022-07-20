@@ -8,10 +8,6 @@
   <title>CareYou | {{ $title }}</title>
 </head>
 <body>
-  <!-- This example requires Tailwind CSS v2.0+ -->
-  @include('partials.navbar')
-  <div>
-    @yield('container')
-  </div>
+
 </body>
 </html>

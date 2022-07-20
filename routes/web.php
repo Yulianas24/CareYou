@@ -22,6 +22,12 @@ Route::get('/', function () {
         "title" => "Home"
     ]);
 });
+
+Route::get('/login', function(){
+    return view('/pages/login', [
+        "title" => "Login"
+    ]);
+});
 Route::get('/about', function () {
     return view('about', [
         "title" => "About",
