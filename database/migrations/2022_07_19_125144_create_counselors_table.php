@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('counselors', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->text('pendidikan');
+            $table->text('penanganan_masalah');
+            $table->text('jadwal');
+            $table->text('tentang');
         });
     }
 

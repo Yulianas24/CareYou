@@ -8,6 +8,11 @@
   <title>CareYou | {{ $title }}</title>
 </head>
 <body>
-
+<div>
+  @include('partials/navbar')
+</div>
+<div>
+  @yield('container')
+</div>
 </body>
 </html>

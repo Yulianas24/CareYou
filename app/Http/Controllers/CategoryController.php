@@ -34,10 +34,6 @@ class CategoryController extends Controller
      * @param  \App\Http\Requests\StoreCategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCategoryRequest $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -68,10 +64,7 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.
