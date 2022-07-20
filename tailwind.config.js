@@ -13,7 +13,9 @@ module.exports = {
                     902: "#DCDCDC",
                 },
                 blue: {
+                    601: "#2984D5",
                     901: "#0661B0",
+                    902: "#0661B0",
                 },
             },
             fontFamily: {
@@ -21,7 +23,8 @@ module.exports = {
                 roboto: ["Roboto", "sans-serif"],
             },
             spacing: {
-                75: "18..75rem",
+                0.2: "1px",
+                75: "18.75rem",
                 95: "28.875rem",
                 102: "32.188rem",
             },
