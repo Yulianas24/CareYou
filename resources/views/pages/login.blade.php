@@ -28,22 +28,54 @@
         <div class="flex w-95 h-102 rounded-lg shadow-lg shadow-gray-600/20">
             <div class="flex flex-col w-full h-full p-8 justify-between">
                 <div class="flex w-full h-full flex-col items-center justify-center ">
+
+                    {{-- alert registrasi berhasil --}}
+                    @if (session()->has('success'))  
+                    <div id="id01" class="alert bg-green-200 rounded-md py-2 px-6  text-base text-green-800 inline-flex items-center w-full alert-dismissible fade show" role="alert">
+                       
+                        <p>Registrasi berhasil!!</p>
+                        <button type="button" class=" w-7 h-7 ml-auto text-green-800 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"> <span onclick="document.getElementById('id01').style.display='none'"> &times;</button>
+                      </div>
+                    @endif
+                    
+
+                    @if (session()->has('loginError'))  
+                    <div id="id01" class="alert bg-red-200 rounded-md py-2 px-6  text-base text-red-800 inline-flex items-center w-full alert-dismissible fade show" role="alert">
+                       
+                        <p>Login gagal !</p>
+                        <button type="button" class=" w-7 h-7 ml-auto text-red-800 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"> <span onclick="document.getElementById('id01').style.display='none'"> &times;</button>
+                      </div>
+                    @endif
+
                     <h1 class="font-roboto font-medium pb-2 text-5xl">Login</h1>
                     <span class=" bg-gray-200 h-0.2 w-full"></span>
                 </div>
 
                 {{-- !: Form Login --}}
-                <form action="" class="flex flex-col w-full h-full justify-evenly">
+                <form action="/login" method='post' class="flex flex-col w-full h-full justify-evenly">
+                    @csrf
                     <div class="flex flex-col h-56 justify-evenly">
                         <section>
                             <legend class="font-poppins font-normal ">Username</legend>
-                            <input type="text" name="" id="" placeholder="username"
-                                class="border border-gray-300 shadow-md rounded-lg py-2 w-full px-6">
+                            <input type="text" name="username" id="username" placeholder="username"
+                                class="border border-gray-300 shadow-md rounded-lg py-2 w-full px-6 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 @error('username')  
+                                border-pink-500 
+                                focus:border-pink-500 focus:ring-pink-500 placeholder:text-pink-500
+                                @enderror" required>
+                            @error('username')
+                                <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+                            @enderror
                         </section>
                         <section>
                             <legend class="font-poppins font-normal ">Password</legend>
-                            <input type="password" name="" id="" placeholder="password"
-                                class="border border-gray-300 shadow-md rounded-lg py-2 w-full px-6">
+                            <input type="password" name="password" id="password" placeholder="password"
+                                class="border border-gray-300 shadow-md rounded-lg py-2 w-full px-6 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 @error('password')  
+                                border-pink-500 
+                                focus:border-pink-500 focus:ring-pink-500 placeholder:text-pink-500
+                                @enderror" required>
+                                @error('password')
+                                <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+                            @enderror
                         </section>
                         <strong class="font-poppins text-blue-601 font-normal text-sm">Lupa Password?</strong>
                     </div>
@@ -59,36 +91,6 @@
         </div>
     </div>
 </div>
-
-
-{{-- Modal jika registrasi berhasil --}}
-
-{{-- editin Zak 
-    Bikin popup registrasi berhasil
-    aku mau tidur
-    Hapus comment di if session kalo udah pas
-    --}}
-
-{{-- @if (session()->has('success'))  --}} 
-
-<div id="id01" class="w3-modal" style="display: block">
-    
-    <div class="w3-modal-content w3-animate-top w3-card-4">
-      <header class="w3-container w3-teal"> 
-        <span onclick="document.getElementById('id01').style.display='none'" 
-        class="w3-button w3-display-topright">&times;</span>
-        <h2>Modal Header</h2>
-      </header>
-      <div class="w3-container">
-        <p>Some text..</p>
-        <p>Some text..</p>
-      </div>
-      <footer class="w3-container w3-teal">
-        <p>Modal Footer</p>
-      </footer>
-    </div>
-</div>
-{{-- @endif --}}
 
 </body>
 </html>

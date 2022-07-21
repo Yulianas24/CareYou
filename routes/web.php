@@ -25,6 +25,9 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+
 Route::get('/registrasi', [RegisterController::class, 'index']);
 Route::post('/registrasi', [RegisterController::class, 'store']);
 
