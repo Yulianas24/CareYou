@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -31,6 +32,7 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/registrasi', [RegisterController::class, 'index']);
 Route::post('/registrasi', [RegisterController::class, 'store']);
 
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/about', function () {
     return view('about', [
