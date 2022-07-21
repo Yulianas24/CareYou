@@ -56,13 +56,21 @@
                                     <p class="block text-xs font-poppins font-normal text-pink-700 " style="margin-bottom: -20px ">{{ $message }}</p>
                                 @enderror 
                             </div>
-                            <div class="col-span-6">
+                            <div class="col-span-3">
                                 <label for="password" class="block  text-sm font-poppins font-normal text-gray-700">password</label>
                                 <input type="password" name="password" placeholder="password" id="password" autocomplete="password" class=" mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 " required value = {{ old('password') }}>
                                 @error('password')
                                     <p class="block text-xs font-poppins font-normal text-pink-700 " style="margin-bottom: -20px ">{{ $message }}</p>
                                 @enderror
+                            </div>
+                            <div class="col-span-3">
+                                <label for="level" class="block  text-sm font-poppins font-normal text-gray-700">Daftar sebagai</label>
+                                <select name="level" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 ">
+                                    <option value = "konseli" selected>Konseli</option>
+                                    <option value = "konselor">Konselor</option>
+                                </select>
                             </div>
 
                             <div class="grid col-start-2 col-span-4 text-center justify-items-center">
