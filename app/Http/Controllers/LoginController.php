@@ -32,6 +32,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
 
             $request->session()->regenerate();
+
             if ($level['level'] === 'konseli') {
                 return redirect()->intended('/');
             } elseif ($level['level'] === 'konselor') {
@@ -40,5 +41,16 @@ class LoginController extends Controller
         }
 
         return back()->with('loginError', 'Login Gagal!');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

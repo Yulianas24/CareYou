@@ -7,7 +7,19 @@
         <li class="text-white"><a href="#">Artikel</a></li>
         <li class="text-white"><a href="#">Tentang Kami</a></li>
     </ul>
-    <figure
+    @auth
+    <form action="/logout" method="post">
+        @csrf
+        <button type="submit" class="border-2 font-roboto text-white border-blue-902 py-1 px-8 rounded-lg hover:bg-blue-902 cursor-pointer">Logout</button>
+    </form>
+    @else
+    <a href="/login">
+        <figure
         class="border-2 font-roboto text-white border-blue-902 py-1 px-8 rounded-lg hover:bg-blue-902 cursor-pointer">
         Login</figure>
+    </a>
+    <button href></button>
+    @endauth
+    
+    
 </nav>

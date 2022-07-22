@@ -23,16 +23,16 @@ Route::get('/', function () {
     return view('/pages/beranda', [
         "title" => "Home"
     ]);
-});
+})->name('home');
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
-
-Route::get('/registrasi', [RegisterController::class, 'index']);
+Route::get('/registrasi', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/registrasi', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('konselor');
 
 Route::get('/about', function () {
     return view('about', [

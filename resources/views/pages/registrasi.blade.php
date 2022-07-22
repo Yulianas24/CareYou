@@ -9,10 +9,10 @@
 </head>
 <body>
     
-<div class="grid grid-cols-7 w-screen h-screen">
+<div class="grid grid-cols-7 w-screen h-screen ">
     {{-- ?: CareYou  Container --}}
     <div class="bg-blue-901 relative col-span-3">
-        <div class="flex justify-between flex-col h-32 w-96 absolute top-44 left-16">
+        <div class="flex justify-between flex-col h-32 w-96 absolute top-44 left-16 ">
             <img src="/asset/logo_blue.svg" alt="LogoCareYou" class="w-48 h-16">
             <p class="font-poppins font-normal text-gray-901 text-lg">Care about your mental health</p>
         </div>
@@ -22,7 +22,7 @@
     </div>
     {{-- ?: Register Container --}}
     <div class="flex justify-center items-center col-span-4">
-        <div class=" w-95 h-102 rounded-lg shadow-lg shadow-gray-600/20">
+        <div class=" flex w-95 h-102 rounded-lg shadow-lg shadow-gray-600/20">
             <div class=" w-full h-full justify-center">
                 <div class=" w-full h-full justify-center p-5">
                     <form class="w-full h-full" method="post" action="/registrasi">
