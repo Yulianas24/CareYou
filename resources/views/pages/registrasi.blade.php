@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
     <title>CareYou | {{ $title }}</title>
 </head>
-<body>
+<body class="overflow-hidden">
     
 <div class="grid grid-cols-7 w-screen h-screen ">
     {{-- ?: CareYou  Container --}}
