@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
-    <title>{{ $title }}</title>
+    <title>CareYou | {{ $title }}</title>
 </head>
 <body>
     
@@ -34,10 +34,7 @@
                             <div class="col-span-3">
                                 <label for="nama" class="block text-sm font-poppins font-normal text-gray-700 ">Nama</label>
                                 <input type="text" name="name" placeholder="nama" id="name" autocomplete="name" class=" mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-                                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 @error('name')  
-                                border-pink-500 
-                                focus:border-pink-500 focus:ring-pink-500
-                                @enderror" required value = {{ old('name') }}>
+                                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" required value = {{ old('name') }}>
                                 @error('name')
                                     <p class="block text-xs font-poppins font-normal text-pink-700 " style="margin-bottom: -20px">{{ $message }}</p>
                                 @enderror
@@ -46,10 +43,7 @@
                             <div class="col-span-3">
                                 <label for="username" class="block  text-sm font-poppins font-normal text-gray-700 ">Username</label>
                                 <input type="text" name="username" placeholder="username" id="username" autocomplete="username" class=" mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-                                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 @error('username')  
-                                border-pink-500 
-                                focus:border-pink-500 focus:ring-pink-500
-                                @enderror" required value = {{ old('username') }}>
+                                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" required value = {{ old('username') }}>
                                 @error('username')
                                     <p class="block text-xs font-poppins font-normal text-pink-700 " style="margin-bottom: -20px ">{{ $message }}</p>
                                 @enderror
@@ -57,26 +51,28 @@
                             <div class="col-span-6">
                                 <label for="email" class="block  text-sm font-poppins font-normal text-gray-700">Email</label>
                                 <input type="email" name="email" placeholder="email" id="email" autocomplete="email" class=" mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-                                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 @error('username')  
-                                border-pink-500 
-                                focus:border-pink-500 focus:ring-pink-500
-                                @enderror" required value = {{ old('email') }}>
+                                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 " required value = {{ old('email') }}>
                                 @error('email')
                                     <p class="block text-xs font-poppins font-normal text-pink-700 " style="margin-bottom: -20px ">{{ $message }}</p>
                                 @enderror 
                             </div>
-                            <div class="col-span-6">
+                            <div class="col-span-3">
                                 <label for="password" class="block  text-sm font-poppins font-normal text-gray-700">password</label>
                                 <input type="password" name="password" placeholder="password" id="password" autocomplete="password" class=" mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-                                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 @error('password')  
-                                border-pink-500 
-                                focus:border-pink-500 focus:ring-pink-500
-                                @enderror" required value = {{ old('password') }}>
+                                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 " required value = {{ old('password') }}>
                                 @error('password')
                                     <p class="block text-xs font-poppins font-normal text-pink-700 " style="margin-bottom: -20px ">{{ $message }}</p>
                                 @enderror
                             </div>
-                       
+                            <div class="col-span-3">
+                                <label for="level" class="block  text-sm font-poppins font-normal text-gray-700">Daftar sebagai</label>
+                                <select name="level" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 ">
+                                    <option value = "konseli" selected>Konseli</option>
+                                    <option value = "konselor">Konselor</option>
+                                </select>
+                            </div>
+
                             <div class="grid col-start-2 col-span-4 text-center justify-items-center">
                                 <button type="submit" class=" text-sm mt-1 block w-full shadow-sm border-2 bg-blue-902 rounded-xl py-3 font-poppins text-white">
                                     Buat Akun
