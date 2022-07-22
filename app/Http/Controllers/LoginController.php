@@ -27,10 +27,10 @@ class LoginController extends Controller
             'password' => ['required'],
 
         ]);
-        $level = User::where('username', $credentials['username'])->get('level')[0];
+
 
         if (Auth::attempt($credentials)) {
-
+            $level = User::where('username', $credentials['username'])->get('level')[0];
             $request->session()->regenerate();
 
             if ($level['level'] === 'konseli') {
