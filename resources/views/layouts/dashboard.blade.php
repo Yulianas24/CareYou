@@ -113,7 +113,11 @@
                                 </li>
                                 
                                 <li>
-                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                                    <form action="/logout" method="post">
+                                        @csrf
+                                        <button type="submit" class="block py-2 px-4 w-full text-left hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logout</button>
+                                    </form>
+                                    
                                 </li>
                             </ul>
                         </div>
