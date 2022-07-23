@@ -1,4 +1,4 @@
-<div class="h-screen w-screen">
+<div class="h-screen w-screen" id="pageHome">
     {{-- ?: Background Filter --}}
     <div class=" h-full w-full bg-black opacity-80 absolute -z-10"></div>
     {{-- ?: Image Background --}}

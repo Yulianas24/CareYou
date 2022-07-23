@@ -1,8 +1,8 @@
 <nav class="duration-500 flex justify-evenly fixed items-center w-screen h-18 bg-transparent z-50" id="nav">
     <figure><img src="/asset/mainLogo.svg" alt="" srcset=""></figure>
     <ul class="flex justify-evenly w-2/3">
-        <li class="text-white" id="textLinks"><a href="#">Home</a></li>
-        <li class="text-white" id="textLinks"><a href="#">Fitur</a></li>
+        <li class="text-white" id="textLinks"><a href="#pageHome">Home</a></li>
+        <li class="text-white" id="textLinks"><a href="#pageFitur">Fitur</a></li>
         <li class="text-white" id="textLinks"><a href="#">Konselor</a></li>
         <li class="text-white" id="textLinks"><a href="#">Artikel</a></li>
         <li class="text-white" id="textLinks"><a href="#">Tentang Kami</a></li>
