@@ -11,7 +11,7 @@
         <div class="w-105 h-80 relative">
             {{-- ?: Text Header --}}
             <figcaption class="text-white font-roboto font-semibold text-6xl text-center">Cek Kesehatan Mentalmu dan
-                <span class="text-yellow-901">"</span>Konnsultas<span class="text-yellow-901">"</span> pada
+                <span class="text-yellow-901">"</span>Konsultasi<span class="text-yellow-901">"</span> pada
                 Konselor
                 Terpercaya
                 <img src="/asset/theme/Vector1.svg" alt="Image Text Header" srcset=""
