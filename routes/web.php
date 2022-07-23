@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -33,6 +34,9 @@ Route::get('/registrasi', [RegisterController::class, 'index'])->middleware('gue
 Route::post('/registrasi', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('konselor');
+
+Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('konselor');
+
 
 Route::get('/about', function () {
     return view('about', [
