@@ -1,3 +1,3 @@
-<div class="flex w-full h-full bg-black">
-        
+<div class="flex w-screen h-screen">
+
 </div>

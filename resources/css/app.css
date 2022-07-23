@@ -9,4 +9,7 @@
     li {
         @apply font-poppins;
     }
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
 }

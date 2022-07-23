@@ -9,9 +9,13 @@
     <title>CareYou | {{ $title }}</title>
 </head>
 
-<body>
+<body class="overflow-x-hidden">
     @include('partials/navbar')
-    @yield('container')
+    <div>
+        @yield('container')
+    </div>
+    <script src="{{ asset('js/navbar.js') }}"></script>
+
 </body>
 
 </html>
