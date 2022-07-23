@@ -35,6 +35,7 @@ Route::post('/registrasi', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('konselor');
 
+Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('konselor');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('konselor');
 
 
