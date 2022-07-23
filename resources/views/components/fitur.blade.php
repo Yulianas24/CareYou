@@ -8,7 +8,7 @@
         <figure class="flex justify-between mt-16 items-center w-full h-5/6">
             {{-- ?: Picture --}}
 
-            <picture><img src="/asset/img/cardImageFitur.svg" alt=""></picture>
+            <picture><img src="/asset/img/cardImageFitur.svg" alt="" class="h-102"></picture>
             {{-- ?: Fitur --}}
             <figcaption class="flex flex-col h-full w-95 justify-between ">
                 <p class="font-poppins text-lg">Fitur yag akan membantu anda untuk menyelesaikan masalah anda</p>

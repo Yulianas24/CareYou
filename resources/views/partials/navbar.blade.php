@@ -3,7 +3,7 @@
     <ul class="flex justify-evenly w-2/3">
         <li class="text-white" id="textLinks"><a href="#pageHome">Home</a></li>
         <li class="text-white" id="textLinks"><a href="#pageFitur">Fitur</a></li>
-        <li class="text-white" id="textLinks"><a href="#">Konselor</a></li>
+        <li class="text-white" id="textLinks"><a href="#pageKonselor">Konselor</a></li>
         <li class="text-white" id="textLinks"><a href="#">Artikel</a></li>
         <li class="text-white" id="textLinks"><a href="#">Tentang Kami</a></li>
     </ul>
@@ -51,7 +51,7 @@
     @else
         <a href="/login">
             <figure id="loginText"
-                class="border-2 font-roboto text-white border-blue-902 py-1 px-8 rounded-lg hover:bg-blue-902 cursor-pointer hover:text-white">
+                class="border-2 font-roboto text-white border-blue-902 py-1 px-8 rounded-lg hover:bg-blue-902 cursor-pointer duration-500 hover:text-white">
                 Login</figure>
         </a>
         <button href></button>
