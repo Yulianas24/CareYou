@@ -1,4 +1,4 @@
-<footer class="grid justify-items-center w-screen h-102 px-12 pt-9 bg-blue-700">
+<footer class="grid justify-items-center w-screen h-95 px-12 pt-9 bg-blue-700">
   <div class="grid w-full h-48 justify-items-center  border-double border-b-4 border-blue-300">
     <div class="grid w-80 h-28 justify-items-center font-poppins">
       <img src="asset/logo.svg" alt="logo" class="w-48 ">
@@ -24,13 +24,13 @@
     </div>
   </div>
 
-  <div class="grid grid-cols-2 w-auto h-auto  justify-items-center text-white text-sm">
-    <div class="grid w-auto h-24 justify-items-start font-poppins ">
+  <div class="grid grid-cols-2 w-auto h-40  justify-items-center text-white text-sm">
+    <div class="grid w-auto h-28 justify-items-start font-poppins ">
       <h1 class="text-lg ">About</h1>
       <a href="#">About Us</a>
       <a href="#">Contact Us</a>
     </div>
-    <div class="grid w-auto h-28 justify-items-start font-poppins">
+    <div class="grid w-auto h-36 justify-items-start font-poppins">
       <h1 class="text-lg">Help and Support</h1>
       <a href="#">Help</a>
       <a href="#">Term and Conditions</a>
