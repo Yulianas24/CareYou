@@ -22,6 +22,7 @@
                 </div>
                 <nav class="mt-6">
                     <div>
+                        {{-- Home --}}
                         <a class="w-full text-gray-800 dark:text-white flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start border-l-4 border-purple-500" href="#">
                             <span class="text-left">
                                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -33,6 +34,7 @@
                                 Home
                             </span>
                         </a>
+                        
                         {{-- <a class="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent" href="#">
                             <span class="text-left">
                                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 2048 1792" xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +48,8 @@
                                     0
                                 </span>
                             </span>
-                        </a>
+                        </a> --}}
+                        
                         <a class="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent" href="#">
                             <span class="text-left">
                                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -68,7 +71,7 @@
                             <span class="mx-4 text-sm font-normal">
                                 Store feedback
                             </span>
-                        </a> --}}
+                        </a>
                     </div>
                 </nav>
             </div>
