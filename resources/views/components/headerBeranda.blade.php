@@ -4,7 +4,6 @@
     {{-- ?: Image Background --}}
     <img src="/asset/img/backgroundHome.png" alt="backgroundBeranda" srcset=""
         class="-z-20 w-full h-full absolute backdrop-grayscale">
-
     {{-- ?: Container Intro --}}
     <figure class="flex flex-col w-full h-full justify-center items-center z-20">
         {{-- ?: Sub Container --}}

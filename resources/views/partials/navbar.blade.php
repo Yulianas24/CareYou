@@ -51,7 +51,7 @@
     @else
         <a href="/login">
             <figure id="loginText"
-                class="border-2 font-roboto text-white border-blue-902 py-1 px-8 rounded-lg hover:bg-blue-902 cursor-pointer">
+                class="border-2 font-roboto text-white border-blue-902 py-1 px-8 rounded-lg hover:bg-blue-902 cursor-pointer hover:text-white">
                 Login</figure>
         </a>
         <button href></button>
