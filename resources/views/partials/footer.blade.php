@@ -4,7 +4,7 @@
       <img src="asset/logo.svg" alt="logo" class="w-48 ">
       <h2 class="tracking-wide text-lg text-gray-400">Care about your mental health</h2>
     </div>
-    <div class="flex w-1/2 h-full justify-around px-8">
+    <div class="flex w-1/2 h-full justify-around px-16">
       <a href="#">
         <img src="asset/icons/Email.svg" alt="Email">
       </a>
@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <div class="grid grid-cols-2 w-auto h-40  justify-items-center text-white text-sm">
+  <div class="grid gap-10 grid-cols-2 w-auto h-40  justify-items-center text-white text-sm">
     <div class="grid w-auto h-28 justify-items-start font-poppins ">
       <h1 class="text-lg ">About</h1>
       <a href="#">About Us</a>
