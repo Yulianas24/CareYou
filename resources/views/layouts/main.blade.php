@@ -14,6 +14,7 @@
     <div>
         @yield('container')
     </div>
+    @include('partials/footer')
     <script src="{{ asset('js/navbar.js') }}"></script>
 
 </body>
