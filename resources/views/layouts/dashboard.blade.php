@@ -18,11 +18,11 @@
 </head>
 <body>
     
-<main class="bg-gray-100 dark:bg-gray-800 h-screeen overflow-hidden relative">
+<main class="bg-gray-100 dark:bg-gray-800 h-screeen  overflow-hidden relative">
     <div class=" flex items-start justify-between">
 
         {{-- Sidebar --}}
-        <div class=" h-screen hidden lg:block shadow-lg  w-80">
+        <div class="fixed h-screen hidden lg:block shadow-lg  w-64">
             <div class="bg-white h-full dark:bg-gray-700">
                 <div class="flex items-center justify-start pt-6 ml-8">
                     <p class="font-bold dark:text-white text-xl">
@@ -90,7 +90,7 @@
         <div class="flex flex-col w-full md:space-y-4">
 
             {{-- navbar --}}
-            <header class="w-full h-16 z-40 border-b border-gray-700 flex items-center justify-between pb-2">
+            <header class="fixed w-full h-16 z-40 border-b border-gray-700 flex items-center justify-between pb-2">
                 <div class="block lg:hidden ml-6">
                     <button class="flex p-2 items-center rounded-full bg-white shadow text-gray-500 text-md">
                         <svg width="20" height="20" class="text-gray-400" fill="currentColor" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -140,7 +140,10 @@
             {{-- end of navbar --}}
             
             {{-- content --}}
-            @yield('dashboard')
+            <div class="h-screen lg:ml-64 pt-16">
+                @yield('dashboard')
+            </div>
+            
             {{-- end of content --}}
             
         </div>

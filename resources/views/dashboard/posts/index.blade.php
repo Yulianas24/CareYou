@@ -1,7 +1,7 @@
 @extends('layouts/dashboard')
 
 @section('dashboard')
-<div class="overflow-auto h-screen pb-24 px-4 md:px-6">
+<div class="overflow-auto h-screen  px-4 md:px-6">
   @if (session()->has('success'))  
   <div id="id01" class="alert w-3/4 bg-green-200 rounded-md py-2 px-6  text-base text-green-800 inline-flex items-center alert-dismissible fade show" role="alert">
   
@@ -35,12 +35,15 @@
             <a href="/dashboard/posts/{{ $post->slug }}" >
               <button class="bg-green-500 hover:bg-green-700  text-white py-1 px-2 rounded-sm">Show</button>
             </a>
-            <a href="/dashboard/posts/{{ $post->slug }}" >
+            <a href="/dashboard/posts/{{ $post->slug }}/edit" >
               <button class="bg-yellow-500 hover:bg-yellow-700  text-white py-1 px-2 rounded-sm">Edit</button>
             </a>
-            <a href="/dashboard/posts/{{ $post->slug }}" >
-              <button class="bg-red-500 hover:bg-red-700  text-white py-1 px-2 rounded-sm">Delete</button>
-            </a>
+            <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="inline-flex">
+              @method('delete')
+              @csrf
+              <button type="submit" class="bg-red-500 hover:bg-red-700  text-white py-1 px-2 rounded-sm" onclick="return confirm('Apakah anda yakin?')">Delete</button>
+            </form>
+            
           </td>
         </tr>
         @endforeach

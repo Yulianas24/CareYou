@@ -1,18 +1,19 @@
 @extends('layouts/dashboard')
 
 @section('dashboard')
-<div class="overflow-auto h-screen px-4 md:px-6">
+<div class="overflow-auto h-screen  px-4 md:px-6">
   <h1 class="text-3xl  font-semibold text-gray-800 dark:text-white">
-    Tambah post baru
+    Edit Post
   </h1>
   <br>
-  <div class="block p-6 w-full h-auto rounded-lg shadow-lg bg-white dark:bg-gray-700 ">
-    <form class="block " method="post" action="/dashboard/posts">
+  <div class="block p-6 w-full h-auto rounded-lg shadow-lg bg-white ">
+    <form method="post" action="/dashboard/posts/{{ $post->slug }}">
+      @method('put')
       @csrf
       <div>
         {{-- Judul --}}
         <div class="form-group mb-2 ">
-          <label for="title" class="form-label inline-block mb-2 text-gray-700 dark:text-white">title</label>
+          <label for="title" class="form-label inline-block mb-2 text-gray-700">title</label>
           @error('title')
               <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
             @enderror
@@ -24,10 +25,6 @@
             text-base
             font-normal
             text-gray-700
-            dark:text-white
-            dark:bg-gray-800
-            focus:dark:bg-gray-800
-            focus:dark:text-white
             bg-white bg-clip-padding
             border border-solid border-gray-300
             rounded
@@ -35,12 +32,12 @@
             ease-in-out
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
-            aria-describedby="title" placeholder="title" id="title" name="title" required value="{{ old('title') }}">
-
+            aria-describedby="title" placeholder="title" id="title" name="title" required value="{{ old('title', $post->title) }}">
+            
         </div>
         {{-- Slug --}}
         <div class="form-group mb-2">
-          <label for="slug" class="form-label inline-block mb-2 text-gray-700 dark:text-white">Slug</label>
+          <label for="slug" class="form-label inline-block mb-2 text-gray-700">Slug</label>
           @error('slug')
               <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
             @enderror
@@ -51,10 +48,6 @@
             text-base
             font-normal
             text-black
-            dark:text-white
-            dark:bg-gray-800
-            dark:focus:bg-gray-800
-            focus:dark:text-white
             bg-gray-100 bg-clip-padding
             border border-solid border-gray-300
             rounded
@@ -62,11 +55,11 @@
             ease-in-out
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            placeholder="Slug" id="slug" name="slug" required value="{{ old('slug') }}">
+            placeholder="Slug" id="slug" name="slug" required value="{{ old('slug', $post->slug) }}">
         </div>
         {{-- Kategori --}}
         <div class="form-group mb-2 ">
-          <label for="kategori" class="form-label inline-block mb-2 text-gray-700 dark:text-white">kategori</label>
+          <label for="kategori" class="form-label inline-block mb-2 text-gray-700">kategori</label>
           <select type="text" class="form-control
             block
             w-full
@@ -76,10 +69,6 @@
             font-normal
             text-gray-700
             bg-white bg-clip-padding
-            dark:text-white
-            dark:bg-gray-800
-            focus:dark:bg-gray-800
-            focus:dark:text-white
             border border-solid border-gray-300
             rounded
             transition
@@ -88,7 +77,7 @@
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
             aria-describedby="kategori" placeholder="kategori" name="category_id">
               @foreach ($categories as $category)
-                @if (old('category_id')==$category->id)
+                @if (old('category_id', $post->category_id)==$category->id)
                 <option value="{{ $category->id }}" selected>{{ $category ->name }}</option>
                 @else
                 <option value="{{ $category->id }}">{{ $category ->name }}</option>
@@ -105,9 +94,8 @@
         @error('body')
               <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
         @enderror
-        <input id="body" type="hidden" name="body" value="{{ old('body') }}">
-        <trix-editor input="body" class="dark:text-white
-        dark:bg-gray-800"></trix-editor>
+        <input id="body" type="hidden" name="body" value="{{ old('body', $post->body) }}">
+        <trix-editor input="body"></trix-editor>
       </div>
 
       <button type="submit" class="
@@ -126,7 +114,7 @@
         active:bg-blue-800 active:shadow-lg
         transition
         duration-150
-        ease-in-out">Create Post</button>
+        ease-in-out">Update Post</button>
     </form>
   </div>
 </div>

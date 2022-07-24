@@ -8,8 +8,12 @@
     </h2>
     <div class="flex ">
       <a href="/dashboard/posts" class="bg-green-500 hover:bg-green-600 p-2 mr-3 text-white rounded-md">Back To Post</a>
-      <a href="/dashboard/posts" class="bg-yellow-500 hover:bg-yellow-600 p-2 px-5 mr-3 text-white rounded-md">Edit</a>
-      <a href="/dashboard/posts" class="bg-red-500 hover:bg-red-600 p-2 text-white rounded-md">Delete</a>
+      <a href="/dashboard/posts/{{ $post->slug }}/edit"  class="bg-yellow-500 hover:bg-yellow-600 p-2 px-5 mr-3 text-white rounded-md">Edit</a>
+      <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="inline-flex">
+        @method('delete')
+        @csrf
+        <button type="submit" class="bg-red-500 hover:bg-red-700  text-white py-1 px-2 rounded-sm" onclick="return confirm('Apakah anda yakin?')">Delete</button>
+      </form>
     </div>
     <br>
     <div >
