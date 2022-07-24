@@ -1,7 +1,7 @@
 @extends('layouts/dashboard')
 
 @section('dashboard')
-<div class="flex h-screen pb-24 px-4 md:px-6">
+<div class="overflow-auto h-screen pb-24 px-4 md:px-6 dark:text-white">
   <article class="mb-5">
     <h2 class="text-2xl mb-5">
       {{ $post -> title }}

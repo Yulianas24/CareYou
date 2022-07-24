@@ -1,52 +1,87 @@
 @extends('layouts/dashboard')
 
 @section('dashboard')
-<div class="overflow-auto pb-24 px-4 md:px-6">
-  <h1 class="text-4xl  font-semibold text-gray-800 dark:text-white">
+<div class="overflow-auto h-screen pb-24 px-4 md:px-6">
+  <h1 class="text-3xl  font-semibold text-gray-800 dark:text-white">
     Tambah post baru
   </h1>
   <br>
-  <div class="block p-6 w-3/4 h-full rounded-lg shadow-lg bg-white ">
+  <div class="block p-6 w-full h-auto rounded-lg shadow-lg bg-white ">
     <form method="post" action="/dashboard/posts">
       @csrf
-      <div class="form-group mb-6 ">
-        <label for="Title" class="form-label inline-block mb-2 text-gray-700">Title</label>
-        <input type="text" class="form-control
-          block
-          w-full
-          px-3
-          py-1.5
-          text-base
-          font-normal
-          text-gray-700
-          bg-white bg-clip-padding
-          border border-solid border-gray-300
-          rounded
-          transition
-          ease-in-out
-          m-0
-          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
-          aria-describedby="title" placeholder="title">
+      <div>
+        {{-- Judul --}}
+        <div class="form-group mb-2 ">
+          <label for="title" class="form-label inline-block mb-2 text-gray-700">title</label>
+          <input type="text" class="form-control
+            block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
+            aria-describedby="title" placeholder="title" id="title" name="title">
+        </div>
+        {{-- Slug --}}
+        <div class="form-group mb-2">
+          <label for="slug" class="form-label inline-block mb-2 text-gray-700">Slug</label>
+          <input type="text" class="form-control block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-black
+            bg-gray-100 bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            placeholder="Slug" id="slug" name="slug" disabled>
+        </div>
+        {{-- Kategori --}}
+        <div class="form-group mb-2 ">
+          <label for="kategori" class="form-label inline-block mb-2 text-gray-700">kategori</label>
+          <select type="text" class="form-control
+            block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
+            aria-describedby="kategori" placeholder="kategori" name="category_id">
+              @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category ->name }}</option>
+              @endforeach
+              
+            </select>
+        </div>
       </div>
-      <div class="form-group mb-6">
-        <label for="slug" class="form-label inline-block mb-2 text-gray-700">Slug</label>
-        <input type="text" class="form-control block
-          w-full
-          px-3
-          py-1.5
-          text-base
-          font-normal
-          text-black
-          bg-gray-100 bg-clip-padding
-          border border-solid border-gray-300
-          rounded
-          transition
-          ease-in-out
-          m-0
-          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-          placeholder="Slug" id="slug" name="slug" disabled>
+      {{-- Body --}}
+      <div class="form-group mb-2 ">
+        <label for="Body" class="form-label inline-block mb-2 text-gray-700">Body</label>
+        <input id="body" type="hidden" name="body">
+        <trix-editor input="body"></trix-editor>
       </div>
-      
+
       <button type="submit" class="
         px-6
         py-2.5
@@ -77,5 +112,15 @@
     .then(response => response.json())
     .then(data => slug.value = data.slug)
   });
-</script>
+
+  document.addEventListener('trix-file-accept', function(e){
+    e.preventDefault();
+  });
+</script> 
 @endsection
+
+
+
+
+
+

@@ -6,9 +6,9 @@
       Artikel
   </h1>
   <br>
-  <a href="/dashboard/posts/create" class="bg-blue-500 hover:bg-blue-700  text-white py-1 px-2 rounded-sm">Tambah post baru</a>
+  <a href="/dashboard/posts/create" class="bg-blue-500 hover:bg-blue-700  text-white py-1 px-2 rounded-md">Tambah post baru</a>
   <div class="mt-4 w-full h-full">
-    <table class="table-auto w-1/2 border-collapse border border-slate-400">
+    <table class="table-auto w-3/4 border-collapse border border-slate-400 dark:text-white">
       <thead>
         <tr>
           <th class="border border-slate-300 p-1" scope="col">No</th>
@@ -25,7 +25,13 @@
           <td class="border border-slate-300 p-1">{{ $post->category->name }}</td>
           <td class="border border-slate-300 p-1 text-center">
             <a href="/dashboard/posts/{{ $post->slug }}" >
-              <button class="bg-green-500 hover:bg-green-700  text-white py-1 px-2 rounded-md">Show</button>
+              <button class="bg-green-500 hover:bg-green-700  text-white py-1 px-2 rounded-sm">Show</button>
+            </a>
+            <a href="/dashboard/posts/{{ $post->slug }}" >
+              <button class="bg-yellow-500 hover:bg-yellow-700  text-white py-1 px-2 rounded-sm">Edit</button>
+            </a>
+            <a href="/dashboard/posts/{{ $post->slug }}" >
+              <button class="bg-red-500 hover:bg-red-700  text-white py-1 px-2 rounded-sm">Delete</button>
             </a>
           </td>
         </tr>
