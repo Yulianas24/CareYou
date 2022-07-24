@@ -13,6 +13,9 @@
         {{-- Judul --}}
         <div class="form-group mb-2 ">
           <label for="title" class="form-label inline-block mb-2 text-gray-700">title</label>
+          @error('title')
+              <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+            @enderror
           <input type="text" class="form-control
             block
             w-full
@@ -28,11 +31,15 @@
             ease-in-out
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
-            aria-describedby="title" placeholder="title" id="title" name="title">
+            aria-describedby="title" placeholder="title" id="title" name="title" required value="{{ old('title') }}">
+            
         </div>
         {{-- Slug --}}
         <div class="form-group mb-2">
           <label for="slug" class="form-label inline-block mb-2 text-gray-700">Slug</label>
+          @error('slug')
+              <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+            @enderror
           <input type="text" class="form-control block
             w-full
             px-3
@@ -47,7 +54,7 @@
             ease-in-out
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            placeholder="Slug" id="slug" name="slug" disabled>
+            placeholder="Slug" id="slug" name="slug" required value="{{ old('slug') }}">
         </div>
         {{-- Kategori --}}
         <div class="form-group mb-2 ">
@@ -69,7 +76,12 @@
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
             aria-describedby="kategori" placeholder="kategori" name="category_id">
               @foreach ($categories as $category)
+                @if (old('category_id')==$category->id)
+                <option value="{{ $category->id }}" selected>{{ $category ->name }}</option>
+                @else
                 <option value="{{ $category->id }}">{{ $category ->name }}</option>
+                @endif
+                
               @endforeach
               
             </select>
@@ -78,7 +90,10 @@
       {{-- Body --}}
       <div class="form-group mb-2 ">
         <label for="Body" class="form-label inline-block mb-2 text-gray-700">Body</label>
-        <input id="body" type="hidden" name="body">
+        @error('body')
+              <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+        @enderror
+        <input id="body" type="hidden" name="body" value="{{ old('body') }}">
         <trix-editor input="body"></trix-editor>
       </div>
 

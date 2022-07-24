@@ -2,9 +2,17 @@
 
 @section('dashboard')
 <div class="overflow-auto h-screen pb-24 px-4 md:px-6">
+  @if (session()->has('success'))  
+  <div id="id01" class="alert w-3/4 bg-green-200 rounded-md py-2 px-6  text-base text-green-800 inline-flex items-center alert-dismissible fade show" role="alert">
+  
+      <p>{{ session('success') }}</p>
+      <button type="button" class=" w-7 h-7 ml-auto text-green-800 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"> <span onclick="document.getElementById('id01').style.display='none'"> &times;</button>
+  </div>
+  @endif
   <h1 class="text-4xl  font-semibold text-gray-800 dark:text-white">
       Artikel
   </h1>
+  
   <br>
   <a href="/dashboard/posts/create" class="bg-blue-500 hover:bg-blue-700  text-white py-1 px-2 rounded-md">Tambah post baru</a>
   <div class="mt-4 w-full h-full">
