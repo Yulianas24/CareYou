@@ -5,15 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
+    {{-- Trix Editor --}}
+    <link rel="stylesheet" type="text/css" href="/css/trix.css">
+    <script type="text/javascript" src="/js/trix.js"></script>
     <title>Dashboard</title>
+
+    <style>
+        trix-toolbar [data-trix-button-group = file-tools]{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     
-<main class="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden relative">
-    <div class="flex items-start justify-between">
+<main class="bg-gray-100 dark:bg-gray-800 h-screeen overflow-hidden relative">
+    <div class=" flex items-start justify-between">
 
         {{-- Sidebar --}}
-        <div class="h-screen hidden lg:block shadow-lg relative w-80">
+        <div class=" h-screen hidden lg:block shadow-lg  w-80">
             <div class="bg-white h-full dark:bg-gray-700">
                 <div class="flex items-center justify-start pt-6 ml-8">
                     <p class="font-bold dark:text-white text-xl">
