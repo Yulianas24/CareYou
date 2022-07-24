@@ -29,7 +29,7 @@
     </figure>
 </div>
 
-{{-- !: Card 1 --}}
+{{-- !: Card 2 --}}
 <div class="h-102 w-94 rounded-3xl flex flex-col bg-white justify-start">
     <picture><img src="/asset/img/cardKonselor.png" alt="" srcset=""></picture>
     <figure class="text-center font-roboto font-medium text-lg">
@@ -60,7 +60,7 @@
     </figure>
 </div>
 
-{{-- !: Card 1 --}}
+{{-- !: Card 3 --}}
 <div class="h-102 w-94 rounded-3xl flex flex-col bg-white justify-start">
     <picture><img src="/asset/img/cardKonselor.png" alt="" srcset=""></picture>
     <figure class="text-center font-roboto font-medium text-lg">
