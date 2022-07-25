@@ -15,7 +15,7 @@
   
   <br>
   <a href="/dashboard/posts/create" class="bg-blue-500 hover:bg-blue-700  text-white py-1 px-2 rounded-md">Tambah post baru</a>
-  <div class="mt-4 w-full h-full">
+  <div class="mt-4 w-full h-auto">
     <table class="table-auto w-3/4 border-collapse border border-slate-400 dark:text-white">
       <thead>
         <tr>

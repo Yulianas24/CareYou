@@ -7,7 +7,7 @@
   </h1>
   <br>
   <div class="block p-6 w-full h-auto rounded-lg shadow-lg bg-white dark:bg-gray-700 ">
-    <form class="block " method="post" action="/dashboard/posts">
+    <form class="block " method="post" action="/dashboard/posts" enctype="multipart/form-data">
       @csrf
       <div>
         {{-- Judul --}}
@@ -64,6 +64,7 @@
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             placeholder="Slug" id="slug" name="slug" required value="{{ old('slug') }}">
         </div>
+        
         {{-- Kategori --}}
         <div class="form-group mb-2 ">
           <label for="kategori" class="form-label inline-block mb-2 text-gray-700 dark:text-white">kategori</label>
@@ -87,6 +88,8 @@
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
             aria-describedby="kategori" placeholder="kategori" name="category_id">
+
+            
               @foreach ($categories as $category)
                 @if (old('category_id')==$category->id)
                 <option value="{{ $category->id }}" selected>{{ $category ->name }}</option>
@@ -97,6 +100,29 @@
               @endforeach
               
             </select>
+            {{-- upload Gambar --}}
+            <div class="mb-3 w-96">
+              <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Post Image</label>
+              <input class="form-control
+              block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              text-gray-700
+              bg-white bg-clip-padding
+              dark:text-white
+              dark:bg-gray-800
+              focus:dark:bg-gray-800
+              focus:dark:text-white
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="image" name="image">
+            </div>
         </div>
       </div>
       {{-- Body --}}
