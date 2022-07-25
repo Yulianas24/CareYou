@@ -1,15 +1,20 @@
 @extends('layouts.main')
 
 @section('container')
-<article class="mb-5">
-  <h2 class="text-2xl">
-    {{ $post -> title }}
-  </h2>
-  <p>By. Yulian in <a href="/categories/{{ $post -> category -> slug }}">{{ $post->category->name }}</a></p>
-  <h5>{{ $post -> author }}</h5>
-  {!! $post -> body !!}
-</article>
-<a href="/posts">back to posts</a>
+<div class="grid w-screen h-18 bg-black" ></div>
+<div class=" w-full h-full ml-5 px-5">
+  <article class="my-5">
+    <h2 class="text-2xl">
+      {{ $post -> title }}
+    </h2>
+    <p>By. <a class="text-blue-800 font-semibold" href="/author/{{ $post -> user -> username }}">{{ $post->user->username }}</a> in <a class="text-blue-800 font-semibold" href="/categories/{{ $post -> category -> slug }}">{{ $post->category->name }}</a></p>    
+    <br>
+    <div class="pr-16">
+      {!! $post -> body !!}
+    </div>
+  </article>
+  <a href="/posts">back to posts</a>
+</div>
 @endsection
 
 
