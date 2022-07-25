@@ -16,22 +16,22 @@
   <br>
   <a href="/dashboard/posts/create" class="bg-blue-500 hover:bg-blue-700  text-white py-1 px-2 rounded-md">Tambah post baru</a>
   <div class="mt-4 w-full h-auto">
-    <table class="table-auto w-3/4 border-collapse border border-slate-400 dark:text-white">
+    <table class="table-fixed w-full  dark:text-white">
       <thead>
-        <tr>
-          <th class="border border-slate-300 p-1" scope="col">No</th>
-          <th class="border border-slate-300 p-1" scope="col">Title</th>
-          <th class="border border-slate-300 p-1" scope="col">Category</th>
-          <th class="border border-slate-300 p-1" scope="col">Action</th>
+        <tr class="border-b border-gray-500">
+          <th class=" p-1 lg:w-10" scope="col">No</th>
+          <th class=" p-1" scope="col">Title</th>
+          <th class=" p-1 lg:w-48" scope="col">Category</th>
+          <th class=" p-1  lg:w-48" scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         @foreach ($posts as $post)
-        <tr class="">
-          <td class="border border-slate-300 p-1 text-center">{{ $loop->iteration }}</td>
-          <td class="border border-slate-300 p-1">{{ $post->title }}</td>
-          <td class="border border-slate-300 p-1">{{ $post->category->name }}</td>
-          <td class="border border-slate-300 p-1 text-center">
+        <tr class="border-b border-gray-600 ">
+          <td class="py-2">{{ $loop->iteration }}</td>
+          <td class="py-2">{{ $post->title }}</td>
+          <td class="py-2">{{ $post->category->name }}</td>
+          <td class="py-2 text-center">
             <a href="/dashboard/posts/{{ $post->slug }}" >
               <button class="bg-green-500 hover:bg-green-700  text-white py-1 px-2 rounded-sm">Show</button>
             </a>
@@ -48,8 +48,13 @@
         </tr>
         @endforeach
         
+        
       </tbody>
     </table>
+    <br>
+    {{ $posts->links('pagination::tailwind') }}
+    {{-- 
+    {{ $posts->onEachSide(5)->links() }} --}}
   </div>
 </div>
 @endsection
