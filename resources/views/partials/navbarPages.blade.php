@@ -4,7 +4,7 @@
         <li class="text-black"><a href="/#pageHome">Home</a></li>
         <li class="text-black"><a href="/#pageFitur">Fitur</a></li>
         <li class="text-black"><a href="/#pageKonselor">Konselor</a></li>
-        <li class="text-black"><a href="#">Artikel</a></li>
+        <li class="text-black"><a href="/posts">Artikel</a></li>
         <li class="text-black"><a href="#">Tentang Kami</a></li>
     </ul>
     @auth
