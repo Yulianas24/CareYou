@@ -1,7 +1,7 @@
 @extends('layouts.pages')
 
 @section('container')
-<div class="grid w-screen h-18 bg-black" ></div>
+
 <div class=" w-full h-full ml-5 px-5">
   <article class="my-5">
     <h2 class="text-2xl">

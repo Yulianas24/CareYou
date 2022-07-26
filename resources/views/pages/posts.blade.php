@@ -2,7 +2,6 @@
 @extends('layouts.pages')
 
 @section('container')
-<div class="grid w-screen h-18 bg-black" ></div>
 <div class="grid h-full w-full">
   
   <h1 class="text-3xl pt-2 ml-2">{{ $title }}</h1>

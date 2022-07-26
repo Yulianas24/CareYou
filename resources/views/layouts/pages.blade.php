@@ -10,8 +10,9 @@
 </head>
 
 <body class="overflow-x-hidden">
-    @include('partials/navbar')
+    @include('partials.navbarPages')
     <div>
+        <div class="grid w-screen h-18 bg-white" ></div>
         @yield('container')
     </div>
     @include('partials/footer')
