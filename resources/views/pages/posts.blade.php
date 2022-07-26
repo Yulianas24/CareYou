@@ -8,6 +8,12 @@
   {{-- Pencarian --}}
   <div class=" w-1/2">
   <form class="flex items-center" action="/posts">   
+    @if (request('category'))
+        <input type="hidden" name="category" value="{{ request('category') }}">
+    @endif
+    @if (request('user'))
+        <input type="hidden" name="user" value="{{ request('user') }}">
+    @endif
     <label for="simple-search" class="sr-only">Search</label>
     <div class="relative w-full"> 
         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -32,7 +38,7 @@
             <span class="text-xs text-gray-500 italic">posted {{ $item->created_at->diffForHumans() }}</span></p>
 
             <div class="font-bold text-xl mb-2"><a href="/posts/{{ $item -> slug }}">{{ $item -> title }}</a></div>
-            <p>By. <a class="text-blue-800 font-semibold" href="/author/{{ $item -> user -> username }}">{{ $item->user->username }}</a> in <a class="text-blue-800 font-semibold" href="/categories/{{ $item -> category -> slug }}">{{ $item->category->name }}</a>
+            <p>By. <a class="text-blue-800 font-semibold" href="/posts?user={{ $item -> user -> username }}">{{ $item->user->username }}</a> in <a class="text-blue-800 font-semibold" href="/posts?category={{ $item -> category -> slug }}">{{ $item->category->name }}</a>
       
 
             <p class="text-gray-700 text-base">
@@ -46,7 +52,7 @@
         </div>
         @endforeach
     </div>
-    <div class="mr-8 mb-3">
+    <div class="mb-4">
       {{ $posts->links('pagination::tailwind') }}
     </div>  
   @else

@@ -10,7 +10,7 @@
       <h2 class="text-2xl">
         {{ $post -> title }}
       </h2>
-      <p>By. <a class="text-blue-800 font-semibold" href="/author/{{ $post -> user -> username }}">{{ $post->user->username }}</a> in <a class="text-blue-800 font-semibold" href="/categories/{{ $post -> category -> slug }}">{{ $post->category->name }}</a></p>    
+      <p>By. <a class="text-blue-800 font-semibold" href="/posts?user={{ $post -> user -> username }}">{{ $post->user->username }}</a> in <a class="text-blue-800 font-semibold" href="/posts?category={{ $post -> category -> slug }}">{{ $post->category->name }}</a></p>    
       <br>
       <div class=" text-justify">
         {!! $post -> body !!}

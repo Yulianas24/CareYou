@@ -8,7 +8,7 @@
   <ul>
     <li>
       <h2 class="text-2xl">
-        <a href="/categories/{{ $category -> slug }}">{{ $category -> name }}</a>
+        <a href="/posts?category={{ $category -> slug }}">{{ $category -> name }}</a>
       </h2>
     </li>
   </ul>
