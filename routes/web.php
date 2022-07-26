@@ -57,14 +57,14 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories', function () {
     return view('pages.categories', [
         'title' => 'Post Categories',
-        'categories' => Category::all(),
+        'categories' => Category::latest(),
     ]);
 });
 
 Route::get('/categories/{category:slug}', function (Category $category) {
     return view('pages.posts', [
         'title' => "Post by Category : $category->name",
-        'posts' => $category->posts->load('category', 'user')
+        'posts' => $category->posts->load('category', 'user'),
     ]);
 });
 

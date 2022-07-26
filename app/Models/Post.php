@@ -14,6 +14,7 @@ class Post extends Model
     use Sluggable;
 
     protected $guarded = ['id'];
+    protected $with = ['user', 'category'];
 
     public function category()
     {
