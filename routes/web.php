@@ -41,7 +41,7 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 
 
 Route::get('/about', function () {
-    return view('about', [
+    return view('pages.about', [
         "title" => "About",
         "name" => "Yulian",
         "email" => "yulianas1945@gmail.com"
@@ -55,21 +55,21 @@ Route::get('/posts', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 Route::get('/categories', function () {
-    return view('categories', [
+    return view('pages.categories', [
         'title' => 'Post Categories',
         'categories' => Category::all(),
     ]);
 });
 
 Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('posts', [
+    return view('pages.posts', [
         'title' => "Post by Category : $category->name",
         'posts' => $category->posts->load('category', 'user')
     ]);
 });
 
 Route::get('/author/{author:username}', function (User $author) {
-    return view('posts', [
+    return view('pages.posts', [
         'title' => "Post by Author : $author->name",
         'posts' => $author->posts->load('category', 'user'),
     ]);

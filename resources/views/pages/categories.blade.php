@@ -1,5 +1,5 @@
 
-@extends('layouts.main')
+@extends('layouts.pages')
 
 @section('container')
 <h1 class="text-3xl">Post Categories</h1>

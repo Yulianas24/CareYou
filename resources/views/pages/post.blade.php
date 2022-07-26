@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.pages')
 
 @section('container')
 <div class="grid w-screen h-18 bg-black" ></div>
