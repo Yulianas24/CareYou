@@ -40,6 +40,8 @@ Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'check
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('konselor');
 
 
+
+
 Route::get('/about', function () {
     return view('pages.about', [
         "title" => "About",
