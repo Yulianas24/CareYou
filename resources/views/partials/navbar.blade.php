@@ -4,7 +4,7 @@
         <li class="text-white" id="textLinks"><a href="#pageHome">Home</a></li>
         <li class="text-white" id="textLinks"><a href="#pageFitur">Fitur</a></li>
         <li class="text-white" id="textLinks"><a href="#pageKonselor">Konselor</a></li>
-        <li class="text-white" id="textLinks"><a href="#">Artikel</a></li>
+        <li class="text-white" id="textLinks"><a href="#pageArtikel">Artikel</a></li>
         <li class="text-white" id="textLinks"><a href="#">Tentang Kami</a></li>
     </ul>
     @auth
