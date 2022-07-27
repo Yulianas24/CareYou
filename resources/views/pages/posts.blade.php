@@ -33,7 +33,16 @@
     @foreach ($posts as $item)
 
         <div class="transition-duration: 150ms max-w-sm rounded overflow-hidden bg-gray-100 hover:bg-gray-200 my-5 shadow-lg hover:shadow-xl">
-          <img class="w-full" src="\storage\post-images\BVHsG7gVH8wQ82NnOub94LNjqDez6PIQvDxhUPAF.jpg" alt="Sunset in the mountains">
+          @if ($item->image)
+          <a href="/posts/{{ $item -> slug }}">
+            <img class="w-full" src="{{ asset('storage/' . $item->image) }}" alt="Sunset in the mountains">
+          </a>
+          @else          
+          <a href="/posts/{{ $item -> slug }}">
+            <img class="w-full" src="\asset\img\Image_not_available.jpg" alt="Sunset in the mountains">
+          </a>
+          @endif
+
           <div class="px-6 py-1">
             <span class="text-xs text-gray-500 italic">posted {{ $item->created_at->diffForHumans() }}</span></p>
 

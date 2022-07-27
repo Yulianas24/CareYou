@@ -16,6 +16,12 @@
       </form>
     </div>
     <br>
+    @if ($post->image)
+      <div class="">
+        <img class="max-h-102" src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->name }}">
+
+      </div>
+    @endif
     <div >
       {!! $post -> body !!}
     </div>

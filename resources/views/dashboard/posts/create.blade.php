@@ -122,6 +122,9 @@
               ease-in-out
               m-0
               focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="image" name="image">
+              @error('image')
+              <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+            @enderror
             </div>
         </div>
       </div>
