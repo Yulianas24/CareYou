@@ -10,13 +10,8 @@
 </head>
 
 <body class="overflow-x-hidden">
-    @include('partials.navbarPages')
-    <div>
-        <div class="grid w-screen h-18 bg-white" ></div>
-        @yield('container')
-    </div>
-    @include('partials/footer')
-    <script src="{{ asset('js/navbar.js') }}"></script>
+    <div> @include('partials.navbarPages')</div>
+    <div class="w-screen h-18 bg-white mt-75"> @yield('container')</div>
 
 </body>
 

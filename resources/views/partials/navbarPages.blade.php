@@ -1,4 +1,4 @@
-<nav class=" flex justify-evenly fixed shadow-md items-center w-screen h-18 bg-white z-50">
+<nav class=" flex top-0 justify-evenly fixed shadow-md items-center w-screen h-18 bg-white z-50">
     <figure><img src="/asset/mainLogo.svg" alt="" srcset=""></figure>
     <ul class="flex justify-evenly w-2/3">
         <li class="text-black"><a href="/#pageHome">Home</a></li>
