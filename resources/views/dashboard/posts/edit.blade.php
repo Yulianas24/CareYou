@@ -7,7 +7,7 @@
   </h1>
   <br>
   <div class="block p-6 w-full h-auto rounded-lg shadow-lg bg-white ">
-    <form method="post" action="/dashboard/posts/{{ $post->slug }}">
+    <form method="post" action="/dashboard/posts/{{ $post->slug }}" enctype="multipart/form-data">
       @method('put')
       @csrf
       <div>
@@ -87,6 +87,41 @@
               
             </select>
         </div>
+
+        {{-- upload Gambar --}}
+        <div class="mb-3 w-96">
+          <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Post Image</label>
+         <input type="hidden" name="oldImage" value = "{{ $post->image }}">
+          @if ($post->image)
+          <img src="{{ asset('storage/' . $post->image) }}" alt="" class="imgPreview">
+          @else
+          <img src="" alt="" class="imgPreview">
+          @endif
+
+          
+          <input class="form-control
+          block
+          w-full
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-white bg-clip-padding
+          dark:text-white
+          dark:bg-gray-800
+          focus:dark:bg-gray-800
+          focus:dark:text-white
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="image" name="image" onchange="previewImage()">
+          @error('image')
+          <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+        @enderror
+        </div>
       </div>
       {{-- Body --}}
       <div class="form-group mb-2 ">
@@ -132,6 +167,21 @@
   document.addEventListener('trix-file-accept', function(e){
     e.preventDefault();
   });
+
+  function previewImage() {
+    const image = document.querySelector('#image');
+    const imgPreview = document.querySelector('.imgPreview');
+
+    imgPreview.style.display = 'block';
+
+    const ofReader= new FileReader();
+    ofReader.readAsDataURL(image.files[0]);
+
+    ofReader.onload = function(oFREvent){
+      imgPreview.src = oFREvent.target.result;
+    }
+    
+  }
 </script> 
 @endsection
 
