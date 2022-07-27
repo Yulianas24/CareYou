@@ -76,6 +76,9 @@ class DashboardPostController extends Controller
      */
     public function show(Post $post)
     {
+        if (auth()->user()->id != $post['user_id']) {
+            return redirect('/dashboard/posts')->with('error', 'its not your post!');
+        }
         return view('dashboard.posts.show', [
             'post' => $post,
         ]);
@@ -113,11 +116,13 @@ class DashboardPostController extends Controller
         ];
 
 
+        if (auth()->user()->id != $post['user_id']) {
+            return redirect('/dashboard/posts')->with('error', 'its not your post!');
+        }
 
         if ($request->slug != $post->slug) {
             $rules['slug'] = 'required|unique:posts';
         }
-
         $validatedData = $request->validate($rules);
 
         if ($request->file('image')) {
