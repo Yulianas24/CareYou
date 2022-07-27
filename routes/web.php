@@ -65,7 +65,7 @@ Route::get('/categories', function () {
 });
 
 Route::get('/profile', function () {
-    return view('pages.categories', [
+    return view('pages.profile', [
         'title' => 'Profile',
     ]);
 });
