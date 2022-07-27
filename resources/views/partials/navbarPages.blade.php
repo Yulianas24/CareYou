@@ -12,8 +12,8 @@
             <img alt="profil" src="/asset/logo_blue.svg" class="mx-auto object-cover rounded-full h-10 w-10 " />
         </a>
 
-        <button class="peer flex -ml-5 text-white text-md">
-            <span > {{ auth()->user()->username }}</span>
+        <button class="peer flex -ml-5 text-black text-md">
+            <span> {{ auth()->user()->username }}</span>
             <svg width="20" height="20" class="ml-2 text-gray-400" fill="currentColor" viewBox="0 0 1792 1792"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
