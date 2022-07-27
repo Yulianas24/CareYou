@@ -16,7 +16,11 @@ class isKonselor
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->level == "konselor") {
+        $level = "none";
+        if (auth()->user()) {
+            $level = auth()->user()->level;
+        }
+        if ($level == "konselor") {
             return $next($request);
         }
         return redirect('/')->with('error', "Only Counselor can access!");
