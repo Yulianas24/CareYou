@@ -63,3 +63,9 @@ Route::get('/categories', function () {
         'categories' => Category::all(),
     ]);
 });
+
+Route::get('/profile', function () {
+    return view('pages.categories', [
+        'title' => 'Profile',
+    ]);
+});
