@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\DashboardProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('kon
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('konselor');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('konselor');
 
-
+Route::resource('dashboard/profil', DashboardProfileController::class)->middleware('konselor');
 
 
 Route::get('/about', function () {

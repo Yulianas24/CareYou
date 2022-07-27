@@ -14,7 +14,11 @@ class DashboardProfileController extends Controller
      */
     public function index()
     {
-        //
+
+        return view('dashboard.profil.index', [
+            'title' => 'Profile',
+            'konselor' => User::where('id', auth()->user()->id)->get()[0],
+        ]);
     }
 
     /**
