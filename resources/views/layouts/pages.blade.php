@@ -10,7 +10,7 @@
 </head>
 
 <body class="overflow-x-hidden">
-    <div> @include('partials.navbarPages')</div>
+    @include('partials.navbarPages')
     <div class="w-screen h-18 bg-white mt-75"> @yield('container')</div>
 
 </body>
