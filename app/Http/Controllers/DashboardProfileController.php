@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\counselorProfile;
-use App\Models\kampus;
 use App\Models\User;
+use App\Models\kampus;
 use Illuminate\Http\Request;
+use App\Models\counselorProfile;
+use Illuminate\Support\Facades\Storage;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class DashboardProfileController extends Controller
@@ -43,7 +44,6 @@ class DashboardProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -68,7 +68,6 @@ class DashboardProfileController extends Controller
         $user = auth()->user();
         return view('dashboard.profil.edit', [
             'konselor' => $user,
-            'profil' => counselorProfile::where('user_id', auth()->user()->id)->get()[0],
             'kampus' => kampus::all(),
         ]);
     }
@@ -82,7 +81,35 @@ class DashboardProfileController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user = auth()->user();
+        $rules = [
+            'name' => 'required|max:255',
+            'image' => 'image|file|max:2048',
+        ];
+
+        if ($request->username != $user->username) {
+            $rules['username'] = 'required|unique:users|min:5';
+        }
+
+        $validatedData = $request->validate($rules);
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('user-images');
+        }
+
+        $validatedData['id'] = auth()->user()->id;
+
+        $validatedProfile = $request->validate([
+            'pend_s1' => 'required',
+            'pend_s2' => 'required',
+            'tentang' => 'required',
+        ]);
+        User::where('id', $user->id)->update($validatedData);
+        counselorProfile::where('user_id',  $user->id)->update($validatedProfile);
+
+        return redirect('/dashboard/profil')->with('success', 'Profile has been updated!');
     }
 
     /**

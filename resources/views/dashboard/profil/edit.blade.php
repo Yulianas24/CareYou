@@ -57,9 +57,9 @@
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             placeholder="username" id="username" name="username" required value="{{ old('username', $konselor->username) }}">
         </div>
-        {{-- kampus --}}
+        {{-- S1  --}}
         <div class="form-group mb-2 ">
-          <label for="kampus" class="form-label inline-block mb-2 text-gray-700">kampus</label>
+          <label for="kampus" class="form-label inline-block mb-2 text-gray-700">S1 di</label>
           <select type="text" class="form-control
             block
             w-full
@@ -75,10 +75,43 @@
             ease-in-out
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
-            aria-describedby="kampus" placeholder="kampus" name="kampus_id">
+            aria-describedby="kampus" placeholder="S1" name="pend_s1">
               @foreach ($kampus as $item)
+                @if (old('pend_s2', $konselor->profile->pend_s1)==$item->id)
+                <option value="{{ $item->id }}" selected>{{ $item ->name }}</option>
+                @else
                 <option value="{{ $item->id }}">{{ $item ->name }}</option>
-                
+                @endif
+              @endforeach
+              
+            </select>
+        </div>
+
+        {{-- S2  --}}
+        <div class="form-group mb-2 ">
+          <label for="kampus" class="form-label inline-block mb-2 text-gray-700">S2 di</label>
+          <select type="text" class="form-control
+            block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
+            aria-describedby="kampus" placeholder="S1" name="pend_s2">
+              @foreach ($kampus as $item)
+                @if (old('pend_s2', $konselor->profile->pend_s2)==$item->id)
+                <option value="{{ $item->id }}" selected>{{ $item ->name }}</option>
+                @else
+                <option value="{{ $item->id }}">{{ $item ->name }}</option>
+                @endif
               @endforeach
               
             </select>
