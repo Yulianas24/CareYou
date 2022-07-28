@@ -17,6 +17,9 @@
     <li>Nama  : {{ $konselor->name}}</li>
     <li>Email : {{ $konselor->email }}</li>
     <li>Username : {{ $konselor->username }}</li>
+    <li>Pendidikan S1 : {{ $konselor->profile->pend_s1 }} </li>
+    <li>Pendidikan S2 : {{ $konselor->profile->pend_s2 }}</li>
+    <li>Tentang : {{ $konselor->profile->tentang }}</li>
   </ul>
   
   </div>

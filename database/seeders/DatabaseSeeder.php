@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\counselorProfile;
+use App\Models\kampus;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -55,6 +57,21 @@ class DatabaseSeeder extends Seeder
     Category::create([
       'name' => 'Toxic Relationship',
       'slug' => 'toxic relationship'
+    ]);
+
+    counselorProfile::create([
+      'user_id' => '4',
+      'pend_s1' => '1',
+      'pend_s2' => '2',
+      'tentang' => 'ga ada',
+    ]);
+    kampus::create([
+      'name' => 'UTY',
+      'alamat' => 'Yogyakarta',
+    ]);
+    kampus::create([
+      'name' => 'UII',
+      'alamat' => 'Yogyakarta',
     ]);
 
 

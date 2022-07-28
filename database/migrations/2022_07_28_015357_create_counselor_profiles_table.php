@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('counselor_profiles', function (Blueprint $table) {
             $table->foreignId('user_id');
-            $table->foreignId('pend_s1');
-            $table->foreignId('pend_s2');
-            $table->text('tentang');
+            $table->foreignId('pend_s1')->nullable();
+            $table->foreignId('pend_s2')->nullable();
+            $table->text('tentang')->nullable();
             $table->timestamps();
         });
     }
