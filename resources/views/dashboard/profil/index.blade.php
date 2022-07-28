@@ -12,6 +12,8 @@
   <h1 class="text-4xl  font-semibold text-gray-800 dark:text-white">
       Profil
   </h1>
+  <a href="/dashboard/profil/{{ $konselor->username }}/edit">Edit Profil</a>
+  <img src="" alt="">
   <br>
   <ul class="text-2xl text-gray-800 dark:text-white">
     <li>Nama  : {{ $konselor->name}}</li>

@@ -6,6 +6,7 @@ use App\Models\counselorProfile;
 use App\Models\kampus;
 use App\Models\User;
 use Illuminate\Http\Request;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class DashboardProfileController extends Controller
 {
@@ -64,7 +65,12 @@ class DashboardProfileController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $user = auth()->user();
+        return view('dashboard.profil.edit', [
+            'konselor' => $user,
+            'profil' => counselorProfile::where('user_id', auth()->user()->id)->get()[0],
+            'kampus' => kampus::all(),
+        ]);
     }
 
     /**
