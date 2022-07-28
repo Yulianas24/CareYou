@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 {{-- !: Container InputText --}}
-                <div class="h-full w-1/1.3 flex flex-col justify-between bg-red-300">
+                <div class="h-full w-1/1.3 flex flex-col justify-between">
                     {{-- !: Akun Container --}}
                     <div class="flex flex-col">
                         {{-- todo:  Header --}}
@@ -39,7 +39,7 @@
                                         value="{{ auth()->user()->username }}"
                                         class="bg-transparent border-b-2 border-gray-400 focus:outline-none max-w-[75%]"
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6">
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2">
                                 </div>
                             </div>
                             {{-- todo:  Password --}}
@@ -49,7 +49,7 @@
                                         value="{{ auth()->user()->password }}"
                                         class="bg-transparent border-b-2 border-gray-400 focus:outline-none  max-w-[75%]"
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6">
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2">
                                 </div>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                                     <input type="text" name="" id="userName" value="{{ auth()->user()->name }}"
                                         class="bg-transparent border-b-2 border-gray-400 focus:outline-none max-w-[75%]"
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6">
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2">
                                 </div>
                             </div>
                             {{-- todo:  Tanggal Lahir --}}
@@ -80,7 +80,7 @@
                                         value="{{ auth()->user()->tanggal_lahir }}"
                                         class="bg-transparent border-b-2 border-gray-400 focus:outline-none max-w-[75%]"
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6">
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2">
                                 </div>
                             </div>
                             {{-- todo:  Jenis Kelamin --}}
@@ -90,7 +90,7 @@
                                         value="{{ auth()->user()->jenis_kelamin }}"
                                         class="bg-transparent border-b-2 border-gray-400 focus:outline-none  max-w-[75%]"
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6">
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2">
                                 </div>
                             </div>
                         </div>
@@ -111,17 +111,17 @@
                                     <input type="text" name="" id="userName" value="{{ auth()->user()->email }}"
                                         class="bg-transparent border-b-2 border-gray-400 focus:outline-none max-w-[75%]"
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6">
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2">
                                 </div>
                             </div>
                             {{-- todo:  Nomor Hp --}}
                             <div class="flex w-full justify-between py-1"> <label for="userName">Nomor Hp</label>
                                 <div class="flex justify-start w-7/12">
                                     <input type="text" name="" id="userName"
-                                        value="{{ auth()->user()->jenis_kelamin }}"
+                                        value="{{ auth()->user()->nomor_hp }}"
                                         class="bg-transparent border-b-2 border-gray-400 focus:outline-none  max-w-[75%]"
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6">
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2">
                                 </div>
                             </div>
                         </div>
