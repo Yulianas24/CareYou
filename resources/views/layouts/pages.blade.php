@@ -10,8 +10,8 @@
 </head>
 
 <body class="overflow-x-hidden">
-    @include('partials.navbarPages')
-    <div class="w-screen h-18 bg-white mt-75"> @yield('container')</div>
+    <div class="mb-18">@include('partials.navbarPages')</div>
+    <div> @yield('container')</div>
 
 </body>
 
