@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
       'email' => 'user@gmail.com',
       'password' => bcrypt('aaaaaaaa'),
       'level' => 'konselor',
+      'nomor_hp'=> random_int(1,1000000000),
 
     ]);
     User::factory()->create([
@@ -39,6 +40,8 @@ class DatabaseSeeder extends Seeder
       'email' => 'user2@gmail.com',
       'password' => bcrypt('aaaaaaaa'),
       'level' => 'konseli',
+      'nomor_hp'=> random_int(1,1000000000),
+
 
     ]);
 
