@@ -12,7 +12,7 @@
 <body class="overflow-x-hidden">
     <div class="mb-18">@include('partials.navbarPages')</div>
     <div> @yield('container')</div>
-
+    <div>@include('partials.footer')</div>
 </body>
 
 </html>
