@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\counselorProfile;
+use App\Models\kampus;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,7 @@ class DashboardProfileController extends Controller
         return view('dashboard.profil.index', [
             'title' => 'Profile',
             'konselor' => User::where('id', auth()->user()->id)->get()[0],
+            'kampus' => kampus::all(),
         ]);
     }
 
