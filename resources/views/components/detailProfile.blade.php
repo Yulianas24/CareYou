@@ -33,7 +33,7 @@
                         {{-- Text Input Container --}}
                         <div class="flex flex-col ">
                             {{-- todo:  Username --}}
-                            <div class="flex w-full justify-between py-1"> <label for="userName">Username</label>
+                            <div class="flex w-full justify-between py-2"> <label for="userName">Username</label>
                                 <div class="flex justify-start w-7/12">
                                     <input type="text" name="" id="userName"
                                         value="{{ auth()->user()->username }}"
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                             {{-- todo:  Password --}}
-                            <div class="flex w-full justify-between py-1"> <label for="userName">Password</label>
+                            <div class="flex w-full justify-between py-2"> <label for="userName">Password</label>
                                 <div class="flex justify-start w-7/12">
                                     <input type="password" name="" id="userName"
                                         value="{{ auth()->user()->password }}"
@@ -65,7 +65,7 @@
                         {{-- Text Input Container --}}
                         <div class="flex flex-col ">
                             {{-- todo:  Nama --}}
-                            <div class="flex w-full justify-between py-1"> <label for="userName">Nama</label>
+                            <div class="flex w-full justify-between py-2"> <label for="userName">Nama</label>
                                 <div class="flex justify-start w-7/12">
                                     <input type="text" name="" id="userName" value="{{ auth()->user()->name }}"
                                         class="bg-transparent border-b-2 border-gray-400 focus:outline-none max-w-[75%]"
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                             {{-- todo:  Tanggal Lahir --}}
-                            <div class="flex w-full justify-between py-1"> <label for="userName">Tanggal Lahir</label>
+                            <div class="flex w-full justify-between py-2"> <label for="userName">Tanggal Lahir</label>
                                 <div class="flex justify-start w-7/12">
                                     <input type="text" name="" id="userName"
                                         value="{{ auth()->user()->tanggal_lahir }}"
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                             {{-- todo:  Jenis Kelamin --}}
-                            <div class="flex w-full justify-between py-1"> <label for="userName">Jenis Kelamin</label>
+                            <div class="flex w-full justify-between py-2"> <label for="userName">Jenis Kelamin</label>
                                 <div class="flex justify-start w-7/12">
                                     <input type="text" name="" id="userName"
                                         value="{{ auth()->user()->jenis_kelamin }}"
@@ -106,7 +106,7 @@
                         {{-- Text Input Container --}}
                         <div class="flex flex-col ">
                             {{-- todo:  Email --}}
-                            <div class="flex w-full justify-between py-1"> <label for="userName">Email</label>
+                            <div class="flex w-full justify-between py-2"> <label for="userName">Email</label>
                                 <div class="flex justify-start w-7/12">
                                     <input type="text" name="" id="userName" value="{{ auth()->user()->email }}"
                                         class="bg-transparent border-b-2 border-gray-400 focus:outline-none max-w-[75%]"
@@ -115,7 +115,7 @@
                                 </div>
                             </div>
                             {{-- todo:  Nomor Hp --}}
-                            <div class="flex w-full justify-between py-1"> <label for="userName">Nomor Hp</label>
+                            <div class="flex w-full justify-between py-2"> <label for="userName">Nomor Hp</label>
                                 <div class="flex justify-start w-7/12">
                                     <input type="text" name="" id="userName"
                                         value="{{ auth()->user()->nomor_hp }}"
