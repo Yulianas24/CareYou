@@ -39,7 +39,8 @@
                                         value="{{ auth()->user()->username }}"
                                         class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
+                                        edit-button>
                                 </div>
                             </div>
                             {{-- todo:  Password --}}
@@ -49,7 +50,8 @@
                                         value="{{ auth()->user()->password }}"
                                         class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
                                         dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
+                                        edit-button>
                                 </div>
                             </div>
                         </div>
@@ -70,7 +72,8 @@
                                     <input type="text" name="" id="userName" value="{{ auth()->user()->name }}"
                                         class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
+                                        edit-button>
                                 </div>
                             </div>
                             {{-- todo:  Tanggal Lahir --}}
@@ -80,7 +83,8 @@
                                         value="{{ auth()->user()->tanggal_lahir }}"
                                         class="bg-transparent border-b-2 border-gray-400 focus:outline-none max-w-[75%]"
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
+                                        edit-button>
                                 </div>
                             </div>
                             {{-- todo:  Jenis Kelamin --}}
@@ -90,7 +94,8 @@
                                         value="{{ auth()->user()->jenis_kelamin }}"
                                         class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
                                         dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
+                                        edit-button>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +116,8 @@
                                     <input type="text" name="" id="userName" value="{{ auth()->user()->email }}"
                                         class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
+                                        edit-button>
                                 </div>
                             </div>
                             {{-- todo:  Nomor Hp --}}
@@ -121,7 +127,8 @@
                                         value="{{ auth()->user()->nomor_hp }}"
                                         class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
                                         dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
+                                        edit-button>
                                 </div>
                             </div>
                         </div>
