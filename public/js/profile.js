@@ -13,7 +13,6 @@ function inputLenght() {
     inputField.forEach((n) => {
         const size = n.value.length;
         let width = perCharacter * size;
-        console.log(size);
         n.style.width = `${width}px`;
     });
 }
@@ -23,3 +22,15 @@ inputField.forEach((element) => {
 });
 
 inputLenght();
+
+// ?: Toogle Editing Button
+const buttonEdit = document.querySelectorAll("[edit-button]");
+let toggleFieldEdit = true;
+for (let indexButton = 0; indexButton < buttonEdit.length; indexButton++) {
+    buttonEdit[indexButton].addEventListener("click", () => {
+        toggleFieldEdit = !toggleFieldEdit;
+        inputField[indexButton].disabled = toggleFieldEdit;
+        inputField[indexButton].classList.toggle("border-b-2");
+        inputField[indexButton].classList.toggle("border-gray-400");
+    });
+}

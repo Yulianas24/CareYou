@@ -37,9 +37,9 @@
                                 <div class="flex justify-start w-7/12">
                                     <input type="text" name="" id="userName"
                                         value="{{ auth()->user()->username }}"
-                                        class="bg-transparent border-b-2 border-gray-400 focus:outline-none max-w-[75%]"
+                                        class="bg-transparent duration-500 border-b- focus:outline-none max-w-[75%]"
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2">
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
                                 </div>
                             </div>
                             {{-- todo:  Password --}}
@@ -47,9 +47,9 @@
                                 <div class="flex justify-start w-7/12">
                                     <input type="password" name="" id="userName"
                                         value="{{ auth()->user()->password }}"
-                                        class="bg-transparent border-b-2 border-gray-400 focus:outline-none  max-w-[75%]"
-                                        disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2">
+                                        class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
+                                        dynamis-lenght>
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
                                 </div>
                             </div>
                         </div>
@@ -68,9 +68,9 @@
                             <div class="flex w-full justify-between py-2"> <label for="userName">Nama</label>
                                 <div class="flex justify-start w-7/12">
                                     <input type="text" name="" id="userName" value="{{ auth()->user()->name }}"
-                                        class="bg-transparent border-b-2 border-gray-400 focus:outline-none max-w-[75%]"
+                                        class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2">
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
                                 </div>
                             </div>
                             {{-- todo:  Tanggal Lahir --}}
@@ -80,7 +80,7 @@
                                         value="{{ auth()->user()->tanggal_lahir }}"
                                         class="bg-transparent border-b-2 border-gray-400 focus:outline-none max-w-[75%]"
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2">
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
                                 </div>
                             </div>
                             {{-- todo:  Jenis Kelamin --}}
@@ -88,9 +88,9 @@
                                 <div class="flex justify-start w-7/12">
                                     <input type="text" name="" id="userName"
                                         value="{{ auth()->user()->jenis_kelamin }}"
-                                        class="bg-transparent border-b-2 border-gray-400 focus:outline-none  max-w-[75%]"
-                                        disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2">
+                                        class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
+                                        dynamis-lenght>
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
                                 </div>
                             </div>
                         </div>
@@ -109,9 +109,9 @@
                             <div class="flex w-full justify-between py-2"> <label for="userName">Email</label>
                                 <div class="flex justify-start w-7/12">
                                     <input type="text" name="" id="userName" value="{{ auth()->user()->email }}"
-                                        class="bg-transparent border-b-2 border-gray-400 focus:outline-none max-w-[75%]"
+                                        class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
                                         disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2">
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
                                 </div>
                             </div>
                             {{-- todo:  Nomor Hp --}}
@@ -119,9 +119,9 @@
                                 <div class="flex justify-start w-7/12">
                                     <input type="text" name="" id="userName"
                                         value="{{ auth()->user()->nomor_hp }}"
-                                        class="bg-transparent border-b-2 border-gray-400 focus:outline-none  max-w-[75%]"
-                                        disabled dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2">
+                                        class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
+                                        dynamis-lenght>
+                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
                                 </div>
                             </div>
                         </div>
