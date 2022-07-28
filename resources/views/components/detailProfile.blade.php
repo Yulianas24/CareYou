@@ -37,7 +37,7 @@
                                 <div class="flex justify-start w-7/12">
                                     <input type="text" name="" id="userName"
                                         value="{{ auth()->user()->username }}"
-                                        class="bg-transparent duration-500 border-b- focus:outline-none max-w-[75%]"
+                                        class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
                                         disabled dynamis-lenght>
                                     <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2" edit-button>
                                 </div>
