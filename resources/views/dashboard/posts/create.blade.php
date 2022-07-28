@@ -5,8 +5,8 @@
   <h1 class="text-3xl  font-semibold text-gray-800 dark:text-white">
     Tambah post baru
   </h1>
-  <br>
-  <div class="block p-6 w-full h-auto rounded-lg shadow-lg bg-white dark:bg-gray-700 ">
+ 
+  <div class="block p-6 w-full h-auto rounded-lg shadow-lg bg-white dark:bg-gray-800 ">
     <form class="block " method="post" action="/dashboard/posts" enctype="multipart/form-data">
       @csrf
       <div>
@@ -102,7 +102,7 @@
             </select>
             {{-- upload Gambar --}}
             <div class="mb-3 w-96">
-              <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Post Image</label>
+              <label for="formFile" class="form-label inline-block mb-2 text-gray-700 dark:text-white">Post Image</label>
               <img src="" alt="" class="imgPreview">
               <input class="form-control
               block
@@ -131,11 +131,11 @@
       </div>
       {{-- Body --}}
       <div class="form-group mb-2 ">
-        <label for="Body" class="form-label inline-block mb-2 text-gray-700">Body</label>
+        <label for="Body" class="form-label inline-block mb-2 text-gray-700 dark:text-white">Body</label>
         @error('body')
               <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
         @enderror
-        <input id="body" type="hidden" name="body" value="{{ old('body') }}">
+        <input class="dark:text-white" id="body" type="hidden" name="body" value="{{ old('body') }}">
         <trix-editor input="body" class="dark:text-white
         dark:bg-gray-800"></trix-editor>
       </div>
