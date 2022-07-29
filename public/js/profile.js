@@ -34,3 +34,19 @@ for (let indexButton = 0; indexButton < buttonEdit.length; indexButton++) {
         inputField[indexButton].classList.toggle("border-gray-400");
     });
 }
+
+// previewImage
+function previewImage() {
+    const image = document.querySelector('#image');
+    const imgPreview = document.querySelector('.imgPreview');
+
+    imgPreview.style.display = 'block';
+
+    const ofReader= new FileReader();
+    ofReader.readAsDataURL(image.files[0]);
+
+    ofReader.onload = function(oFREvent){
+      imgPreview.src = oFREvent.target.result;
+    }
+    
+  }

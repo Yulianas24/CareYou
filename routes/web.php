@@ -9,6 +9,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardProfileController;
+use App\Http\Controllers\ProfileController;
+use Clockwork\Support\Twig\ProfilerClockworkDumper;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,10 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 
 Route::resource('dashboard/profil', DashboardProfileController::class)->middleware('konselor');
 
+Route::resource('/profile', ProfileController::class)->middleware('auth');
+
+
+
 
 Route::get('/about', function () {
     return view('pages.about', [
@@ -61,11 +67,5 @@ Route::get('/categories', function () {
     return view('pages.categories', [
         'title' => 'Post Categories',
         'categories' => Category::all(),
-    ]);
-});
-
-Route::get('/profile', function () {
-    return view('pages.profile', [
-        'title' => 'Profile',
     ]);
 });

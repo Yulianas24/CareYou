@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\counselorProfile;
 use App\Models\Register;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -40,7 +41,6 @@ class RegisterController extends Controller
 
         $validated_data['password'] = Hash::make($validated_data['password']);
 
-        User::create($validated_data);
         $request->session()->flash('success', 'Registrasi Berhasil!, silahkan login');
         return redirect('login');
     }
