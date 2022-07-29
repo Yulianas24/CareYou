@@ -99,8 +99,12 @@ class ProfileController extends Controller
         }
 
         $validatedData['id'] = auth()->user()->id;
-        if ($validatedData['username']) {
-            counselorProfile::where('username', $user->username)->update($validatedData['username']);
+
+        if ($validatedData['username'] != null) {
+            $validatedProfile = $request->validate([
+                'username' => '',
+            ]);
+            counselorProfile::where('username', $user->username)->update($validatedProfile);
         }
         User::where('id', $user->id)->update($validatedData);
         return redirect('/profile/' . $user->username . '/edit')->with('success', 'edit berhasil !');
