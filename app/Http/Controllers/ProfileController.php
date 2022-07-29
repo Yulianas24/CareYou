@@ -100,7 +100,7 @@ class ProfileController extends Controller
 
         $validatedData['id'] = auth()->user()->id;
 
-        if ($validatedData['username'] != null) {
+        if ($request->username != null) {
             $validatedProfile = $request->validate([
                 'username' => '',
             ]);

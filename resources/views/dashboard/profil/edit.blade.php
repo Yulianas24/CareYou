@@ -1,169 +1,320 @@
 @extends('layouts/dashboard')
 
 @section('dashboard')
-<div class="overflow-auto h-screen  px-4 md:px-6">
-  <h1 class="text-3xl  font-semibold text-gray-800 dark:text-white">
+<div class="overflow-auto h-screen  px-4 md:px-6 ">
+  <h1 class="text-3xl  font-semibold text-gray-800 dark:text-white ">
     Edit Profil
   </h1>
   <br>
-  <div class="block p-6 w-full h-auto rounded-lg shadow-lg bg-white ">
+  <div class="block p-6 w-full h-auto rounded-lg shadow-lg bg-white dark:bg-gray-700 dark:text-white">
     <form method="post" action="/dashboard/profil/{{ $konselor->username }}" enctype="multipart/form-data">
       @method('put')
       @csrf
       <div>
-        {{-- Nama --}}
-        <div class="form-group mb-2 ">
-          <label for="name" class="form-label inline-block mb-2 text-gray-700">Nama</label>
-          @error('nama')
-              <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+        
+        <div class="lg:grid grid-cols-6 h-auto pb-20 gap-3">
+
+          {{-- tentang --}}
+          <div class="col-span-4 form-group mb-2  w-full h-80">
+            <label for="tentang" class="form-label inline-block mb-2">tentang</label>
+            @error('tentang')
+                  <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
             @enderror
-          <input type="text" class="form-control
-            block
-            w-full
-            px-3
-            py-1.5
-            text-base
-            font-normal
-            text-gray-700
-            bg-white bg-clip-padding
-            border border-solid border-gray-300
-            rounded
-            transition
-            ease-in-out
-            m-0
-            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="name"
-            aria-describedby="name" placeholder="name" id="name" name="name" required value="{{ old('name', $konselor->name) }}">
+            <input id="tentang" type="hidden" name="tentang" value="{{ old('tentang', $profile->tentang) }}">
+            <trix-editor input="tentang" class="h-full overflow-scroll"></trix-editor>
+          </div>
+          {{-- upload Gambar --}}
+          <div class="col-span-2 w-auto">
+            <label for="formFile" class="form-label inline-block mb-2 ">Foto Profil</label>
+           <input type="hidden" name="oldImage" value = "{{ $konselor->image }}">
+            @if ($konselor->image)
+            <img src="{{ asset('storage/' . $konselor->image) }}" alt="" class="imgPreview">
+            @else
+            <img src="" alt="" class="imgPreview">
+            @endif
+  
             
-        </div>
-        {{-- username --}}
-        <div class="form-group mb-2">
-          <label for="username" class="form-label inline-block mb-2 text-gray-700">username</label>
-          @error('username')
-              <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+            <input class="form-control
+            block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            dark:text-white
+            dark:bg-gray-700
+            focus:dark:bg-gray-800
+            focus:dark:text-white
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="image" name="image" onchange="previewImage()">
+            @error('image')
+            <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
             @enderror
-          <input type="text" class="form-control block
-            w-full
-            px-3
-            py-1.5
-            text-base
-            font-normal
-            text-black
-            bg-gray-100 bg-clip-padding
-            border border-solid border-gray-300
-            rounded
-            transition
-            ease-in-out
-            m-0
-            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            placeholder="username" id="username" name="username" required value="{{ old('username', $konselor->username) }}">
-        </div>
-        {{-- S1  --}}
-        <div class="form-group mb-2 ">
-          <label for="kampus" class="form-label inline-block mb-2 text-gray-700">S1 di</label>
-          <select type="text" class="form-control
-            block
-            w-full
-            px-3
-            py-1.5
-            text-base
-            font-normal
-            text-gray-700
-            bg-white bg-clip-padding
-            border border-solid border-gray-300
-            rounded
-            transition
-            ease-in-out
-            m-0
-            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
-            aria-describedby="kampus" placeholder="S1" name="pend_s1">
-            <option value="">none</option>
-              @foreach ($kampus as $item)
-                @if (old('pend_s1', $profile->pend_s1)==$item->name)
-                <option value="{{ $item->name }}" selected>{{ $item ->name }}</option>
-                @else
-                <option value="{{ $item->name }}">{{ $item ->name }}</option>
-                @endif
-              @endforeach
-              
-            </select>
-        </div>
-
-        {{-- S2  --}}
-        <div class="form-group mb-2 ">
-          <label for="kampus" class="form-label inline-block mb-2 text-gray-700">S2 di</label>
-          <select type="text" class="form-control
-            block
-            w-full
-            px-3
-            py-1.5
-            text-base
-            font-normal
-            text-gray-700
-            bg-white bg-clip-padding
-            border border-solid border-gray-300
-            rounded
-            transition
-            ease-in-out
-            m-0
-            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
-            aria-describedby="kampus" placeholder="S1" name="pend_s2">
-            <option value="">none</option>
-              @foreach ($kampus as $item)
-                @if (old('pend_s2', $profile->pend_s2)==$item->name)
-                <option value="{{ $item->name }}" selected>{{ $item ->name }}</option>
-                @else
-                <option value="{{ $item->name }}">{{ $item ->name }}</option>
-                @endif
-                
-              @endforeach
-              
-            </select>
-        </div>
-
-        {{-- upload Gambar --}}
-        <div class="mb-3 w-96">
-          <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Foto Profil</label>
-         <input type="hidden" name="oldImage" value = "{{ $konselor->image }}">
-          @if ($konselor->image)
-          <img src="{{ asset('storage/' . $konselor->image) }}" alt="" class="imgPreview">
-          @else
-          <img src="" alt="" class="imgPreview">
-          @endif
+          </div>
 
           
-          <input class="form-control
-          block
-          w-full
-          px-3
-          py-1.5
-          text-base
-          font-normal
-          text-gray-700
-          bg-white bg-clip-padding
-          dark:text-white
-          dark:bg-gray-800
-          focus:dark:bg-gray-800
-          focus:dark:text-white
-          border border-solid border-gray-300
-          rounded
-          transition
-          ease-in-out
-          m-0
-          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="image" name="image" onchange="previewImage()">
-          @error('image')
-          <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
-        @enderror
+          
         </div>
+        
+
+
+        <div class="lg:columns-2">
+          {{-- Nama --}}
+          <div class="form-group mb-2 ">
+            <label for="name" class="form-label inline-block mb-2 ">Nama</label>
+            @error('nama')
+                <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+              @enderror
+            <input type="text" class="form-control
+              block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              dark:bg-gray-700
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="name"
+              aria-describedby="name" placeholder="name" id="name" name="name" required value="{{ old('name', $konselor->name) }}">
+              
+          </div>
+          {{-- username --}}
+          <div class="form-group mb-2">
+            <label for="username" class="form-label inline-block mb-2">username</label>
+            @error('username')
+                <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+              @enderror
+            <input type="text" class="form-control block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              dark:bg-gray-700
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              placeholder="username" id="username" name="username" required value="{{ old('username', $konselor->username) }}">
+          </div>
+          
+        </div>
+        
+
+        <div class="grid grid-cols-3 gap-3">
+          
+          {{-- S1  --}}
+          <div class="form-group mb-2 ">
+            <label for="kampus" class="form-label inline-block mb-2 ">Pendidikan S1</label>
+            <select type="text" class="form-control
+              block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              dark:bg-gray-700
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
+              aria-describedby="kampus" placeholder="S1" name="pend_s1">
+              <option value="">none</option>
+                @foreach ($kampus as $item)
+                  @if (old('pend_s1', $profile->pend_s1)==$item->name)
+                  <option value="{{ $item->name }}" selected>{{ $item ->name }}</option>
+                  @else
+                  <option value="{{ $item->name }}">{{ $item ->name }}</option>
+                  @endif
+                @endforeach
+                
+              </select>
+          </div>
+
+          {{-- S2  --}}
+          <div class="form-group mb-2 ">
+            <label for="kampus" class="form-label inline-block mb-2 ">Pendidikan S2</label>
+            <select type="text" class="form-control
+              block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              dark:bg-gray-700
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
+              aria-describedby="kampus" placeholder="S1" name="pend_s2">
+              <option value="">none</option>
+                @foreach ($kampus as $item)
+                  @if (old('pend_s2', $profile->pend_s2)==$item->name)
+                  <option value="{{ $item->name }}" selected>{{ $item ->name }}</option>
+                  @else
+                  <option value="{{ $item->name }}">{{ $item ->name }}</option>
+                  @endif
+                  
+                @endforeach
+                
+              </select>
+          </div>
+
+          {{-- S3  --}}
+          <div class="form-group mb-2 ">
+            <label for="kampus" class="form-label inline-block mb-2 ">Pendidikan S3</label>
+            <select type="text" class="form-control
+              block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              dark:bg-gray-700
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
+              aria-describedby="kampus" placeholder="S3" name="pend_s3">
+              <option value="">none</option>
+                @foreach ($kampus as $item)
+                  @if (old('pend_s2', $profile->pend_s2)==$item->name)
+                  <option value="{{ $item->name }}" selected>{{ $item ->name }}</option>
+                  @else
+                  <option value="{{ $item->name }}">{{ $item ->name }}</option>
+                  @endif
+                  
+                @endforeach
+                
+              </select>
+          </div>
+        </div>
+
+        <div class="columns-3">
+          {{-- Gender  --}}
+          <div class="form-group mb-2 ">
+            <label for="kampus" class="form-label inline-block mb-2">Jenis kelamin</label>
+            <select type="text" class="form-control
+              block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              dark:bg-gray-700
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
+              aria-describedby="kampus" placeholder="S1" name="pend_s1">
+      
+              @if ($konselor->jenis_kelamin !=null)                     
+              <option value="laki-laki" {{ ($konselor->jenis_kelamin == "laki-laki") ? 'selected' : '' }}>Laki-laki</option>
+              <option value="perempuan" {{ ($konselor->jenis_kelamin == 'perempuan') ? 'selected' : '' }}>Perempuan</option>
+              @else
+              <option value="none" selected hidden>Pilih</option>
+              <option value="laki_laki">Laki-laki</option>
+              <option value="perempuan">Perempuan</option>
+              @endif
+                
+              </select>
+          </div>
+          {{-- Email --}}
+          <div class="form-group mb-2">
+            <label for="username" class="form-label inline-block mb-2">Email</label>
+            @error('username')
+                <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+              @enderror
+            <input type="text" class="form-control block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              dark:bg-gray-700
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              placeholder="username" id="username" name="username" required value="{{ old('username', $konselor->username) }}">
+          </div>
+          {{-- Nomor HP --}}
+          <div class="form-group mb-2">
+            <label for="username" class="form-label inline-block mb-2">Nomor HP</label>
+            @error('username')
+                <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+              @enderror
+            <input type="text" class="form-control block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              dark:bg-gray-700
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              placeholder="username" id="username" name="username" required value="{{ old('username', $konselor->username) }}">
+          </div>
+         
+        </div>
+        
+         {{-- Fokus penanganan masalah  --}}
+         <div class="form-group mb-2 ">
+          <label for="kampus" class="form-label inline-block mb-2">Fokus penanganan masalah (CTRL + klik kiri untuk memilih opsi lebih dari satu)</label>
+          <select type="text" class="form-control
+            block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            dark:bg-gray-700
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+             focus:outline-none" id="title"
+            aria-describedby="kampus" placeholder="S1" name="penanganan_masalah[]" multiple="multiple">
+    
+            @foreach ($kategori as $category)
+
+            <option value="{{ $category->name }}">{{ $category ->name }}</option>
+            
+            @endforeach
+              
+            </select>
+        </div>
+        
+        
       </div>
-      {{-- tentang --}}
-      <div class="form-group mb-2 ">
-        <label for="tentang" class="form-label inline-block mb-2 text-gray-700">tentang</label>
-        @error('tentang')
-              <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
-        @enderror
-        <input id="tentang" type="hidden" name="tentang" value="{{ old('tentang', $profile->tentang) }}">
-        <trix-editor input="tentang"></trix-editor>
-      </div>
+      
 
       <button type="submit" class="
         px-6

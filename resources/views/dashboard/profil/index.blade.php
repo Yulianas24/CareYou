@@ -42,6 +42,7 @@
               <ul class="list-disc text-sm font-normal ml-5">
                 <li>Email: {{ $konselor->email }}</li>
                 <li>Nomor hp : {{ $konselor->nomor_hp }}</li>
+                <li>Gender : {{ $konselor->jenis_kelamin }}</li>
               </ul>
             </div>
 

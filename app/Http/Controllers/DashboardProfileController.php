@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\User;
 use App\Models\kampus;
 use Illuminate\Http\Request;
@@ -72,6 +73,7 @@ class DashboardProfileController extends Controller
             'konselor' => $user,
             'profile' => $profile,
             'kampus' => kampus::all(),
+            'kategori' => Category::all(),
         ]);
     }
 
@@ -84,6 +86,7 @@ class DashboardProfileController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        return $request;
         $user = auth()->user();
         $rules = [
             'name' => 'required|max:255',

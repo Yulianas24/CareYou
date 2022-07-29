@@ -107,7 +107,7 @@
                                     <select name="jenis_kelamin" id="">
                                         @if ($user->jenis_kelamin !=null)
                                         
-                                        <option value="laki_laki" {{ ($user->jenis_kelamin == 'laki-laki') ? 'selected' : '' }}>Laki-laki</option>
+                                        <option value="laki-laki" {{ ($user->jenis_kelamin == "laki-laki") ? 'selected' : '' }}>Laki-laki</option>
                                         <option value="perempuan" {{ ($user->jenis_kelamin == 'perempuan') ? 'selected' : '' }}>Perempuan</option>
                                         @else
                                         <option value="none" selected hidden>Pilih</option>
