@@ -107,7 +107,11 @@
                     
 
                         <a href="#" class="peer block relative">
-                            <img alt="profil" src="/asset/logo_blue.svg" class="mx-auto object-cover rounded-full h-10 w-10 "/>
+                            @if (auth()->user()->image)
+                            <img alt="profil" src="{{ asset('storage/'. auth()->user()->image) }}" class="mx-auto object-cover rounded-full h-10 w-10 " />  
+                            @else
+                            <img alt="profil" src="/asset/logo_blue.svg" class="mx-auto object-cover rounded-full h-10 w-10 " />
+                            @endif
                         </a>                    
                         <button type="submit" class="peer flex items-center text-gray-500 dark:text-white text-md ">
                             {{ auth()->user()->username }}

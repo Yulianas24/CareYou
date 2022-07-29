@@ -9,7 +9,11 @@
     </ul>
     @auth
         <a href="#" class="peer block relative">
+            @if (auth()->user()->image)
+            <img alt="profil" src="{{ asset('storage/'. auth()->user()->image) }}" class="mx-auto object-cover rounded-full h-10 w-10 " />  
+            @else
             <img alt="profil" src="/asset/logo_blue.svg" class="mx-auto object-cover rounded-full h-10 w-10 " />
+            @endif
         </a>
 
         <button id="loginText" class="peer flex -ml-5 text-white text-md">
