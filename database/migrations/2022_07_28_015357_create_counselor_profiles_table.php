@@ -14,9 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('counselor_profiles', function (Blueprint $table) {
-            $table->foreignId('user_id');
-            $table->foreignId('pend_s1')->nullable();
-            $table->foreignId('pend_s2')->nullable();
+            $table->id('id');
+            $table->String('username');
+            $table->String('pend_s1')->nullable();
+            $table->String('pend_s2')->nullable();
             $table->text('tentang')->nullable();
             $table->timestamps();
         });

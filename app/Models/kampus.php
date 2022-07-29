@@ -12,6 +12,6 @@ class kampus extends Model
 
     public function kampus()
     {
-        return $this->hasMany(counselorProfile::class);
+        return $this->HasMany(counselorProfile::class);
     }
 }

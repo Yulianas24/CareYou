@@ -18,11 +18,12 @@ class DashboardProfileController extends Controller
      */
     public function index()
     {
-
+        $user = User::where('id', auth()->user()->id)->get()[0];
+        $profile = counselorProfile::where('username', $user['username'])->get()[0];
         return view('dashboard.profil.index', [
             'title' => 'Profile',
-            'konselor' => User::where('id', auth()->user()->id)->get()[0],
-            'kampus' => kampus::all(),
+            'konselor' => $user,
+            'profile' => $profile,
         ]);
     }
 
@@ -66,8 +67,10 @@ class DashboardProfileController extends Controller
     public function edit(User $user)
     {
         $user = auth()->user();
+        $profile = counselorProfile::where('username', $user['username'])->get()[0];
         return view('dashboard.profil.edit', [
             'konselor' => $user,
+            'profile' => $profile,
             'kampus' => kampus::all(),
         ]);
     }
@@ -102,12 +105,13 @@ class DashboardProfileController extends Controller
         $validatedData['id'] = auth()->user()->id;
 
         $validatedProfile = $request->validate([
-            'pend_s1' => 'required',
-            'pend_s2' => 'required',
+            'username' => 'required',
+            'pend_s1' => '',
+            'pend_s2' => '',
             'tentang' => 'required',
         ]);
         User::where('id', $user->id)->update($validatedData);
-        counselorProfile::where('user_id',  $user->id)->update($validatedProfile);
+        counselorProfile::where('username',  $user->username)->update($validatedProfile);
 
         return redirect('/dashboard/profil')->with('success', 'Profile has been updated!');
     }

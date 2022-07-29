@@ -25,13 +25,16 @@ class DatabaseSeeder extends Seeder
     //     'name' => 'Test User',
     //     'email' => 'test@example.com',
     // ]);
+    counselorProfile::create([
+      'username' => 'konselor',
+    ]);
     User::factory()->create([
       'name' => 'User Konselor',
       'username' => 'konselor',
       'email' => 'user@gmail.com',
       'password' => bcrypt('aaaaaaaa'),
       'level' => 'konselor',
-      'nomor_hp'=> random_int(1,1000000000),
+      'nomor_hp' => random_int(1, 1000000000),
 
     ]);
     User::factory()->create([
@@ -40,7 +43,7 @@ class DatabaseSeeder extends Seeder
       'email' => 'user2@gmail.com',
       'password' => bcrypt('aaaaaaaa'),
       'level' => 'konseli',
-      'nomor_hp'=> random_int(1,1000000000),
+      'nomor_hp' => random_int(1, 1000000000),
 
 
     ]);
@@ -62,12 +65,7 @@ class DatabaseSeeder extends Seeder
       'slug' => 'toxic relationship'
     ]);
 
-    counselorProfile::create([
-      'user_id' => '4',
-      'pend_s1' => '1',
-      'pend_s2' => '2',
-      'tentang' => 'ga ada',
-    ]);
+
     kampus::create([
       'name' => 'UTY',
       'alamat' => 'Yogyakarta',

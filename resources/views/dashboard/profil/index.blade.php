@@ -39,8 +39,8 @@
             <div class="px-5 py-5">
               <h2 class="text-base font-semibold">Pendidikan:</h1>
               <ul class="list-disc text-sm font-normal ml-5">
-                <li>Psikologi {{ $kampus[$konselor->profile->pend_s1-1]->name }} - S1</li>
-                <li>Psikologi {{ $kampus[$konselor->profile->pend_s2-1]->name }} - S2</li>
+                <li {{ ($profile->pend_s1) ? '' : 'hidden' }}>{{ ($profile->pend_s1) ? 'Psikologi - S1 - '.$profile->pend_s1 : '' }}</li>
+                <li {{ ($profile->pend_s2) ? '' : 'hidden' }}>{{  ($profile->pend_s2) ? 'Psikologi - S2 - '.$profile->pend_s2 : ''  }}</li>
               </ul>
             </div>
 
@@ -62,7 +62,7 @@
         <h1 class="text-3xl  w-auto font-semibold text-gray-800 dark:text-white">Tentang</h1>
         <div class="w-1/2 h-1 bg-blue-900 mt-2 rounded-full"></div>
         <p class="text-justify">
-          {!! $konselor->profile->tentang !!}
+          {!! $profile->tentang !!}
         </p>
       </div>
     </div>  

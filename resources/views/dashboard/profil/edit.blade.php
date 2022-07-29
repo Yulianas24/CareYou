@@ -76,11 +76,12 @@
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
             aria-describedby="kampus" placeholder="S1" name="pend_s1">
+            <option value="">none</option>
               @foreach ($kampus as $item)
-                @if (old('pend_s2', $konselor->profile->pend_s1)==$item->id)
-                <option value="{{ $item->id }}" selected>{{ $item ->name }}</option>
+                @if (old('pend_s1', $profile->pend_s1)==$item->name)
+                <option value="{{ $item->name }}" selected>{{ $item ->name }}</option>
                 @else
-                <option value="{{ $item->id }}">{{ $item ->name }}</option>
+                <option value="{{ $item->name }}">{{ $item ->name }}</option>
                 @endif
               @endforeach
               
@@ -106,12 +107,14 @@
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
             aria-describedby="kampus" placeholder="S1" name="pend_s2">
+            <option value="">none</option>
               @foreach ($kampus as $item)
-                @if (old('pend_s2', $konselor->profile->pend_s2)==$item->id)
-                <option value="{{ $item->id }}" selected>{{ $item ->name }}</option>
+                @if (old('pend_s2', $profile->pend_s2)==$item->name)
+                <option value="{{ $item->name }}" selected>{{ $item ->name }}</option>
                 @else
-                <option value="{{ $item->id }}">{{ $item ->name }}</option>
+                <option value="{{ $item->name }}">{{ $item ->name }}</option>
                 @endif
+                
               @endforeach
               
             </select>
@@ -158,7 +161,7 @@
         @error('tentang')
               <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
         @enderror
-        <input id="tentang" type="hidden" name="tentang" value="{{ old('tentang', $konselor->profile->tentang) }}">
+        <input id="tentang" type="hidden" name="tentang" value="{{ old('tentang', $profile->tentang) }}">
         <trix-editor input="tentang"></trix-editor>
       </div>
 

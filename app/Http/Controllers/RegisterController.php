@@ -41,6 +41,12 @@ class RegisterController extends Controller
 
         $validated_data['password'] = Hash::make($validated_data['password']);
 
+        User::create($validated_data);
+
+        if ($validated_data['level'] == 'konselor') {
+            $data['username'] = $validated_data['username'];
+            counselorProfile::create($data);
+        }
         $request->session()->flash('success', 'Registrasi Berhasil!, silahkan login');
         return redirect('login');
     }
