@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -73,7 +74,32 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+
+        $user = auth()->user();
+        $rules = [
+            'name' => 'max:255',
+            'image' => 'image|file|max:2048',
+            'tanggal_lahir' => '',
+            'jenis_kelamin' => '',
+            'email' => 'email|unique:users',
+            'nomor_hp' => '',
+        ];
+
+        if ($request->username != $user->username && $request->username != null) {
+            $rules['username'] = 'required|unique:users|min:5';
+        }
+
+        $validatedData = $request->validate($rules);
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('user-images');
+        }
+
+        $validatedData['id'] = auth()->user()->id;
+        User::where('id', $user->id)->update($validatedData);
+        return redirect('/profile/' . $user->username . '/edit')->with('success', 'edit berhasil !');
     }
 
     /**

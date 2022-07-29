@@ -1,8 +1,10 @@
 {{-- ?: Parent Container Profile --}}
 <div class="w-full h-3/4 flex justify-center items-center">
+     {{-- ?: Form Container --}}
+ 
     {{-- ?: Rounded Border --}}
     <div class="h-5/6 w-3/5 border-2 rounded-lg shadow-md flex justify-center items-center">
-        {{-- ?: Form Container --}}
+       
         <form action="/profile/{{ $user->username }}" method="post"  enctype="multipart/form-data" class="h-1/1.1 w-1/1.2 flex justify-between">
             @method('put')
             @csrf
@@ -53,7 +55,7 @@
                             {{-- todo:  Username --}}
                             <div class="flex w-full justify-between py-2"> <label for="userName">Username</label>
                                 <div class="flex justify-start w-7/12">
-                                    <input type="text" name="" id="userName"
+                                    <input type="text" name="username" id="userName"
                                         value="{{ $user->username }}"
                                         class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
                                         disabled dynamis-lenght>
@@ -64,12 +66,7 @@
                             {{-- todo:  Password --}}
                             <div class="flex w-full justify-between py-2"> <label for="userName">Password</label>
                                 <div class="flex justify-start w-7/12">
-                                    <input type="password" name="" id="userName"
-                                        value="{{ $user->password }}"
-                                        class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
-                                        dynamis-lenght>
-                                    <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
-                                        edit-button>
+                                    <a href="#" class="italic font-semibold text-blue-700">ubah password</a>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +84,7 @@
                             {{-- todo:  Nama --}}
                             <div class="flex w-full justify-between py-2"> <label for="userName">Nama</label>
                                 <div class="flex justify-start w-7/12">
-                                    <input type="text" name="" id="userName" value="{{ $user->name }}"
+                                    <input type="text" name="name" id="userName" value="{{ $user->name }}"
                                         class="bg-transparent duration-500 focus:outline-none  max-w-[75%]"
                                         disabled disabled dynamis-lenght>
                                     <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
@@ -97,7 +94,7 @@
                             {{-- todo:  Tanggal Lahir --}}
                             <div class="flex w-full justify-between py-2"> <label for="userName">Tanggal Lahir</label>
                                 <div class="flex justify-start w-7/12">
-                                    <input type="date" name="" id="userName"
+                                    <input type="date" name="tanggal_lahir" id="userName"
                                         value="{{ $user->tanggal_lahir }}"
                                         class="bg-transparent  border-gray-400 focus:outline-none">
                                     {{-- <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
@@ -131,7 +128,7 @@
                         </div>
                     </div>
 
-                    {{-- !: Biodata Diri Container --}}
+                    {{-- !: Kontak Container --}}
                     <div class="flex flex-col">
                         {{-- todo:  Header --}}
                         <div class="flex flex-col">
@@ -143,7 +140,8 @@
                             {{-- todo:  Email --}}
                             <div class="flex w-full justify-between py-2"> <label for="userName">Email</label>
                                 <div class="flex justify-start w-7/12">
-                                    <input type="text" name="" id="userName" value="{{ $user->email }}"
+                                    <input type="text" name="email" id="userName"
+                                        value="{{ $user->email }}"
                                         class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
                                         disabled dynamis-lenght>
                                     <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
@@ -151,18 +149,22 @@
                                 </div>
                             </div>
                             {{-- todo:  Nomor Hp --}}
-                            <div class="flex w-full justify-between py-2"> <label for="userName">Nomor Hp</label>
+                            <div class="flex w-full justify-between py-2"> <label for="userName">Nomor HP</label>
                                 <div class="flex justify-start w-7/12">
-                                    <input type="text" name="" id="userName"
-                                        value="{{ ($user->nomor_hp) ? $user->nomor_hp : 'tambah' }}"
+                                    <input type="text" name="nomor_hp" id="userName"
+                                        value="{{ $user->nomor_hp }}"
                                         class="bg-transparent duration-500 focus:outline-none  max-w-[75%]" disabled
                                         dynamis-lenght>
                                     <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
                                         edit-button>
                                 </div>
                             </div>
+
                         </div>
+                        <button type="submit" class="w-full text-center cursor-pointer rounded-md font-roboto font-semibold text-blue-902 border border-blue-902 hover:bg-blue-902 hover:text-white">Submit</button>
+
                     </div>
+                    
                 </div>
         </form>
     </div>
