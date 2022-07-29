@@ -36,7 +36,18 @@
           {{-- Detail --}}
           <div class="h-auto bg-gray-900 rounded-lg shadow-lg text-white ">
             {{-- Pendidikan  --}}
+                        
             <div class="px-5 py-5">
+              <h2 class="text-base font-semibold">Detail:</h1>
+              <ul class="list-disc text-sm font-normal ml-5">
+                <li>Email: {{ $konselor->email }}</li>
+                <li>Nomor hp : {{ $konselor->nomor_hp }}</li>
+              </ul>
+            </div>
+
+            {{-- Pendidikan  --}}
+            
+            <div class="px-5 pb-5">
               <h2 class="text-base font-semibold">Pendidikan:</h1>
               <ul class="list-disc text-sm font-normal ml-5">
                 <li {{ ($profile->pend_s1) ? '' : 'hidden' }}>{{ ($profile->pend_s1) ? 'Psikologi - S1 - '.$profile->pend_s1 : '' }}</li>

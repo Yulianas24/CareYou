@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\counselorProfile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -98,6 +99,9 @@ class ProfileController extends Controller
         }
 
         $validatedData['id'] = auth()->user()->id;
+        if ($validatedData['username']) {
+            counselorProfile::where('username', $user->username)->update($validatedData['username']);
+        }
         User::where('id', $user->id)->update($validatedData);
         return redirect('/profile/' . $user->username . '/edit')->with('success', 'edit berhasil !');
     }
