@@ -9,8 +9,11 @@
     </ul>
     @auth
         <a href="#" class="peer block relative">
+            @if (auth()->user()->image)
+            <img alt="profil" src="{{ asset('storage/'. auth()->user()->image) }}" class="mx-auto object-cover rounded-full h-10 w-10 " />  
+            @else
             <img alt="profil" src="/asset/logo_blue.svg" class="mx-auto object-cover rounded-full h-10 w-10 " />
-        </a>
+            @endif</a>
 
         <button class="peer flex -ml-5 text-black text-md">
             <span> {{ auth()->user()->username }}</span>
