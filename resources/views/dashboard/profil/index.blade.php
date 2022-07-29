@@ -33,10 +33,10 @@
         @endif
           
 
-          {{-- Detail --}}
+          
           <div class="h-auto bg-gray-900 rounded-lg shadow-lg text-white ">
-            {{-- Pendidikan  --}}
-                        
+            
+            {{-- Detail --}}        
             <div class="px-5 py-5">
               <h2 class="text-base font-semibold">Detail:</h1>
               <ul class="list-disc text-sm font-normal ml-5">
@@ -53,6 +53,7 @@
               <ul class="list-disc text-sm font-normal ml-5">
                 <li {{ ($profile->pend_s1) ? '' : 'hidden' }}>{{ ($profile->pend_s1) ? 'Psikologi - S1 - '.$profile->pend_s1 : '' }}</li>
                 <li {{ ($profile->pend_s2) ? '' : 'hidden' }}>{{  ($profile->pend_s2) ? 'Psikologi - S2 - '.$profile->pend_s2 : ''  }}</li>
+                <li {{ ($profile->pend_s3) ? '' : 'hidden' }}>{{  ($profile->pend_s3) ? 'Psikologi - S3 - '.$profile->pend_s3 : ''  }}</li>
               </ul>
             </div>
 
@@ -60,10 +61,7 @@
             <div class="px-5 pb-5">
               <h2 class="text-base font-semibold">Fokus Penanganan Masalah:</h1>
               <ul class="list-disc text-sm font-normal ml-5">
-                <li>Toxic Relationship</li>
-                <li>Stress</li>
-                <li>Depresi</li>
-                <li>Kecemasan</li>
+                {!!  $masalah  !!}
               </ul>
             </div>
 

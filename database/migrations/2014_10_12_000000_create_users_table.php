@@ -23,7 +23,7 @@ return new class extends Migration
             $table->String('image')->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->string('jenis_kelamin')->nullable();
-            $table->integer('nomor_hp')->nullable();
+            $table->String('nomor_hp')->nullable();
             $table->string('level');
             $table->rememberToken();
             $table->timestamps();

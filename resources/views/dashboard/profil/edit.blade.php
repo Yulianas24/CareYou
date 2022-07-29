@@ -196,7 +196,7 @@
               aria-describedby="kampus" placeholder="S3" name="pend_s3">
               <option value="">none</option>
                 @foreach ($kampus as $item)
-                  @if (old('pend_s2', $profile->pend_s2)==$item->name)
+                  @if (old('pend_s3', $profile->pend_s3)==$item->name)
                   <option value="{{ $item->name }}" selected>{{ $item ->name }}</option>
                   @else
                   <option value="{{ $item->name }}">{{ $item ->name }}</option>
@@ -226,7 +226,7 @@
               ease-in-out
               m-0
               focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="title"
-              aria-describedby="kampus" placeholder="S1" name="pend_s1">
+              aria-describedby="kampus" placeholder="Jenis Kelamin" name="jenis_kelamin">
       
               @if ($konselor->jenis_kelamin !=null)                     
               <option value="laki-laki" {{ ($konselor->jenis_kelamin == "laki-laki") ? 'selected' : '' }}>Laki-laki</option>
@@ -241,8 +241,8 @@
           </div>
           {{-- Email --}}
           <div class="form-group mb-2">
-            <label for="username" class="form-label inline-block mb-2">Email</label>
-            @error('username')
+            <label for="email" class="form-label inline-block mb-2">Email</label>
+            @error('email')
                 <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
               @enderror
             <input type="text" class="form-control block
@@ -258,12 +258,12 @@
               ease-in-out
               m-0
               focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              placeholder="username" id="username" name="username" required value="{{ old('username', $konselor->username) }}">
+              placeholder="email" id="email" name="email" required value="{{ old('email', $konselor->email) }}">
           </div>
           {{-- Nomor HP --}}
           <div class="form-group mb-2">
-            <label for="username" class="form-label inline-block mb-2">Nomor HP</label>
-            @error('username')
+            <label for="nomor_hp" class="form-label inline-block mb-2">Nomor HP</label>
+            @error('nomor_hp')
                 <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
               @enderror
             <input type="text" class="form-control block
@@ -279,7 +279,7 @@
               ease-in-out
               m-0
               focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              placeholder="username" id="username" name="username" required value="{{ old('username', $konselor->username) }}">
+              placeholder="nomor_hp" id="nomor_hp" name="nomor_hp" required value="{{ old('nomor_hp', $konselor->nomor_hp) }}">
           </div>
          
         </div>
@@ -301,7 +301,7 @@
             ease-in-out
             m-0
              focus:outline-none" id="title"
-            aria-describedby="kampus" placeholder="S1" name="penanganan_masalah[]" multiple="multiple">
+            aria-describedby="kampus" placeholder="S1" name="penanganan_masalah[]" multiple>
     
             @foreach ($kategori as $category)
 

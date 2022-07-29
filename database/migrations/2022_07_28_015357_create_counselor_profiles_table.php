@@ -18,6 +18,9 @@ return new class extends Migration
             $table->String('username');
             $table->String('pend_s1')->nullable();
             $table->String('pend_s2')->nullable();
+            $table->String('pend_s3')->nullable();
+            $table->String('penanganan_masalah')->nullable();
+
             $table->text('tentang')->nullable();
             $table->timestamps();
         });

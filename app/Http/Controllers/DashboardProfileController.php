@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\User;
 use App\Models\kampus;
+use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\counselorProfile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Collection;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class DashboardProfileController extends Controller
@@ -19,12 +21,23 @@ class DashboardProfileController extends Controller
      */
     public function index()
     {
+
+
         $user = User::where('id', auth()->user()->id)->get()[0];
         $profile = counselorProfile::where('username', $user['username'])->get()[0];
+
+        // String Manipulation
+        $data = $profile->penanganan_masalah;
+        $data = Str::replace("[", '<li>', $data);
+        $data = Str::replace("]", '</li>', $data);
+        $data = Str::replace('"', '', $data);
+        $data = Str::replace(',', '</li><li>', $data);
         return view('dashboard.profil.index', [
             'title' => 'Profile',
             'konselor' => $user,
             'profile' => $profile,
+            'masalah' => $data,
+
         ]);
     }
 
@@ -86,36 +99,42 @@ class DashboardProfileController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        return $request;
+
         $user = auth()->user();
         $rules = [
             'name' => 'required|max:255',
             'image' => 'image|file|max:2048',
+            'email' => 'email',
+            'nomor_hp' => '',
         ];
 
         if ($request->username != $user->username) {
             $rules['username'] = 'required|unique:users|min:5';
         }
 
+
+
+        $validatedProfile = $request->validate([
+            'username' => 'required',
+            'pend_s1' => '',
+            'pend_s2' => '',
+            'pend_s3' => '',
+            'penanganan_masalah' => '',
+            'tentang' => '',
+        ]);
+
         $validatedData = $request->validate($rules);
+
+
+        $validatedData['id'] = auth()->user()->id;
+        User::where('id', $user->id)->update($validatedData);
+        counselorProfile::where('username',  $user->username)->update($validatedProfile);
         if ($request->file('image')) {
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
             $validatedData['image'] = $request->file('image')->store('user-images');
         }
-
-        $validatedData['id'] = auth()->user()->id;
-
-        $validatedProfile = $request->validate([
-            'username' => 'required',
-            'pend_s1' => '',
-            'pend_s2' => '',
-            'tentang' => 'required',
-        ]);
-        User::where('id', $user->id)->update($validatedData);
-        counselorProfile::where('username',  $user->username)->update($validatedProfile);
-
         return redirect('/dashboard/profil')->with('success', 'Profile has been updated!');
     }
 
