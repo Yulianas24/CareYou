@@ -9,6 +9,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardProfileController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Clockwork\Support\Twig\ProfilerClockworkDumper;
 
@@ -23,13 +24,7 @@ use Clockwork\Support\Twig\ProfilerClockworkDumper;
 |
 */
 
-Route::get('/', function () {
-    $konselor = User::where('level', 'konselor')->with('profile')->take(3)->latest()->get();
-    return view('/pages/beranda', [
-        "title" => "Home",
-        "konselor" => $konselor,
-    ]);
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

@@ -54,16 +54,19 @@ class DatabaseSeeder extends Seeder
     counselorProfile::factory()->create([
       'username' => 'konselor1',
       'user_id' => 1,
+      'penanganan_masalah' => '["Stress","Depresi","Kecemasan"]'
     ]);
 
     counselorProfile::factory()->create([
       'username' => 'konselor2',
       'user_id' => 2,
+      'penanganan_masalah' => '["Depresi","Kecemasan"]'
     ]);
 
     counselorProfile::factory()->create([
       'username' => 'konselor3',
       'user_id' => 3,
+      'penanganan_masalah' => '["Depresi","Kecemasan"]'
     ]);
 
     Category::create([

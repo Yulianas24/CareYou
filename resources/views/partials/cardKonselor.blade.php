@@ -1,8 +1,14 @@
 {{-- !: Card 1 --}}
 <div class="h-102 w-94 rounded-3xl flex flex-col bg-white justify-start">
+    
+    @if ($konselor[0]->image)
+    <picture ><img class="rounded-t-3xl" src="{{ asset('storage/'.$konselor[0]->image) }}" alt="" srcset=""></picture>
+    @else
     <picture><img src="/asset/img/cardKonselor.png" alt="" srcset=""></picture>
+    @endif
+    
     <figure class="text-center font-roboto font-medium text-lg">
-        Rayna Vaccaro, S.Psi., M.Psi
+        {{ $konselor[0]->name }}
     </figure>
     {{-- ?: Container Penanganan --}}
     <figure class="flex flex-col items-center h-44 w-full mt-3">
@@ -10,15 +16,10 @@
             <h3 class="font-roboto font-medium text-lg">Fokus Penaganan masalah :</h3>
         </figcaption>
         <figcaption class="h-full w-1/1.2">
-            <ul class="flex flex-col h-full w-full justify-evenly">
-                <li class="flex font-roboto"><img src="/asset/icons/checklist.svg" alt="" class="mx-2"> Stress
-                </li>
-                <li class="flex font-roboto"><img src="/asset/icons/checklist.svg" alt=""
-                        class="mx-2">Deppression</li>
-                <li class="flex font-roboto"><img src="/asset/icons/checklist.svg" alt="" class="mx-2">Toxic
-                    Relationship</li>
-                <li class="flex font-roboto"><img src="/asset/icons/checklist.svg" alt="" class="mx-2">Stress
-                </li>
+            <ul class="flex flex-col h-full w-full justify-evenly ml-3">
+
+                {!!  $masalah[0]  !!}
+            
             </ul>
         </figcaption>
     </figure>
@@ -31,9 +32,13 @@
 
 {{-- !: Card 2 --}}
 <div class="h-102 w-94 rounded-3xl flex flex-col bg-white justify-start">
+    @if ($konselor[1]->image)
+    <picture ><img class="rounded-t-3xl" src="{{ asset('storage/'.$konselor[1]->image) }}" alt="" srcset=""></picture>
+    @else
     <picture><img src="/asset/img/cardKonselor.png" alt="" srcset=""></picture>
+    @endif
     <figure class="text-center font-roboto font-medium text-lg">
-        Rayna Vaccaro, S.Psi., M.Psi
+        {{ $konselor[1]->name }}
     </figure>
     {{-- ?: Container Penanganan --}}
     <figure class="flex flex-col items-center h-44 w-full mt-3">
@@ -41,15 +46,8 @@
             <h3 class="font-roboto font-medium text-lg">Fokus Penaganan masalah :</h3>
         </figcaption>
         <figcaption class="h-full w-1/1.2">
-            <ul class="flex flex-col h-full w-full justify-evenly">
-                <li class="flex font-roboto"><img src="/asset/icons/checklist.svg" alt="" class="mx-2"> Stress
-                </li>
-                <li class="flex font-roboto"><img src="/asset/icons/checklist.svg" alt=""
-                        class="mx-2">Deppression</li>
-                <li class="flex font-roboto"><img src="/asset/icons/checklist.svg" alt="" class="mx-2">Toxic
-                    Relationship</li>
-                <li class="flex font-roboto"><img src="/asset/icons/checklist.svg" alt="" class="mx-2">Stress
-                </li>
+            <ul class="flex flex-col h-full w-full justify-evenly ml-3">
+                {!!  $masalah[1]  !!}
             </ul>
         </figcaption>
     </figure>
@@ -62,9 +60,13 @@
 
 {{-- !: Card 3 --}}
 <div class="h-102 w-94 rounded-3xl flex flex-col bg-white justify-start">
+    @if ($konselor[2]->image)
+    <picture ><img class="rounded-t-3xl" src="{{ asset('storage/'.$konselor[2]->image) }}" alt="" srcset=""></picture>
+    @else
     <picture><img src="/asset/img/cardKonselor.png" alt="" srcset=""></picture>
+    @endif
     <figure class="text-center font-roboto font-medium text-lg">
-        Rayna Vaccaro, S.Psi., M.Psi
+        {{ $konselor[2]->name }}
     </figure>
     {{-- ?: Container Penanganan --}}
     <figure class="flex flex-col items-center h-44 w-full mt-3">
@@ -72,15 +74,8 @@
             <h3 class="font-roboto font-medium text-lg">Fokus Penaganan masalah :</h3>
         </figcaption>
         <figcaption class="h-full w-1/1.2">
-            <ul class="flex flex-col h-full w-full justify-evenly">
-                <li class="flex font-roboto"><img src="/asset/icons/checklist.svg" alt="" class="mx-2"> Stress
-                </li>
-                <li class="flex font-roboto"><img src="/asset/icons/checklist.svg" alt=""
-                        class="mx-2">Deppression</li>
-                <li class="flex font-roboto"><img src="/asset/icons/checklist.svg" alt="" class="mx-2">Toxic
-                    Relationship</li>
-                <li class="flex font-roboto"><img src="/asset/icons/checklist.svg" alt="" class="mx-2">Stress
-                </li>
+            <ul class="flex flex-col h-full w-full justify-evenly ml-3">
+                {!!  $masalah[2]  !!}
             </ul>
         </figcaption>
     </figure>
