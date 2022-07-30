@@ -11,7 +11,7 @@
     
 </div>
 
-<div class="w-3/4 h-screen -mt-18 ">
+<div class="w-3/4 h-full -mt-18 ">
   <div class="flex w-full flex-row ">
     <img class="h-52 rounded-2xl" src="{{ asset('storage/'.$konselor->image) }}" alt="">
     <div class="grid content-end ml-6">
