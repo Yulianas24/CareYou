@@ -32,10 +32,16 @@
       <div class=" pb-5">
         <h2 class="text-base font-semibold mb-5">Pendidikan:</h1>
         <ul class="list-disc text-sm font-normal">
-          <li class="flex" font-roboto=""><img class="mx-5" src="/asset/icons/checklist.svg" alt="" {{ ($konselor->profile->pend_s1) ? '' : 'hidden' }}>{{ ($konselor->profile->pend_s1) ? 'Psikologi - S1 - '.$konselor->profile->pend_s1 : '' }}</li>
-          <li class="flex" font-roboto=""><img class="mx-5" src="/asset/icons/checklist.svg" alt="" {{ ($konselor->profile->pend_s2) ? '' : 'hidden' }}>{{  ($konselor->profile->pend_s2) ? 'Psikologi - S2 - '.$konselor->profile->pend_s2 : ''  }}</li>
-          <li class="flex" font-roboto=""><img class="mx-5" src="/asset/icons/checklist.svg" alt="" {{ ($konselor->profile->pend_s3) ? '' : 'hidden' }}>{{  ($konselor->profile->pend_s3) ? 'Psikologi - S3 - '.$konselor->profile->pend_s3 : ''  }}</li>
-        </ul>
+          @if ($konselor->profile->pend_s1)
+          <li class="flex" font-roboto=""><img class="mx-5" src="/asset/icons/checklist.svg" alt="">Psikologi {{ $konselor->profile->pend_s1 }} - S1</li>
+          @endif
+          @if ($konselor->profile->pend_s2)
+          <li class="flex" font-roboto=""><img class="mx-5" src="/asset/icons/checklist.svg" alt="">Psikologi {{ $konselor->profile->pend_s2 }} - S2</li>
+          @endif
+          @if ($konselor->profile->pend_s3)
+          <li class="flex" font-roboto=""><img class="mx-5" src="/asset/icons/checklist.svg" alt="">Psikologi {{ $konselor->profile->pend_s3 }} - S3</li>
+          @endif
+          </ul>
       </div>
   
       {{-- Penanganan masalah  --}}
@@ -66,7 +72,15 @@
       
       <h1 class="font-roboto font-semibold text-xl mb-2">Tentang {{ $konselor->name }}</h1>
       <figure class="h-1 w-28 bg-blue-700 mb-5"></figure>
-      <div class="text-justify">{!! $konselor->profile->tentang !!}</div>
+      <div class="text-justify">
+        @if ( $konselor->profile->tentang)
+        {!! $konselor->profile->tentang !!}
+        @else
+        <p>Belum ada keterangan</p>
+        @endif
+      
+      
+      </div>
       
     </div>
   </div>
