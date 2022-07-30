@@ -9,7 +9,7 @@
             <span class="h-0.5 w-75 bg-blue-902"></span>
         </figcaption>
         <figcaption class="flex items-center cursor-pointer">
-            <a href="#pageHome" class="font-roboto font-semibold text-base text-blue-902">Lihat Semua</a>
+            <a href="/konselor" class="font-roboto font-semibold text-base text-blue-902">Lihat Semua</a>
             <img src="/asset/icons/arrow_back.svg" alt="" class="bg-cover">
         </figcaption>
     </figure>
