@@ -12,7 +12,7 @@
       @csrf
       <div>
         
-        <div class="lg:grid grid-cols-6 h-auto pb-20 gap-3">
+        <div class="grid grid-cols-6 h-auto pb-20 gap-3">
 
           {{-- tentang --}}
           <div class="col-span-4 form-group mb-2  w-full h-80">

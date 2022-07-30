@@ -22,7 +22,7 @@
     <div class=" flex items-start justify-between">
 
         {{-- Sidebar --}}
-        <div class="fixed h-screen z-40 hidden lg:block shadow-lg w-64">
+        <div class="fixed h-screen z-40  shadow-lg w-56">
             <div class="bg-white h-full dark:bg-gray-700">
                 <div class="flex items-center justify-start pt-6 ml-8">
                     <p class="font-bold dark:text-white text-xl">
@@ -146,7 +146,7 @@
             {{-- end of navbar --}}
             
             {{-- content --}}
-            <div class="h-screen lg:ml-64">
+            <div class="h-screen ml-56">
                 @yield('dashboard')
             </div>
             
