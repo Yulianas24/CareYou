@@ -8,7 +8,7 @@ buttonInputPhoto.addEventListener("click", () => {
 
 // ?: Dynamic Length
 const inputField = document.querySelectorAll("[dynamis-lenght]");
-const perCharacter = 10;
+const perCharacter = 9.5;
 function inputLenght() {
     inputField.forEach((n) => {
         const size = n.value.length;

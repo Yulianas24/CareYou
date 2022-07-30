@@ -54,8 +54,7 @@
                                 <input type="text" name="username" id="userName" value="{{ $user->username }}"
                                     class="bg-transparent duration-500 focus:outline-none min-w-[20px]  max-w-[75%]"
                                     dynamis-lenght>
-                                <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
-                                    edit-button>
+                                <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 cursor-pointer" edit-button>
                             </div>
                         </div>
                         {{-- todo:  Password --}}
@@ -82,8 +81,7 @@
                                 <input type="text" name="name" id="userName" value="{{ $user->name }}"
                                     class="bg-transparent duration-500 focus:outline-none min-w-[20px]  max-w-[75%]"
                                     dynamis-lenght>
-                                <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
-                                    edit-button>
+                                <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 cursor-pointer" edit-button>
                             </div>
                         </div>
                         {{-- todo:  Tanggal Lahir --}}
@@ -136,7 +134,7 @@
                                 <input type="text" name="email" id="userName" value="{{ $user->email }}"
                                     class="bg-transparent duration-500 focus:outline-none min-w-[20px]  max-w-[75%]"
                                     dynamis-lenght>
-                                <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
+                                <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 cursor-pointer"
                                     edit-button>
                             </div>
                         </div>
