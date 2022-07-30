@@ -9,7 +9,7 @@ buttonInputPhoto.addEventListener("click", () => {
 // ?: Dynamic Length
 const inputField = document.querySelectorAll("[dynamis-lenght]");
 const perCharacter = 9.5;
-function inputLenght() {
+function inputWidth() {
     inputField.forEach((n) => {
         const size = n.value.length;
         let width = perCharacter * size;
@@ -18,10 +18,10 @@ function inputLenght() {
 }
 
 inputField.forEach((element) => {
-    element.addEventListener("input", inputLenght);
+    element.addEventListener("input", inputWidth);
 });
 
-inputLenght();
+inputWidth();
 
 // ?: Toogle Editing Button
 inputField.disabled = true;
