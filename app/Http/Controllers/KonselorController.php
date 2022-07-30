@@ -21,10 +21,7 @@ class KonselorController extends Controller
         $items = collect();
         for ($i = 0; $i < $konselor->count(); $i++) {
             $data = $konselor[$i]->profile->penanganan_masalah;
-            $data = Str::replace("[", '<li class="flex font-roboto"><img src="/asset/icons/checklist.svg" alt="" >', $data);
-            $data = Str::replace("]", '</li>', $data);
-            $data = Str::replace('"', '', $data);
-            $data = Str::replace(',', '</li><li class="flex font-roboto mt-1"><img src="/asset/icons/checklist.svg" alt="" >', $data);
+            $data = json_decode($data, true);
             $items->push($data);
         }
         return view('pages.konselor', [
@@ -49,5 +46,14 @@ class KonselorController extends Controller
     public function show(User $user)
     {
         //
+        $data = $user->profile->penanganan_masalah;
+
+        $data = json_decode($data, true);
+
+        return view('pages.detail_konselor', [
+            'title' => 'Detail Konselor',
+            'konselor' => $user,
+            'masalah' => $data,
+        ]);
     }
 }

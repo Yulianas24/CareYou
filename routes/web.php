@@ -68,4 +68,4 @@ Route::get('/categories', function () {
 });
 
 Route::get('/konselor', [KonselorController::class, 'index']);
-Route::get('/konselor/{konselor:username}', [KonselorController::class, 'show']);
+Route::get('/konselor/{user:username}', [KonselorController::class, 'show']);

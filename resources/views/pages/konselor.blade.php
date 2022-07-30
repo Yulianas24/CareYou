@@ -63,10 +63,12 @@
                 
             </figcaption>
             <figcaption class="h-full w-1/1.2">
-                <ul class="flex flex-col h-full w-full justify-evenly ml-3">
+                <ul class="flex flex-col h-full w-full justify-evenly">
     
                     @if ($item->profile->penanganan_masalah)
-                    {!! $masalah[$loop->index] !!}
+                      @for ($j = 0; $j < count($masalah[$loop->index]); $j++)
+                      <li class="flex" font-roboto=""><img class="mx-5 " src="/asset/icons/checklist.svg" alt="">{{   $masalah[$loop->index][$j]   }}</li>
+                      @endfor
                     @else
                       <p>Tidak Ada</p>
                     @endif
@@ -76,7 +78,7 @@
         </figure>
         {{-- ?: Container Button --}}
         <figure class="flex w-full h-full items-center justify-center">
-            <a href="#">
+            <a href="/konselor/{{ $item->username }}">
               <figcaption class="flex items-center bg-blue-902 h-10 px-7 text-white rounded-lg hover:cursor-pointer">Lihat Profil Lengkap
               </figcaption>
             </a>
