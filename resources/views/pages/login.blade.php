@@ -36,9 +36,9 @@
         </div>
         {{-- ?: Login Container --}}
         <div class="flex justify-center items-center laptop:col-span-4">
-            <div class="flex w-1/1.1 h-103 rounded-lg shadow-lg shadow-gray-600/20 laptop:h-102 laptop:w-95">
+            <div class="flex w-1/1.1 h-102 rounded-lg shadow-lg shadow-gray-600/20 laptop:h-102 laptop:w-95">
                 <div class="flex flex-col w-full h-full p-5 justify-between laptop:p-8">
-                    <div class="flex w-full h-full flex-col items-center justify-center ">
+                    <div class="flex w-full flex-col items-center justify-center ">
 
                         {{-- todo: alert registrasi berhasil --}}
                         @if (session()->has('success'))
@@ -73,7 +73,7 @@
                     {{-- !: Form Login --}}
                     <form action="/login" method='post' class="flex flex-col w-full h-full justify-evenly">
                         @csrf
-                        <div class="flex flex-col h-72 justify-center laptop:h-56 laptop:justify-evenly">
+                        <div class="flex flex-col h-64 justify-center laptop:h-56 laptop:justify-evenly">
                             {{-- todo:  Input Username --}}
                             <section class="py-4 tablet:py-8 laptop:py-0">
                                 <legend class="font-poppins font-normal ">Username</legend>
@@ -103,8 +103,8 @@
                         <section class="flex flex-col justify-evenly h-20">
                             <button type="submit"
                                 class="bg-blue-902 py-2 mb-5 px-6 mx-10 rounded-lg text-white font-poppins laptop:mb-0">Login</button>
-                            <strong class="text-center font-poppins font-normal text-base">Belum Punya Akun? <a
-                                    href="/registrasi" class="text-blue-601">Buat akun
+                            <strong class="text-center font-poppins font-normal  text-sm tablet:text-base">Belum Punya
+                                Akun? <a href="/registrasi" class="text-blue-601">Buat akun
                                 </a>sekarang</strong>
                         </section>
                     </form>
