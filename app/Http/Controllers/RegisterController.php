@@ -32,6 +32,7 @@ class RegisterController extends Controller
     {
 
         $validated_data = $request->validate([
+            'id' => 'unique',
             'name' => ['required', 'max:255'],
             'username' => ['required', 'min:5', 'max:255', 'unique:users'],
             'email' => ['required', 'email', 'unique:users'],
@@ -43,11 +44,16 @@ class RegisterController extends Controller
 
         User::create($validated_data);
 
-        if ($validated_data['level'] == 'konselor') {
-            $data['username'] = $validated_data['username'];
+        if ($request->level == 'konselor') {
+            $user = User::where('username', $request->username)->get()[0];
+            $data['user_id'] = $user->id;
+            $data['username'] = $user->username;
             counselorProfile::create($data);
         }
+
+
         $request->session()->flash('success', 'Registrasi Berhasil!, silahkan login');
+
         return redirect('login');
     }
 }

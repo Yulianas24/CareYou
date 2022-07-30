@@ -25,9 +25,6 @@ class DatabaseSeeder extends Seeder
     //     'name' => 'Test User',
     //     'email' => 'test@example.com',
     // ]);
-    counselorProfile::create([
-      'username' => 'konselor',
-    ]);
     User::factory()->create([
       'name' => 'User Konselor',
       'username' => 'konselor',

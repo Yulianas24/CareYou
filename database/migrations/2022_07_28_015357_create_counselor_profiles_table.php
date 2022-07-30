@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('counselor_profiles', function (Blueprint $table) {
             $table->id('id');
+            $table->foreignId('user_id');
             $table->String('username');
             $table->String('pend_s1')->nullable();
             $table->String('pend_s2')->nullable();
