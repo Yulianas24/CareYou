@@ -23,7 +23,7 @@ inputField.forEach((element) => {
 
 inputWidth();
 
-// ?: Toogle Editing Button
+// ?: Toggle Editing Button
 inputField.disabled = true;
 const buttonEdit = document.querySelectorAll("[edit-button]");
 let toggleFieldEdit = true;
