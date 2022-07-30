@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardProfileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KonselorController;
 use App\Http\Controllers\ProfileController;
 use Clockwork\Support\Twig\ProfilerClockworkDumper;
 
@@ -56,8 +57,8 @@ Route::get('/about', function () {
 
 Route::get('/posts', [PostController::class, 'index']);
 
-
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
+
 
 Route::get('/categories', function () {
     return view('pages.categories', [
@@ -65,3 +66,6 @@ Route::get('/categories', function () {
         'categories' => Category::all(),
     ]);
 });
+
+Route::get('/konselor', [KonselorController::class, 'index']);
+Route::get('/konselor/{konselor:username}', [KonselorController::class, 'show']);

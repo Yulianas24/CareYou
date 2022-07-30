@@ -76,18 +76,23 @@ class ProfileController extends Controller
     public function update(Request $request, User $user)
     {
 
+
         $user = auth()->user();
         $rules = [
             'name' => 'max:255',
             'image' => 'image|file|max:2048',
             'tanggal_lahir' => '',
             'jenis_kelamin' => '',
-            'email' => 'email|unique:users',
+
             'nomor_hp' => '',
         ];
 
         if ($request->username != $user->username && $request->username != null) {
             $rules['username'] = 'required|unique:users|min:5';
+        }
+
+        if ($request->email != $user->email && $request->email != null) {
+            $rules['email'] = 'email|unique:users';
         }
 
         $validatedData = $request->validate($rules);
@@ -107,6 +112,7 @@ class ProfileController extends Controller
             counselorProfile::where('username', $user->username)->update($validatedProfile);
         }
         User::where('id', $user->id)->update($validatedData);
+
         return redirect('/profile/' . $user->username . '/edit')->with('success', 'edit berhasil !');
     }
 
