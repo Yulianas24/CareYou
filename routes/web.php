@@ -24,9 +24,10 @@ use Clockwork\Support\Twig\ProfilerClockworkDumper;
 */
 
 Route::get('/', function () {
-
+    $konselor = User::where('level', 'konselor')->with('profile')->take(3)->latest()->get();
     return view('/pages/beranda', [
-        "title" => "Home"
+        "title" => "Home",
+        "konselor" => $konselor,
     ]);
 })->name('home');
 

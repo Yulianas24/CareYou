@@ -19,30 +19,51 @@ class DatabaseSeeder extends Seeder
    */
   public function run()
   {
-    User::factory(3)->create();
 
-    // \App\Models\User::factory()->create([
-    //     'name' => 'Test User',
-    //     'email' => 'test@example.com',
-    // ]);
     User::factory()->create([
-      'name' => 'User Konselor',
-      'username' => 'konselor',
+      'name' => 'User Konselor1',
+      'username' => 'konselor1',
       'email' => 'user@gmail.com',
-      'password' => bcrypt('aaaaaaaa'),
+      'password' => bcrypt('password'),
       'level' => 'konselor',
       'nomor_hp' => random_int(1, 1000000000),
 
     ]);
+
     User::factory()->create([
-      'name' => 'User Konseli',
-      'username' => 'konseli',
+      'name' => 'User Konselor2',
+      'username' => 'konselor2',
       'email' => 'user2@gmail.com',
-      'password' => bcrypt('aaaaaaaa'),
-      'level' => 'konseli',
+      'password' => bcrypt('password'),
+      'level' => 'konselor',
       'nomor_hp' => random_int(1, 1000000000),
 
+    ]);
 
+    User::factory()->create([
+      'name' => 'User Konselor3',
+      'username' => 'konselor3',
+      'email' => 'user3@gmail.com',
+      'password' => bcrypt('password'),
+      'level' => 'konselor',
+      'nomor_hp' => random_int(1, 1000000000),
+
+    ]);
+    User::factory(3)->create();
+
+    counselorProfile::factory()->create([
+      'username' => 'konselor1',
+      'user_id' => 1,
+    ]);
+
+    counselorProfile::factory()->create([
+      'username' => 'konselor2',
+      'user_id' => 2,
+    ]);
+
+    counselorProfile::factory()->create([
+      'username' => 'konselor3',
+      'user_id' => 3,
     ]);
 
     Category::create([

@@ -127,14 +127,15 @@ class DashboardProfileController extends Controller
 
 
         $validatedData['id'] = auth()->user()->id;
-        User::where('id', $user->id)->update($validatedData);
-        counselorProfile::where('username',  $user->username)->update($validatedProfile);
+
         if ($request->file('image')) {
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
             $validatedData['image'] = $request->file('image')->store('user-images');
         }
+        User::where('id', $user->id)->update($validatedData);
+        counselorProfile::where('username',  $user->username)->update($validatedProfile);
         return redirect('/dashboard/profil')->with('success', 'Profile has been updated!');
     }
 
