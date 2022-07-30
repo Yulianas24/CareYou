@@ -8,7 +8,7 @@ buttonInputPhoto.addEventListener("click", () => {
 
 // ?: Dynamic Length
 const inputField = document.querySelectorAll("[dynamis-lenght]");
-const perCharacter = 8;
+const perCharacter = 10;
 function inputLenght() {
     inputField.forEach((n) => {
         const size = n.value.length;
@@ -24,29 +24,29 @@ inputField.forEach((element) => {
 inputLenght();
 
 // ?: Toogle Editing Button
+inputField.disabled = true;
 const buttonEdit = document.querySelectorAll("[edit-button]");
 let toggleFieldEdit = true;
 for (let indexButton = 0; indexButton < buttonEdit.length; indexButton++) {
     buttonEdit[indexButton].addEventListener("click", () => {
         toggleFieldEdit = !toggleFieldEdit;
-        inputField[indexButton].disabled = toggleFieldEdit;
+        inputField[indexButton].disabled = toggleFieldEdit[indexButton];
         inputField[indexButton].classList.toggle("border-b-2");
         inputField[indexButton].classList.toggle("border-gray-400");
     });
 }
 
-// previewImage
+//?: previewImage
 function previewImage() {
-    const image = document.querySelector('#image');
-    const imgPreview = document.querySelector('.imgPreview');
+    const image = document.querySelector("#image");
+    const imgPreview = document.querySelector(".imgPreview");
 
-    imgPreview.style.display = 'block';
+    imgPreview.style.display = "block";
 
-    const ofReader= new FileReader();
+    const ofReader = new FileReader();
     ofReader.readAsDataURL(image.files[0]);
 
-    ofReader.onload = function(oFREvent){
-      imgPreview.src = oFREvent.target.result;
-    }
-    
-  }
+    ofReader.onload = function (oFREvent) {
+        imgPreview.src = oFREvent.target.result;
+    };
+}
