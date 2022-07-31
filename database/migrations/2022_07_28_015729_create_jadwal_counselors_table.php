@@ -14,7 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('jadwal_counselors', function (Blueprint $table) {
-            $table->id();
+            $table->foreignId('user_id');
+            $table->String('hari');
+            $table->time('mulai_jam');
+            $table->time('hingga_jam');
             $table->timestamps();
         });
     }
