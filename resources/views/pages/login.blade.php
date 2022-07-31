@@ -13,7 +13,7 @@
 <body>
 
     <div
-        class="flex flex-col justify-center p-2 w-screen min-h-screen tablet:h-screen tablet:p-0 laptop:grid laptop:grid-cols-7 laptop:grid-rows-none">
+        class="flex flex-col justify-center p-2 w-screen min-h-screen tablet:p-0 laptop:grid laptop:grid-cols-7 laptop:grid-rows-none">
 
         {{-- ?: CareYou  Container --}}
         <div class=" laptop:col-span-3 laptop:bg-blue-901 laptop:relative">
