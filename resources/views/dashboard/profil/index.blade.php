@@ -23,18 +23,18 @@
       <div class="flex-col basis-1/4 w-full h-auto">
           
         @if ($konselor->image)
-        <div class="h-auto  bg-gray-900 rounded-lg shadow-lg mb-3">
+        <div class="h-auto  dark:bg-gray-900 rounded-lg shadow-lg mb-3">
           <img src="{{ asset('storage/'.$konselor->image) }}" alt="" class="rounded-lg">
         </div>     
         @else
-        <div class="h-auto  bg-gray-900 rounded-lg shadow-lg mb-3">
+        <div class="h-auto  dark:bg-gray-900 rounded-lg shadow-lg mb-3">
           <img src="\asset\img\Image_not_available.jpg" alt="">
         </div> 
         @endif
           
 
           
-          <div class="h-auto bg-gray-900 rounded-lg shadow-lg text-white ">
+          <div class="h-auto dark:bg-gray-900 rounded-lg shadow-lg dark:text-white ">
             
             {{-- Detail --}}        
             <div class="px-5 py-5">
@@ -68,9 +68,9 @@
           </div>
       </div>
       {{-- Tentang --}}
-      <div class="basis-3/4 w-full min-h-102 ml-3 bg-gray-900 rounded-lg shadow-lg p-5 text-gray-800 dark:text-white">
+      <div class="basis-3/4 w-full min-h-102 ml-3 dark:bg-gray-900 rounded-lg shadow-lg p-5 text-gray-800 dark:text-white">
         <h1 class="text-3xl  w-auto font-semibold text-gray-800 dark:text-white">Tentang</h1>
-        <div class="w-1/2 h-1 bg-blue-900 mt-2 rounded-full"></div>
+        <div class="w-1/2 h-1 dark:bg-blue-900 bg-blue-700 mt-2 rounded-full"></div>
         <p class="text-justify">
           {!! $profile->tentang !!}
         </p>
