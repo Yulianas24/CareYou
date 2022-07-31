@@ -42,7 +42,7 @@
                                 <h1 class="font-roboto font-medium text-center text-4xl laptop:text-5xl laptop:pb-2">
                                     Buat Akun</h1>
                             </div>
-                            <div class="grid grid-cols-6 content-between gap-3 mt-5 w-full h-96">
+                            <div class="grid grid-cols-6 content-between laptop:content-evenly gap-3 mt-5 w-full h-96">
                                 <div class="col-span-3">
                                     <label for="nama"
                                         class="block text-sm font-poppins font-normal text-gray-700 ">Nama</label>
