@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardJadwalController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardProfileController;
 use App\Http\Controllers\HomeController;
@@ -42,6 +43,8 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 Route::resource('dashboard/profil', DashboardProfileController::class)->middleware('konselor');
 
 Route::resource('/profile', ProfileController::class)->middleware('auth');
+
+Route::resource('dashboard/jadwal', DashboardJadwalController::class)->middleware('konselor');
 
 
 
