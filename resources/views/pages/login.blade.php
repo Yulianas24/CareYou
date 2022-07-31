@@ -13,10 +13,10 @@
 <body>
 
     <div
-        class="flex flex-col justify-center p-2 w-screen h-screen tablet:p-0 laptop:grid laptop:grid-cols-7 laptop:grid-rows-none">
+        class="flex flex-col justify-center p-2 w-screen min-h-screen tablet:p-0 laptop:grid laptop:grid-cols-7 laptop:grid-rows-none">
 
         {{-- ?: CareYou  Container --}}
-        <div class="laptop:col-span-3 laptop:bg-blue-901 laptop:relative">
+        <div class=" laptop:col-span-3 laptop:bg-blue-901 laptop:relative">
             <div
                 class="flex justify-between mb-12 px-8
                  flex-col laptop:px-0 laptop:mb-0 laptop:h-32 laptop:absolute laptop:top-44 laptop:left-16">
@@ -32,7 +32,6 @@
                 class="hidden laptop:block laptop:absolute laptop:right-0">
             <img src="/asset/theme/Ellipse2.svg" alt="" srcset=""
                 class="hidden laptop:block laptop:absolute laptop:left-0 laptop:bottom-0">
-
         </div>
         {{-- ?: Login Container --}}
         <div class="flex justify-center items-center laptop:col-span-4">
