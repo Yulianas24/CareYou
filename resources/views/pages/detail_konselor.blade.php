@@ -13,8 +13,13 @@
 
 <div class="w-3/4 h-full -mt-18 ">
   <div class="flex w-full flex-row ">
+    @if ($konselor->image)
     <img class="h-52 rounded-2xl" src="{{ asset('storage/'.$konselor->image) }}" alt="">
-    <div class="grid content-end ml-6">
+    @else
+    <img src="/asset/img/cardKonselor.png" alt="" srcset="">
+    @endif
+    
+    <div class="grid content-end ml-10">
       <h1 class="font-roboto font-semibold text-2xl mb-6">{{ $konselor->name }}</h1>
       <a href="#">
         <figcaption class="flex items-center bg-blue-902 h-10 px-7 text-white rounded-lg hover:cursor-pointer font-semibold">Konsultasi Sekarang
