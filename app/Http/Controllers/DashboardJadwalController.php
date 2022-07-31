@@ -50,7 +50,7 @@ class DashboardJadwalController extends Controller
 
         if ($request->mulai_jam >= $request->hingga_jam) {
             return redirect('/dashboard/jadwal')->with('error', 'Masukan jam dengan benar!!');
-        } elseif (jadwalCounselor::where('hari', $request->hari)->exists()) {
+        } elseif (jadwalCounselor::where('user_id', $request->user_id)->where('hari', $request->hari)->exists()) {
             return redirect('/dashboard/jadwal')->with('error', 'Hari ' . $request->hari . ' sudah diambil !!');
         } else {
             jadwalCounselor::create($validatedData);
@@ -102,7 +102,7 @@ class DashboardJadwalController extends Controller
 
         if ($request->mulai_jam >= $request->hingga_jam) {
             return redirect('/dashboard/jadwal')->with('error', 'Masukan jam dengan benar!!');
-        } elseif ($data->hari != $request->hari && jadwalCounselor::where('hari', $request->hari)->exists()) {
+        } elseif ($data->hari != $request->hari && jadwalCounselor::where('user_id', $data->user_id)->where('hari', $request->hari)->exists()) {
             return redirect('/dashboard/jadwal')->with('error', 'Hari ' . $request->hari . ' sudah diambil !!');
         } else {
             jadwalCounselor::where('id', $id)->update($validatedData);
