@@ -59,10 +59,12 @@
       <div class="pb-5">
         <h2 class="text-base font-semibold mb-5">Jadwal:</h1>
           <ul class="list-disc text-sm font-normal">
-        
-            <li class="flex" font-roboto=""><img class="mx-5" src="/asset/icons/checklist.svg" alt=""></li>
-            <li class="flex" font-roboto=""><img class="mx-5" src="/asset/icons/checklist.svg" alt=""></li>
-            <li class="flex" font-roboto=""><img class="mx-5" src="/asset/icons/checklist.svg" alt=""></li>
+            @foreach ($konselor->jadwal as $item)
+            <li class="flex" font-roboto=""><img class="mx-5" src="/asset/icons/checklist.svg" alt="">
+              {{ $item->hari }}, pukul {{ ($item->mulai_jam<10)? '0'.$item->mulai_jam :  $item->mulai_jam}}:00 - {{ ($item->hingga_jam<10)? '0'.$item->hingga_jam :  $item->hingga_jam}}:00
+            </li>
+            @endforeach
+            
         
             
           </ul>

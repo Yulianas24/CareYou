@@ -40,7 +40,22 @@ class DashboardJadwalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'user_id' => 'required',
+            'hari' => 'required',
+            'mulai_jam' => 'required',
+            'hingga_jam' => 'required',
+
+        ]);
+
+        if ($request->mulai_jam >= $request->hingga_jam) {
+            return redirect('/dashboard/jadwal')->with('error', 'Masukan jam dengan benar!!');
+        } elseif (jadwalCounselor::where('hari', $request->hari)->exists()) {
+            return redirect('/dashboard/jadwal')->with('error', 'Hari ' . $request->hari . ' sudah diambil !!');
+        } else {
+            jadwalCounselor::create($validatedData);
+            return redirect('/dashboard/jadwal')->with('success', 'Jadwal berhasil ditambahkan!');
+        }
     }
 
     /**
@@ -60,9 +75,11 @@ class DashboardJadwalController extends Controller
      * @param  \App\Models\jadwalCounselor  $jadwalCounselor
      * @return \Illuminate\Http\Response
      */
-    public function edit(jadwalCounselor $jadwalCounselor)
+    public function edit($id)
     {
-        //
+        return view('dashboard.jadwal.edit', [
+            'jadwal' => jadwalCounselor::where('id', $id)->get()[0],
+        ]);
     }
 
     /**
@@ -72,9 +89,25 @@ class DashboardJadwalController extends Controller
      * @param  \App\Models\jadwalCounselor  $jadwalCounselor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, jadwalCounselor $jadwalCounselor)
+    public function update(Request $request, $id)
     {
         //
+        $data = jadwalCounselor::where('id', $id)->get()[0];
+        $validatedData = $request->validate([
+            'hari' => 'required',
+            'mulai_jam' => 'required',
+            'hingga_jam' => 'required',
+
+        ]);
+
+        if ($request->mulai_jam >= $request->hingga_jam) {
+            return redirect('/dashboard/jadwal')->with('error', 'Masukan jam dengan benar!!');
+        } elseif ($data->hari != $request->hari && jadwalCounselor::where('hari', $request->hari)->exists()) {
+            return redirect('/dashboard/jadwal')->with('error', 'Hari ' . $request->hari . ' sudah diambil !!');
+        } else {
+            jadwalCounselor::where('id', $id)->update($validatedData);
+            return redirect('/dashboard/jadwal')->with('success', 'Jadwal berhasil diubah!');
+        }
     }
 
     /**
@@ -83,8 +116,10 @@ class DashboardJadwalController extends Controller
      * @param  \App\Models\jadwalCounselor  $jadwalCounselor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(jadwalCounselor $jadwalCounselor)
+    public function destroy(Request $request)
     {
-        //
+
+        jadwalCounselor::destroy($request->id);
+        return redirect('/dashboard/jadwal')->with('success', 'jadwal sudah dihapus!');
     }
 }

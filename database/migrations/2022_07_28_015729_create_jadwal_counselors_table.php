@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->String('hari');
-            $table->time('mulai_jam');
-            $table->time('hingga_jam');
+            $table->integer('mulai_jam');
+            $table->integer('hingga_jam');
             $table->timestamps();
         });
     }
