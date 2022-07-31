@@ -28,9 +28,9 @@
 
                     <input type="file" name="image" id="image" input-photo class="hidden absolute"
                         onchange="previewImage()">
-                        @error('image')
-                                    <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
-                        @enderror
+                    @error('image')
+                        <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+                    @enderror
                     <a button-input-photo id="image"
                         class="w-full text-center cursor-pointer py-3 rounded-md font-roboto font-semibold text-blue-902 border border-blue-902 hover:bg-blue-902 hover:text-white"
                         onchange="previewImage()">Ubah
@@ -53,13 +53,13 @@
                     <div class="flex flex-col ">
                         {{-- todo:  Username --}}
                         <div class="flex w-full justify-between py-2"> <label for="userName">Username</label>
-                        @error('username')
+                            @error('username')
                                 <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
-                        @enderror
+                            @enderror
                             <div class="flex justify-start w-7/12">
                                 <input type="text" name="username" id="userName" value="{{ $user->username }}"
                                     class="bg-transparent duration-500 focus:outline-none min-w-[20px]  max-w-[75%]"
-                                    dynamis-lenght>
+                                    dynamis-lenght disabled=true>
                                 <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 cursor-pointer" edit-button>
                             </div>
                         </div>
@@ -84,19 +84,19 @@
                         {{-- todo:  Nama --}}
                         <div class="flex w-full justify-between py-2"> <label for="userName">Nama</label>
                             @error('name')
-                            <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+                                <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
                             @enderror
                             <div class="flex justify-start w-7/12">
                                 <input type="text" name="name" id="userName" value="{{ $user->name }}"
                                     class="bg-transparent duration-500 focus:outline-none min-w-[20px]  max-w-[75%]"
-                                    dynamis-lenght>
+                                    dynamis-lenght disabled=true>
                                 <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 cursor-pointer" edit-button>
                             </div>
                         </div>
                         {{-- todo:  Tanggal Lahir --}}
                         <div class="flex w-full justify-between py-2"> <label for="userName">Tanggal Lahir</label>
                             @error('tanggal_lahir')
-                                    <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+                                <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
                             @enderror
                             <div class="flex justify-start w-7/12">
                                 <input type="date" name="tanggal_lahir" id="userName"
@@ -108,7 +108,7 @@
                         {{-- todo:  Jenis Kelamin --}}
                         <div class="flex w-full justify-between py-2"> <label for="userName">Jenis Kelamin</label>
                             @error('jenis_kelamin')
-                                    <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+                                <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
                             @enderror
                             <div class="flex justify-start w-7/12">
                                 <div class="flex relative">
@@ -146,12 +146,12 @@
                         {{-- todo:  Email --}}
                         <div class="flex w-full justify-between py-2"> <label for="userName">Email</label>
                             @error('email')
-                                    <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+                                <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
                             @enderror
                             <div class="flex justify-start w-7/12">
                                 <input type="text" name="email" id="userName" value="{{ $user->email }}"
                                     class="bg-transparent duration-500 focus:outline-none min-w-[20px]  max-w-[75%]"
-                                    dynamis-lenght>
+                                    dynamis-lenght disabled=true>
                                 <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 cursor-pointer"
                                     edit-button>
                             </div>
@@ -159,12 +159,12 @@
                         {{-- todo:  Nomor Hp --}}
                         <div class="flex w-full justify-between py-2"> <label for="userName">Nomor HP</label>
                             @error('nomor_hp')
-                                    <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+                                <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
                             @enderror
                             <div class="flex justify-start w-7/12">
                                 <input type="text" name="nomor_hp" id="userName" value="{{ $user->nomor_hp }}"
                                     class="bg-transparent duration-500 focus:outline-none min-w-[20px]  max-w-[75%]"
-                                    dynamis-lenght>
+                                    dynamis-lenght disabled=true>
                                 <img src="/asset/icons/edit.svg" alt="edit-icon" class="h-6 pl-2 cursor-pointer"
                                     edit-button>
                             </div>

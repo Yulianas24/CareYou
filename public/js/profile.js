@@ -22,15 +22,15 @@ inputField.forEach((element) => {
 });
 
 inputWidth();
-
 // ?: Toggle Editing Button
-inputField.disabled = true;
 const buttonEdit = document.querySelectorAll("[edit-button]");
 let toggleFieldEdit = true;
+const containerToggleField = [];
 for (let indexButton = 0; indexButton < buttonEdit.length; indexButton++) {
+    containerToggleField.push(toggleFieldEdit);
     buttonEdit[indexButton].addEventListener("click", () => {
-        toggleFieldEdit = !toggleFieldEdit;
-        inputField[indexButton].disabled = toggleFieldEdit[indexButton];
+        containerToggleField[indexButton] = !containerToggleField[indexButton];
+        inputField[indexButton].disabled = containerToggleField[indexButton];
         inputField[indexButton].classList.toggle("border-b-2");
         inputField[indexButton].classList.toggle("border-gray-400");
     });
