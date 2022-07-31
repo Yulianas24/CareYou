@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(counselorProfile::class);
     }
+
+    public function jadwal()
+    {
+        return $this->hasMany(jadwalCounselor::class);
+    }
 }
