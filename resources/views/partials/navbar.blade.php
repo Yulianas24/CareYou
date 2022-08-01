@@ -1,7 +1,7 @@
 <nav class="duration-500 flex justify-between fixed items-center w-screen h-18 bg-transparent z-50 laptop:justify-evenly"
     id="nav">
     <img src="/asset/mainLogo.svg" alt="" srcset="" class="px-6 laptop:px-0">
-    <ul class="flex flex-col absolute py-10 top-0 duration-500 z-50 h-screen -right-105 backdrop-blur-sm bg-blue-902/90 w-2/3 tablet:w-5/12 laptop:backdrop-blur-none laptop:z-auto laptop:w-2/3 laptop:py-0 laptop:justify-evenly laptop:h-auto laptop:static laptop:top-auto laptop:right-auto laptop:bg-transparent laptop:flex-row"
+    <ul class="flex flex-col absolute py-10 top-0 duration-500 z-30 h-screen -right-105 backdrop-blur-sm bg-blue-902/90 w-2/3 tablet:w-5/12 laptop:backdrop-blur-none laptop:z-auto laptop:w-2/3 laptop:py-0 laptop:justify-evenly laptop:h-auto laptop:static laptop:top-auto laptop:right-auto laptop:bg-transparent laptop:flex-row"
         mobileBar>
         {{-- todo: Container Profile --}}
         <li class="p-4 laptop:hidden">
@@ -20,7 +20,7 @@
                     </a>
                     {{-- !: Name user --}}
                     <button id="loginText" class="peer px-1 flex text-white text-md">
-                        <span id="textLinks"> {{ auth()->user()->username }}</span>
+                        <span textLinks> {{ auth()->user()->username }}</span>
                         <svg width="20" height="20" class="ml-2 text-gray-400" fill="currentColor"
                             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -57,30 +57,30 @@
                 {{-- ?: Login Button --}}
                 <a href="/login">
                     <figure id="loginText"
-                        class="border-2 font-roboto text-white border-blue-902 py-1 px-8 rounded-lg hover:bg-blue-902 cursor-pointer duration-500 hover:text-white">
+                        class="border-2 font-roboto px-12 text-white  py-1 rounded-lg hover:bg-blue-902 cursor-pointer duration-500 hover:text-white laptop:px-8 ">
                         Login</figure>
                 </a>
                 <button href></button>
             @endauth
         </li>
-        <li class="text-white p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" id="textLinks"><a
+        <li class="text-white p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" textLinks><a
                 href="#pageHome">Home</a>
         </li>
-        <li class="text-white p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" id="textLinks"><a
+        <li class="text-white p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" textLinks><a
                 href="#pageFitur">Fitur</a>
         </li>
-        <li class="text-white p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" id="textLinks"><a
+        <li class="text-white p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" textLinks><a
                 href="#pageKonselor">Konselor</a></li>
-        <li class="text-white p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" id="textLinks"><a
+        <li class="text-white p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" textLinks><a
                 href="#pageArtikel">Artikel</a></li>
-        <li class="text-white p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" id="textLinks"><a
+        <li class="text-white p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" textLinks><a
                 href="#">Tentang
                 Kami</a></li>
     </ul>
-    <ul class="laptop:hidden flex flex-col order-1 justify-center z-50 px-8">
-        <span class="w-9 h-1 bg-white block my-1 rounded-sm" hamburger></span>
-        <span class="w-9 h-1 bg-white block my-1 rounded-sm" hamburger></span>
-        <span class="w-9 h-1 bg-white block my-1 rounded-sm" hamburger></span>
+    <ul class="laptop:hidden flex flex-col order-1 items-center justify-center z-50 px-8">
+        <span class="w-9 h-1 duration-500 bg-white block my-1 rounded-sm" hamburger></span>
+        <span class="w-9 h-1 duration-500 bg-white block my-1 rounded-sm" hamburger></span>
+        <span class="w-9 h-1 duration-500 bg-white block my-1 rounded-sm" hamburger></span>
     </ul>
 
     {{-- ?: Profile Container --}}
@@ -134,8 +134,9 @@
     @else
         {{-- ?: Login Button --}}
         <a href="/login">
-            <figure id="loginText"
-                class="border-2 font-roboto text-white border-blue-902 py-1 px-8 rounded-lg hover:bg-blue-902 cursor-pointer duration-500 hover:text-white">
+            <figure
+                class="border-2 font-roboto px-12 text-white  py-1 rounded-lg hover:bg-blue-902 cursor-pointer duration-500 hover:text-white laptop:px-8 laptop:border-blue-902"
+                loginText>
                 Login</figure>
         </a>
         <button href></button>
