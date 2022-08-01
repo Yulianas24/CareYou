@@ -1,4 +1,4 @@
-<nav class="duration-500 flex justify-between fixed items-center w-screen h-18 bg-transparent z-50 laptop:justify-evenly"
+<nav class="duration-500 flex justify-between fixed items-center w-screen h-18 bg-transparent z-30 laptop:justify-evenly"
     id="nav">
     <img src="/asset/mainLogo.svg" alt="" srcset="" class="px-6 laptop:px-0">
     <ul class="flex flex-col absolute py-10 top-0 duration-500 z-30 h-screen -right-105 backdrop-blur-sm bg-blue-902/90 w-2/3 tablet:w-5/12 laptop:backdrop-blur-none laptop:z-auto laptop:w-2/3 laptop:py-0 laptop:justify-evenly laptop:h-auto laptop:static laptop:top-auto laptop:right-auto laptop:bg-transparent laptop:flex-row"
@@ -77,10 +77,10 @@
                 href="#">Tentang
                 Kami</a></li>
     </ul>
-    <ul class="laptop:hidden flex flex-col order-1 items-center justify-center z-50 px-8">
-        <span class="w-9 h-1 duration-500 bg-white block my-1 rounded-sm" hamburger></span>
-        <span class="w-9 h-1 duration-500 bg-white block my-1 rounded-sm" hamburger></span>
-        <span class="w-9 h-1 duration-500 bg-white block my-1 rounded-sm" hamburger></span>
+    <ul class="laptop:hidden flex flex-col order-1 items-center justify-center z-40 px-8 cursor-pointer">
+        <span class="w-9 h-1 duration-500 bg-white block my-1 rounded-sm z-50" hamburger></span>
+        <span class="w-9 h-1 duration-500 bg-white block my-1 rounded-sm z-50" hamburger></span>
+        <span class="w-9 h-1 duration-500 bg-white block my-1 rounded-sm z-50" hamburger></span>
     </ul>
 
     {{-- ?: Profile Container --}}
