@@ -18,19 +18,12 @@ class DashboardJadwalController extends Controller
         //
         return view('dashboard.jadwal.index', [
             'title' => 'Jadwal',
-            'jadwal' => jadwalCounselor::where('user_id', auth()->user()->id)->get(),
+            'jadwal' => jadwalCounselor::where('user_id', auth()->user()->id)
+                ->orderByRaw("hari DESC, mulai_jam ASC")->get(),
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -47,68 +40,30 @@ class DashboardJadwalController extends Controller
             'hingga_jam' => 'required',
 
         ]);
-
         if ($request->mulai_jam >= $request->hingga_jam) {
             return redirect('/dashboard/jadwal')->with('error', 'Masukan jam dengan benar!!');
+        } elseif (jadwalCounselor::where('user_id', $request->user_id)->where('hari', $request->hari)->count() > 1) {
+            return redirect('/dashboard/jadwal')->with('error', 'Terlalu banyak jadwal untuk hari ' . $request->hari . ' !!');
         } elseif (jadwalCounselor::where('user_id', $request->user_id)->where('hari', $request->hari)->exists()) {
-            return redirect('/dashboard/jadwal')->with('error', 'Hari ' . $request->hari . ' sudah diambil !!');
+            $data = jadwalCounselor::where('user_id', $request->user_id)->where('hari', $request->hari)->get()[0];
+
+
+            if ($request->mulai_jam >= $data->mulai_jam && $request->mulai_jam <= $data->hingga_jam) {
+                return redirect('/dashboard/jadwal')->with('error', 'Sudah ada jadwal pukul ' . $request->mulai_jam . ' untuk hari ' . $request->hari . ' !!');
+            } elseif ($request->hingga_jam >= $data->mulai_jam && $request->hingga_jam <= $data->hingga_jam) {
+                return redirect('/dashboard/jadwal')->with('error', 'Sudah ada jadwal pukul ' . $request->hingga_jam . ' untuk hari ' . $request->hari . ' !!');
+            } elseif ($request->mulai_jam  <=  $data->mulai_jam && $request->hingga_jam >= $data->mulai_jam) {
+                return redirect('/dashboard/jadwal')->with('error', 'Sudah ada jadwal pukul ' . $request->hingga_jam . ' untuk hari ' . $request->hari . ' !!');
+            }
+
+            jadwalCounselor::create($validatedData);
+            return redirect('/dashboard/jadwal')->with('success', 'Jadwal berhasil ditambahkan!');
         } else {
             jadwalCounselor::create($validatedData);
             return redirect('/dashboard/jadwal')->with('success', 'Jadwal berhasil ditambahkan!');
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\jadwalCounselor  $jadwalCounselor
-     * @return \Illuminate\Http\Response
-     */
-    public function show(jadwalCounselor $jadwalCounselor)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\jadwalCounselor  $jadwalCounselor
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        return view('dashboard.jadwal.edit', [
-            'jadwal' => jadwalCounselor::where('id', $id)->get()[0],
-        ]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\jadwalCounselor  $jadwalCounselor
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-        $data = jadwalCounselor::where('id', $id)->get()[0];
-        $validatedData = $request->validate([
-            'hari' => 'required',
-            'mulai_jam' => 'required',
-            'hingga_jam' => 'required',
-
-        ]);
-
-        if ($request->mulai_jam >= $request->hingga_jam) {
-            return redirect('/dashboard/jadwal')->with('error', 'Masukan jam dengan benar!!');
-        } elseif ($data->hari != $request->hari && jadwalCounselor::where('user_id', $data->user_id)->where('hari', $request->hari)->exists()) {
-            return redirect('/dashboard/jadwal')->with('error', 'Hari ' . $request->hari . ' sudah diambil !!');
-        } else {
-            jadwalCounselor::where('id', $id)->update($validatedData);
-            return redirect('/dashboard/jadwal')->with('success', 'Jadwal berhasil diubah!');
-        }
-    }
 
     /**
      * Remove the specified resource from storage.

@@ -35,9 +35,6 @@
                 <td class="py-2">{{ ($item->mulai_jam<10)? '0'.$item->mulai_jam : $item->mulai_jam }}:00</td>
                 <td class="py-2">{{ ($item->hingga_jam<10)? '0'.$item->hingga_jam : $item->hingga_jam }}:00</td>
                 <td class="py-2 text-center">
-                    <a href="/dashboard/jadwal/{{ $item->id }}/edit" >
-                        <button class="bg-yellow-500 hover:bg-yellow-700  text-white py-1 px-2 rounded-sm">Edit</button>
-                    </a>
                     <form action="/dashboard/jadwal/{{ $item->hari }}" method="POST" class="inline-flex">
                         @method('delete')
                         @csrf
