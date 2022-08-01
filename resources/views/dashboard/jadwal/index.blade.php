@@ -8,16 +8,16 @@
 </h1>
 <div class="w-32 h-1 bg-blue-700 dark:bg-blue-800 mt-3 mb-12"></div>
 
-<div class="grid laptop:grid-cols-5 gap-4 w-full h-auto ">
+<div class="grid laptop:grid-cols-6 gap-4 w-full h-auto ">
 
 
     {{-- Tampilkan Jadwal --}}
-    <div class="w-full h-auto col-span-3 dark:bg-gray-900 rounded-2xl shadow-2xl">
+    <div class="w-full h-auto col-span-4 dark:bg-gray-900 rounded-2xl shadow-2xl">
         <h1 class="text-2xl  text-center font-semibold text-gray-800 dark:text-white my-5">
             Jadwal Tersedia
         </h1>
 
-        <table class="table-fixed w-full  dark:text-white">
+        <table class="table-fixed w-full mb-4 dark:text-white">
             <thead>
             <tr class="border-b border-gray-500">
                 <th class=" p-1 w-10" scope="col">No</th>
@@ -53,7 +53,7 @@
             </tbody>
         </table>
         @if (session()->has('success'))  
-        <div id="id01" class="alert w-3/4 bg-green-200 rounded-md py-2 ml-5 px-6 mt-4 text-base text-green-800 inline-flex items-center alert-dismissible fade show" role="alert">
+        <div id="id01" class="alert mb-4 bg-green-200 rounded-md py-2 ml-5 px-6 mt-4 text-base text-green-800 inline-flex items-center alert-dismissible fade show" role="alert">
 
             <p>{{ session('success') }}</p>
             <button type="button" class=" w-7 h-7 ml-auto text-green-800 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"> <span onclick="document.getElementById('id01').style.display='none'"> &times;</button>
@@ -61,7 +61,7 @@
 
         @endif
         @if (session()->has('error'))  
-        <div id="id01" class="alert w-3/4 bg-red-200 rounded-md py-2 px-6 ml-5 mt-4 text-base text-green-red inline-flex items-center alert-dismissible fade show" role="alert">
+        <div id="id01" class="alert mb-4 bg-red-200 rounded-md py-2 px-6 ml-5 mt-4 text-base text-green-red inline-flex items-center alert-dismissible fade show" role="alert">
 
             <p>{{ session('error') }}</p>
             <button type="button" class=" w-7 h-7 ml-auto text-red-800 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"> <span onclick="document.getElementById('id01').style.display='none'"> &times;</button>
