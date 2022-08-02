@@ -3,7 +3,7 @@
 
 @section('container')
 <div class="grid justify-items-center h-full w-full">
-  <div class="w-screen h-52 absolute -z-50">
+<div class="w-screen h-52 absolute -z-50">
     @include('/template/templateMain')
 </div>
 {{-- !: Caption --}}
@@ -13,20 +13,14 @@
         <h3 class="font-poppins text-gray-500 mt-6">Cari dan pilih konselor yang cocok dan sesuai dengan permasalahanmu</h3>
     </figure>
 </div>
+<div class=" w-full">
+  <div class="mt-10 mx-24">
 
-  <div class="m-10">
-
-    <h1 class="font-roboto font-semibold text-2xl mb-3">Konselor CareYou</h1>
+    <h1 class="font-roboto font-semibold text-2xl mb-3">{{ $title }}</h1>
     <figure class="h-1 w-48 bg-blue-700 mb-5"></figure>
     {{-- Pencarian --}}
     <div class=" w-1/2 mb-5">
-      <form class="flex items-center" action="/posts">   
-        @if (request('category'))
-            <input type="hidden" name="category" value="{{ request('category') }}">
-        @endif
-        @if (request('user'))
-            <input type="hidden" name="user" value="{{ request('user') }}">
-        @endif
+      <form class="flex items-center" action="/konselor">   
         <label for="simple-search" class="sr-only">Search</label>
         <div class="relative w-full"> 
             <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">

@@ -17,16 +17,20 @@ class KonselorController extends Controller
     public function index()
     {
         $konselor = User::where('level', 'konselor')->with('profile')->get();
-
         $items = collect();
         for ($i = 0; $i < $konselor->count(); $i++) {
             $data = $konselor[$i]->profile->penanganan_masalah;
             $data = json_decode($data, true);
             $items->push($data);
         }
+        $keyword = '';
+        if (request('search')) {
+            $keyword = request('search');
+        }
         return view('pages.konselor', [
             "title" => "konselor",
-            "konselor" => User::where('level', 'konselor')->with('profile')->paginate(9),
+            "konselor" => User::where('level', 'konselor')->with('profile')
+                ->where('name', 'like', "{$keyword}%")->paginate(9),
             'masalah' => $items,
         ]);
     }
