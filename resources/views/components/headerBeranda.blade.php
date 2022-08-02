@@ -9,7 +9,8 @@
         {{-- ?: Sub Container --}}
         <div class="relative w-[90vw] laptop:w-105 laptop:h-80">
             {{-- ?: Text Header --}}
-            <figcaption class="text-white font-roboto font-semibold text-center text-3xl tablet:5xl laptop:text-6xl">Cek
+            <figcaption
+                class="text-white font-roboto font-semibold text-center text-2xl tablet:text-5xl laptop:text-6xl">Cek
                 Kesehatan
                 Mentalmu
                 dan
