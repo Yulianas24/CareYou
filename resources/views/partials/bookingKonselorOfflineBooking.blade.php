@@ -5,8 +5,7 @@
         {{-- !: Header --}}
         <div class="flex w-full justify-between">
             <h1 class="font-roboto text-xl font-medium">Pilih Waktu Konsultasi</h1>
-            <img src="/asset/icons/closeIcon.svg" alt="close icon" class="h-8 pr-2 cursor-pointer"
-                close-pop-up-booking-offlinne>
+            <img src="/asset/icons/closeIcon.svg" alt="close icon" class="h-8 pr-2 cursor-pointer" close-pop-up-booking>
         </div>
 
         {{-- !: Booking Konselor --}}
