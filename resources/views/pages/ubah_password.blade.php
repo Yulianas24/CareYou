@@ -39,9 +39,8 @@
               class=" mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
               focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 "
               required>
-            @error('ubah_password')
-                <p class="block text-xs font-poppins font-normal text-pink-700 "
-                    style="margin-bottom: -20px ">{{ $message }}</p>
+            @error('password_baru')
+                <p class="block text-xs font-poppins font-normal text-pink-700">{{ $message }}</p>
             @enderror
         </div>
 
@@ -53,9 +52,11 @@
               focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 "
               required>
             @error('ubah_password')
-                <p class="block text-xs font-poppins font-normal text-pink-700 "
-                    style="margin-bottom: -20px ">{{ $message }}</p>
+                <p class="block text-xs font-poppins font-normal text-pink-700">{{ $message }}</p>
             @enderror
+            @if (session()->has('error2'))
+                <p class="block text-xs font-poppins font-normal text-pink-700">{{ session('error2') }}</p>  
+            @endif
             <button type="submit"
             class="bg-blue-902 py-2 mb-5 px-6 mt-5 truncate rounded-lg text-white font-poppins laptop:mb-0">
             Ubah Password
