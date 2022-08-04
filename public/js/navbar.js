@@ -84,10 +84,6 @@ hamburger.forEach((n) => {
         mobileBar.classList.toggle("-right-105");
         mobileBar.classList.toggle("right-0");
 
-        for (let i = 0; i < hamburger.length; i++) {
-            hamburger[1].classList.toggle("mr-4");
-        }
-
         if (
             mobileBar.classList.contains("right-0") &&
             classNavbar.contains("bg-white")
