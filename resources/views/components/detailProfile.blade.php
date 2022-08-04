@@ -66,7 +66,7 @@
                         {{-- todo:  Password --}}
                         <div class="flex w-full justify-between py-2"> <label for="userName">Password</label>
                             <div class="flex justify-start w-7/12">
-                                <a href="#" class="italic font-semibold text-blue-700">ubah password</a>
+                                <a href="/ubahPassword" class="italic font-semibold text-blue-700">ubah password</a>
                             </div>
                         </div>
                     </div>

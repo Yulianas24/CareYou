@@ -13,6 +13,7 @@ use App\Http\Controllers\DashboardProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KonselorController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UbahPasswordController;
 use Clockwork\Support\Twig\ProfilerClockworkDumper;
 
 /*
@@ -42,33 +43,23 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 
 Route::resource('dashboard/profil', DashboardProfileController::class)->middleware('konselor');
 
-Route::resource('/profile', ProfileController::class)->middleware('auth');
-
 Route::resource('dashboard/jadwal', DashboardJadwalController::class)->middleware('konselor');
 
 
 
-
-Route::get('/about', function () {
-    return view('pages.about', [
-        "title" => "About",
-        "name" => "Yulian",
-        "email" => "yulianas1945@gmail.com"
-    ]);
-});
+Route::resource('/profile', ProfileController::class)->middleware('auth');
+Route::resource('/ubahPassword', UbahPasswordController::class)->middleware('auth');
 
 
 Route::get('/posts', [PostController::class, 'index']);
-
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
-
-
 Route::get('/categories', function () {
     return view('pages.categories', [
         'title' => 'Post Categories',
         'categories' => Category::all(),
     ]);
 });
+
 
 Route::get('/konselor', [KonselorController::class, 'index']);
 Route::get('/konselor/{user:username}', [KonselorController::class, 'show']);
