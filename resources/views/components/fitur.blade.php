@@ -1,4 +1,4 @@
-<div class="flex w-screen h-screen justify-center items-center" id="pageFitur">
+<div class="flex w-screen min-h-screen justify-center items-center" id="pageFitur">
     <figure class="grid-cols-2 w-10/12 h-4/5">
         <figcaption class="flex flex-col w-full">
             <h1 class="font-roboto font-medium justify-between text-3xl h-14">Fitur Care You</h1>
@@ -18,7 +18,7 @@
                     anda</p>
                 {{-- ?: Container Detail Fitur --}}
                 {{-- !: Deteksi Mandiri --}}
-                <figcaption class="flex flex-col tablet:py-6 laptop:py-7">
+                <figcaption class="flex flex-col py-4 tablet:py-6 laptop:py-7">
                     <picture class="flex items-center">
                         <img src="/asset/icons/microscope.svg" alt="microscope" srcset="" class="h-12 w-12">
                         <h3 class="font-roboto font-medium text-xl ml-4">Deteksi Mandiri</h3>
@@ -30,7 +30,7 @@
                         dengan cepat</p>
                 </figcaption>
                 {{-- !: Cari Dan Booking Konselor --}}
-                <figcaption class="flex flex-col tablet:py-6 laptop:py-7">
+                <figcaption class="flex flex-col py-4 tablet:py-6 laptop:py-7">
                     <picture class="flex items-center">
                         <img src="/asset/icons/search.svg" alt="microscope" srcset="" class="h-12 w-12">
                         <h3 class="font-roboto font-medium text-xl ml-4">Cari dan Booking Konselor</h3>
@@ -39,7 +39,7 @@
                         CareYou dengan mudah dan praktis</p>
                 </figcaption>
                 {{-- !: Konsultasi --}}
-                <figcaption class="flex flex-col tablet:py-6 laptop:py-7">
+                <figcaption class="flex flex-col py-4 tablet:py-6 laptop:py-7">
                     <picture class="flex items-center">
                         <img src="/asset/icons/human.svg" alt="microscope" srcset="" class="h-12 w-12">
                         <h3 class="font-roboto font-medium text-xl ml-4">Konsultasi</h3>
