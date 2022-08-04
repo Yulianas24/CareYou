@@ -53,7 +53,6 @@ class KonselorController extends Controller
         $data = $user->profile->penanganan_masalah;
 
         $data = json_decode($data, true);
-
         return view('pages.detail_konselor', [
             'title' => 'Detail Konselor',
             'konselor' => $user,
