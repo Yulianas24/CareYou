@@ -8,7 +8,6 @@ const classNavbar = navbar.classList;
 const classLoginText = loginText.classList;
 const laptopScreen = window.innerWidth >= 1024;
 const mobileScreen = window.innerWidth < 1024;
-const mobileScreenHeight = window.innerHeight < 450;
 function screenNavbarActive() {
     if (laptopScreen) {
         classLoginText.remove("text-white");

@@ -97,7 +97,7 @@
                 @endif
             </a>
             {{-- !: Name user --}}
-            <button id="loginText" class="peer px-1 flex text-white text-md">
+            <button loginText class="peer px-1 flex text-white text-md">
                 <span id="textLinks"> {{ auth()->user()->username }}</span>
                 <svg width="20" height="20" class="ml-2 text-gray-400" fill="currentColor" viewBox="0 0 1792 1792"
                     xmlns="http://www.w3.org/2000/svg">
