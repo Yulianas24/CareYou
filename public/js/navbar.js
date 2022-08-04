@@ -8,7 +8,6 @@ const classNavbar = navbar.classList;
 const classLoginText = loginText.classList;
 const laptopScreen = window.innerWidth >= 1024;
 const mobileScreen = window.innerWidth < 1024;
-const mobileScreenHeight = window.innerHeight < 450;
 function screenNavbarActive() {
     if (laptopScreen) {
         classLoginText.remove("text-white");
@@ -84,10 +83,6 @@ hamburger.forEach((n) => {
     n.addEventListener("click", () => {
         mobileBar.classList.toggle("-right-105");
         mobileBar.classList.toggle("right-0");
-
-        for (let i = 0; i < hamburger.length; i++) {
-            hamburger[1].classList.toggle("mr-4");
-        }
 
         if (
             mobileBar.classList.contains("right-0") &&
