@@ -1,6 +1,12 @@
 @extends('layouts.pages')
 
 @section('container')
+
+    @if (session()->has('error'))
+        <script>
+            alert("Sudah Di booking!");
+        </script>
+    @endif
     {{-- ?: Template --}}
     <div class="flex h-52 w-screen">
         <div class="w-screen h-52 -z-50 absolute"> @include('/template/templateMain')</div>
@@ -20,10 +26,15 @@
                 {{-- !: Name and booking container --}}
                 <div class="flex flex-col w-full h-full justify-end items-start tablet:pl-12">
                     <h1 class="font-roboto font-semibold text-2xl my-1">{{ $konselor->name }}</h1>
-                    
+                    @if ($status == 'booked')
+                    <button class="bg-green-800 rounded-md py-2 px-6 my-1 text-white font-roboto tablet:mt-8"
+                        button-booking disabled>Booked</button>
+                    @else
                     <button class="bg-blue-902 rounded-md py-2 px-6 my-1 text-white font-roboto tablet:mt-8"
                         button-booking>Konsultasi
                         Sekarang</button>
+                    @endif
+                    
                 </div>
             </div>
         </div>
@@ -112,7 +123,7 @@
         
         @csrf
         <input type="hidden" name="konselor_id" value="{{ $konselor->id }}">
-        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+        <input type="hidden" name="user_id" value="{{ auth()->user()? auth()->user()->id: '' }}">
         <input type="hidden" name="keterangan" value="mengajukan">
         <input type="hidden" name="username" value="{{ $konselor->username }}">
         @include('/partials/bookingKonselor')

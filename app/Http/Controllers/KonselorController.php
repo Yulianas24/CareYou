@@ -52,12 +52,20 @@ class KonselorController extends Controller
     {
         //
         $data = $user->profile->penanganan_masalah;
-
         $data = json_decode($data, true);
+
+        if (Booking::where(['konselor_id' => $user->id, 'user_id' => auth()->user()->id])->get()->count() != null) {
+            $status = 'booked';
+        } else {
+            $status = '';
+        }
+
+
         return view('pages.detail_konselor', [
             'title' => 'Detail Konselor',
             'konselor' => $user,
             'masalah' => $data,
+            'status' => $status,
         ]);
     }
 
@@ -82,6 +90,10 @@ class KonselorController extends Controller
             'metode' => 'required',
             'keterangan' => 'required'
         ]);
+        $check = Booking::where(['hari' => $request->hari, 'jam' => $request->jam])->get()->count();
+        if ($check != null) {
+            return redirect('/konselor/' . $request->username)->with('error', 'hari dan jam sudah di booking');
+        }
 
         Booking::create($validated_data);
         return redirect('/konselor/' . $request->username)->with('success', 'Booking Berhasil !');
