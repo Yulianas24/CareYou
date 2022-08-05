@@ -63,3 +63,4 @@ Route::get('/categories', function () {
 
 Route::get('/konselor', [KonselorController::class, 'index']);
 Route::get('/konselor/{user:username}', [KonselorController::class, 'show']);
+Route::post('/konselor/{user:username}/book', [KonselorController::class, 'booking'])->middleware('auth');

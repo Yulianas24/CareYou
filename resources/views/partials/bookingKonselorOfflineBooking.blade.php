@@ -9,13 +9,13 @@
         </div>
 
         {{-- !: Booking Konselor --}}
-        <form action="" class="flex flex-col justify-evenly h-full">
+        
             {{-- Hari --}}
             <div class="flex flex-col">
                 <h3 class="font-roboto py-2 text-lg font-medium border-b-2 border-blue-902 w-fit pr-4">Hari</h3>
                 <p class="font-roboto text-sm py-2 ">Pilih Hari Konsultasi</p>
                 {{-- todo: Jam --}}
-                <select name="test" id="mySelect" class="border-2 border-gray-300 rounded-lg py-2 w-full px-4" onchange="myFunction()">
+                <select name="hari" id="mySelect" class="border-2 border-gray-300 rounded-lg py-2 w-full px-4" onchange="myFunction()" required>
                     <option value="" selected hidden>Pilih hari</option>
 
                     @foreach ($konselor->jadwal->unique('hari') as $item)
@@ -36,7 +36,7 @@
                 <h3 class="font-roboto py-2 text-lg font-medium border-b-2 border-blue-902 w-fit pr-4">Jam</h3>
                 <p class="font-roboto text-sm py-2 ">Pilih Jam Konsultasi</p>
                 {{-- todo: Tanggal --}}
-                <select name="" id="jam" class="border-2 border-gray-300 rounded-lg py-2 w-full px-4">
+                <select name="jam" id="jam" class="border-2 border-gray-300 rounded-lg py-2 w-full px-4" required>
                     {{-- <option value="" selected hidden>Pilih jam</option>
                         @for ($i = $konselor->jadwal[0]->mulai_jam; $i < $konselor->jadwal[0]->hingga_jam; $i++)
                             @if ($i<10)
@@ -49,7 +49,7 @@
                 
             </div>
             <button type="submit" class="font-roboto bg-blue-902 py-2 my-2 rounded-lg text-white">Pilih Waktu</button>
-        </form>
+      
     </div>
 </div>
 

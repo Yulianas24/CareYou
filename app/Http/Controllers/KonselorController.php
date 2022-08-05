@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
 
 class KonselorController extends Controller
 {
@@ -58,5 +59,31 @@ class KonselorController extends Controller
             'konselor' => $user,
             'masalah' => $data,
         ]);
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function booking(Request $request)
+    {
+        if (auth()->user()->level == 'konselor') {
+            return 'Login sebagai konseli untuk melakukan konsultasi';
+        }
+
+        $validated_data = $request->validate([
+            'user_id' => 'required',
+            'konselor_id' => 'required',
+            'hari' => 'required',
+            'jam' => 'required',
+            'metode' => 'required',
+            'keterangan' => 'required'
+        ]);
+
+        Booking::create($validated_data);
+        return redirect('/konselor/' . $request->username)->with('success', 'Booking Berhasil !');
     }
 }

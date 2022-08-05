@@ -20,6 +20,7 @@
                 {{-- !: Name and booking container --}}
                 <div class="flex flex-col w-full h-full justify-end items-start tablet:pl-12">
                     <h1 class="font-roboto font-semibold text-2xl my-1">{{ $konselor->name }}</h1>
+                    
                     <button class="bg-blue-902 rounded-md py-2 px-6 my-1 text-white font-roboto tablet:mt-8"
                         button-booking>Konsultasi
                         Sekarang</button>
@@ -106,9 +107,18 @@
     </div>
 
     {{-- ?: Popup Booking Konselor --}}
+    <form action="/konselor/{{ $konselor->username }}/book" method="post">
     <div class="hidden fixed top-0 w-screen z-50 h-screen items-center justify-center" pop-up-container>
+        
+        @csrf
+        <input type="hidden" name="konselor_id" value="{{ $konselor->id }}">
+        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+        <input type="hidden" name="keterangan" value="mengajukan">
+        <input type="hidden" name="username" value="{{ $konselor->username }}">
         @include('/partials/bookingKonselor')
         @include('/partials/bookingKonselorOfflineBooking')
+        
     </div>
+    </form>
     <script src="{{ asset('js/detailKonselor.js') }}"></script>
 @endsection
