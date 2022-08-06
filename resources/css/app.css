@@ -6,6 +6,10 @@
 @tailwind utilities;
 
 @layer base {
+    .text-outline {
+        text-shadow: 0 0 0.1px black, 0 0 0.1px black, 0 0 0.1px black,
+            0 0 0.1px black;
+    }
     li {
         @apply font-poppins;
     }

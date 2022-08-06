@@ -1,4 +1,3 @@
-// ?: Variabel declaration
 const navbar = document.querySelector(["nav"]);
 const textLinks = document.querySelectorAll("[textLinks]");
 const loginText = document.querySelector("[loginText]");

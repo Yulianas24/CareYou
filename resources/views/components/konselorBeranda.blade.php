@@ -1,21 +1,23 @@
 <div class="absolute -z-50 w-screen h-screen">
     @include('template/templateKonselor')
 </div>
-<div class="w-screen h-screen flex flex-col justify-evenly items-center " id="pageKonselor">
+<div class="w-screen min-h-screen flex flex-col justify-evenly laptop:justify-center desktop:justify-evenly items-center "
+    id="pageKonselor">
     {{-- ?: Container Text --}}
-    <figure class="flex justify-between w-10/12 mt-20">
-        <figcaption class="flex flex-col">
-            <h1 class="font-roboto font-medium text-3xl">Konselor CareYou</h1>
-            <span class="h-0.5 w-75 bg-blue-902"></span>
-        </figcaption>
+    <figure class="flex justify-between w-full px-2 laptop:w-1/1.2 laptop:mb-20 desktop:mb-0 desktop:mt-20">
+        <h1 class="font-roboto font-medium text-3xl border-b-2 border-blue-601 ">Konselor CareYou</h1>
         <figcaption class="flex items-center cursor-pointer">
-            <a href="/konselor" class="font-roboto font-semibold text-base text-blue-902">Lihat Semua</a>
+            <a href="/konselor" class="font-roboto font-semibold text-base text-blue-601">Lihat Semua</a>
             <img src="/asset/icons/arrow_back.svg" alt="" class="bg-cover">
         </figcaption>
     </figure>
-
     {{-- ?: Card Container --}}
-    <figure class="flex w-full h-4/5 justify-evenly items-center">
-        @include('/partials/cardKonselor')
-    </figure>
+    <div class="overflow-auto w-full">
+        <figure class="flex min-w-min h-4/5 justify-evenly items-center">
+            @include('/partials/cardKonselor')
+        </figure>
+    </div>
 </div>
+
+
+<script src="{{ asset('js/navbar.js') }}"></script>
