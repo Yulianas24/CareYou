@@ -1,6 +1,6 @@
 {{-- !: Card 1 --}}
 {{-- ?: Container --}}
-<div class="h-3/4 w-94 rounded-xl shadow-lg flex flex-col items-center ">
+<div class="h-102 w-94 rounded-xl shadow-lg my-5 bg-red flex flex-col items-center laptop:w-80 desktop:w-94 ">
     {{-- ?: Sub Container --}}
     <figure class="h-94 w-full flex flex-col justify-center items-center rounded-t-xl">
         <picture class=""><img src="/asset/icons/tutorial1.svg" alt="Tutorial1" class="bg-cover h-48"></picture>
@@ -20,7 +20,7 @@
 
 {{-- !: Card 2 --}}
 {{-- ?: Container --}}
-<div class="h-3/4 w-94 rounded-xl shadow-lg flex flex-col items-center ">
+<div class="h-102 w-94 rounded-xl shadow-lg my-5 bg-red flex flex-col items-center laptop:w-80 desktop:w-94 ">
     {{-- ?: Sub Container --}}
     <figure class="h-94 w-full flex flex-col justify-center items-center rounded-t-xl">
         <picture class=""><img src="/asset/icons/tutorial2.svg" alt="Tutorial1" class="bg-cover h-48"></picture>
@@ -40,7 +40,7 @@
 
 {{-- !: Card 3 --}}
 {{-- ?: Container --}}
-<div class="h-3/4 w-94 rounded-xl shadow-lg flex flex-col items-center ">
+<div class="h-102 w-94 rounded-xl shadow-lg my-5 bg-red flex flex-col items-center laptop:w-80 desktop:w-94 ">
     {{-- ?: Sub Container --}}
     <figure class="h-94 w-full flex flex-col justify-center items-center rounded-t-xl">
         <picture class=""><img src="/asset/icons/tutorial3.svg" alt="Tutorial1" class="bg-cover h-48"></picture>
