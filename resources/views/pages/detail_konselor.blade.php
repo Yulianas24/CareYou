@@ -91,7 +91,7 @@
                 <div class="flex flex-col my-2">
                     <h3 class="font-roboto text-lg">Jadwal Konseling</h3>
                     {{-- todo: List Jadwal Konseling --}}
-                    @foreach ($konselor->jadwal as $item)
+                    @foreach ($jadwal as $item)
                         <figure class="flex">
                             <img src="/asset/icons/checklist.svg" alt="checklistIcon">
                             <figcaption class="pl-2 font-roboto">{{ $item->hari }}, pukul

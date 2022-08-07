@@ -55,7 +55,7 @@
 
 
 <script>
-    var jadwal = @json($konselor->jadwal);
+    var jadwal = @json($jadwal);
     function myFunction() {
         
         

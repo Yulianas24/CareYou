@@ -61,14 +61,13 @@ class KonselorController extends Controller
             }
         }
 
-
-
-
         return view('pages.detail_konselor', [
             'title' => 'Detail Konselor',
             'konselor' => $user,
             'masalah' => $data,
             'status' => $status,
+            'jadwal' => jadwalCounselor::where('user_id', $user->id)
+                ->orderByRaw("hari DESC, mulai_jam ASC")->get(),
         ]);
     }
 
