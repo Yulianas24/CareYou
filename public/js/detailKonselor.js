@@ -4,8 +4,7 @@ const buttonBooking = document.querySelector("[button-booking]");
 const bookingKonselor = document.querySelector("[booking-konselor]");
 const opsiKonsultasi = document.querySelector("[opsi-konsultasi]");
 const jadwalContainer = document.querySelector("[jadwal-konsultasi]");
-console.log(jadwalContainer);
-console.log(opsiKonsultasi);
+
 buttonBooking.addEventListener("click", () => {
     BookingContainer.classList.remove("hidden");
     BookingContainer.classList.add("flex");
