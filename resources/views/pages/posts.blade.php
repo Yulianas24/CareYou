@@ -28,7 +28,7 @@
   </form>
   </div>
   @if ($posts->count())
-    <div class="grid grid-cols-3 justify-items-center w-full">
+    <div class="grid laptop:grid-cols-3 justify-items-center w-full">
   
     @foreach ($posts as $item)
 
@@ -39,7 +39,7 @@
           </a>
           @else          
           <a href="/posts/{{ $item -> slug }}">
-            <img class="object-cover w-full h-60 " src="\asset\img\Image_not_available.jpg" alt="Sunset in the mountains">
+            <img class="object-cover w-full desktop:h-60 " src="\asset\img\Image_not_available.jpg" alt="Sunset in the mountains">
           </a>
           @endif
 

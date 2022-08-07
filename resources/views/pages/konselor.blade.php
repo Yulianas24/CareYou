@@ -8,13 +8,13 @@
 </div>
 {{-- !: Caption --}}
 <div class="w-screen h-52 flex items-center">
-    <figure class="flex flex-col ml-24">
+    <figure class="flex flex-col mx-4 laptop:ml-24">
         <h1 class="font-roboto font-semibold text-2xl">Pilih Konselor CareYou Yang Cocok Dengan Kamu</h1>
         <h3 class="font-poppins text-gray-500 mt-6">Cari dan pilih konselor yang cocok dan sesuai dengan permasalahanmu</h3>
     </figure>
 </div>
 <div class=" w-full">
-  <div class="mt-10 mx-24">
+  <div class="mt-10 mx-4 laptop:mx-24">
 
     <h1 class="font-roboto font-semibold text-2xl mb-3">{{ $title }}</h1>
     <figure class="h-1 w-48 bg-blue-700 mb-5"></figure>
@@ -39,12 +39,12 @@
     
       @foreach ($konselor as $item)
 
-      <div class="h-auto w-75 rounded-3xl flex flex-col bg-white justify-start shadow-xl">
+      <div class="h-auto laptop:w-75 rounded-3xl flex flex-col bg-white justify-start shadow-xl">
       
         @if ($item->image)
-        <picture ><img class="rounded-t-3xl" src="{{ asset('storage/'.$item->image) }}" alt="" srcset=""></picture>
+        <picture ><img class="rounded-t-3xl object-cover w-full h-60" src="{{ asset('storage/'.$item->image) }}" alt="" srcset=""></picture>
         @else
-        <picture><img src="/asset/img/cardKonselor.png" alt="" srcset=""></picture>
+        <picture><img class="rounded-t-3xl object-cover w-full h-60" src="/asset/img/cardKonselor.png" alt="" srcset=""></picture>
         @endif
         
         <figure class="text-center font-roboto font-medium text-lg">
