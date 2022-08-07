@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use App\Models\jadwalCounselor;
 
 class KonselorController extends Controller
 {
@@ -53,12 +54,14 @@ class KonselorController extends Controller
         //
         $data = $user->profile->penanganan_masalah;
         $data = json_decode($data, true);
-
-        if (Booking::where(['konselor_id' => $user->id, 'user_id' => auth()->user()->id])->get()->count() != null) {
-            $status = 'booked';
-        } else {
-            $status = '';
+        $status = '';
+        if (auth()->user()) {
+            if (Booking::where(['konselor_id' => $user->id, 'user_id' => auth()->user()->id])->get()->count() != null) {
+                $status = 'booked';
+            }
         }
+
+
 
 
         return view('pages.detail_konselor', [

@@ -55,58 +55,32 @@
 
 
 <script>
+    var jadwal = @json($konselor->jadwal);
     function myFunction() {
+        
+        
         var x = document.getElementById("mySelect").value;
         var select = document.getElementById("jam");  
-        switch(x) {
-        case 'Senin':
-            while (select.options.length > 0) {
-                select.remove(0);
-            }
-            var y = document.getElementById("Senin_mulai").innerHTML;
-            var z = document.getElementById("Senin_hingga").innerHTML;
-            break;
-        case 'Selasa':
-            var y = document.getElementById("Selasa_mulai").innerHTML;
-            var z = document.getElementById("Selasa_hingga").innerHTML;
-            break;
-        case 'Rabu':
-            var y = document.getElementById("Rabu_mulai").innerHTML;
-            var z = document.getElementById("Rabu_hingga").innerHTML;
-    
-            break;
-        case 'Kamis':
-            var y = document.getElementById("Kamis_mulai").innerHTML;
-            var z = document.getElementById("Kamis_hingga").innerHTML;
-            break;
-        case 'Jumat':
-            var y = document.getElementById("Jumat_mulai").innerHTML;
-            var z = document.getElementById("Jumat_hingga").innerHTML;
-            break;
-        case 'Sabtu':
-            var y = document.getElementById("Sabtu_mulai").innerHTML;
-            var z = document.getElementById("Sabtu_hingga").innerHTML;
-            break;
-        case 'Minggu':
-            var y = document.getElementById("Minggu_mulai").innerHTML;
-            var z = document.getElementById("Minggu_hingga").innerHTML;
-            break;
-        default:
-            
-        }
-
         while (select.options.length > 0) {
                 select.remove(0);
+                }
+
+        jadwal.forEach(element => {
+            if(x === element.hari) {
+                var i = element.mulai_jam;
+                for(i;i<=element.hingga_jam;i++){  
+                    if (i<10) {
+                        select.options[select.options.length] = new Option('0'+i+':00',i); 
+                    } else {
+                        select.options[select.options.length] = new Option(i+':00',i);  
+                    }
+                    
+                } 
             }
-        var i=parseInt(y);
-        for(i;i<=z;i++){  
-            if (i<10) {
-                select.options[select.options.length] = new Option('0'+i+':00',i); 
-            } else {
-                select.options[select.options.length] = new Option(i+':00',i);  
-            }
+
             
-        } 
+            
+        });
         
     }
 
