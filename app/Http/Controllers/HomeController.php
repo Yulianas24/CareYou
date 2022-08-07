@@ -13,12 +13,14 @@ class HomeController extends Controller
 
         $items = '';
         if (User::where('level', 'konselor')->with('profile') != null) {
-            $konselor = User::where('level', 'konselor')->with('profile')->take(3)->latest()->get();
+            $konselor = User::where('level', 'konselor')->with('profile')->latest()->paginate(3);
             $items = collect();
             for ($i = 0; $i < 3; $i++) {
-                $data = $konselor[$i]->profile->penanganan_masalah;
-                $data = json_decode($data, true);
-                $items->push($data);
+                if ($konselor[$i] != null) {
+                    $data = $konselor[$i]->profile->penanganan_masalah;
+                    $data = json_decode($data, true);
+                    $items->push($data);
+                }
             }
         }
 

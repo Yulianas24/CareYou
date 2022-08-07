@@ -35,11 +35,11 @@
         <div class="transition-duration: 150ms max-w-sm rounded overflow-hidden bg-gray-100 hover:bg-gray-200 my-5 shadow-lg hover:shadow-xl">
           @if ($item->image)
           <a href="/posts/{{ $item -> slug }}">
-            <img class="w-full" src="{{ asset('storage/' . $item->image) }}" alt="Sunset in the mountains">
+            <img class="object-cover w-full h-60 " src="{{ asset('storage/' . $item->image) }}" alt="Sunset in the mountains">
           </a>
           @else          
           <a href="/posts/{{ $item -> slug }}">
-            <img class="w-full" src="\asset\img\Image_not_available.jpg" alt="Sunset in the mountains">
+            <img class="object-cover w-full h-60 " src="\asset\img\Image_not_available.jpg" alt="Sunset in the mountains">
           </a>
           @endif
 
