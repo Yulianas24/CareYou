@@ -4,7 +4,7 @@
 
     @if (session()->has('error'))
         <script>
-            alert("Sudah Di booking!");
+            alert("{{ session('error') }}");
         </script>
     @endif
     {{-- ?: Template --}}
@@ -26,7 +26,7 @@
                 {{-- !: Name and booking container --}}
                 <div class="flex flex-col w-full h-full justify-end items-start tablet:pl-12">
                     <h1 class="font-roboto font-semibold text-2xl my-1">{{ $konselor->name }}</h1>
-                    @if (auth()->user() != null && auth()->user()->booked != null && auth()->user()->booked->keterangan == 'mengajukan')
+                    @if (auth()->user() != null && auth()->user()->booked != null && auth()->user()->booked->keterangan == 'mengajukan' && auth()->user()->booked->konselor_id == $konselor->id )
                     <button class="bg-green-800 rounded-md py-2 px-6 my-1 text-white font-roboto tablet:mt-8"
                         button-booking disabled>Booked</button>
                     <p class="font-roboto font-semibold">Hari : {{ auth()->user()->booked->hari }}, Pukul : {{ auth()->user()->booked->jam < 10 ? '0' . auth()->user()->booked->jam : auth()->user()->booked->jam }}:00 WIB</p>

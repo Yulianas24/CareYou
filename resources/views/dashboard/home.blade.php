@@ -26,7 +26,7 @@
       <tr class="border-b border-gray-600 ">
         <td class="py-2 text-center">{{ $loop->iteration }}</td>
         <td class="py-2 w-44">{{ $item->konseli->name }}</td>
-        <td class="py-2">{{ $item->konseli->jenis_kelamin }}</td>
+        <td class="py-2 text-center">{{ $item->konseli->jenis_kelamin }}</td>
         <td class="py-2">{{ $item->hari }}</td>
         
         <td class="py-2 text-center">{{ ($item->jam<10)? '0'.$item->jam : $item->jam }}:00</td>
