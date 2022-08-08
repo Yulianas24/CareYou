@@ -3,18 +3,18 @@
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DashboardJadwalController;
-use App\Http\Controllers\DashboardPostController;
-use App\Http\Controllers\DashboardProfileController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\KonselorController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KonselorController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UbahPasswordController;
+use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\DashboardJadwalController;
 use Clockwork\Support\Twig\ProfilerClockworkDumper;
+use App\Http\Controllers\DashboardBookingController;
+use App\Http\Controllers\DashboardProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +36,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/registrasi', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/registrasi', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('konselor');
+Route::get('/dashboard', [DashboardBookingController::class, 'index'])->middleware('konselor');
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('konselor');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('konselor');
