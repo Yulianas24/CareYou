@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Booking::class, 'konselor_id');
     }
+
+    public function booked()
+    {
+        return $this->hasOne(Booking::class, 'user_id', 'id')->latestOfMany();
+    }
 }
