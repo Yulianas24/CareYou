@@ -10,11 +10,13 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KonselorController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UbahPasswordController;
+use Chatify\Http\Controllers\MessagesController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardJadwalController;
 use Clockwork\Support\Twig\ProfilerClockworkDumper;
 use App\Http\Controllers\DashboardBookingController;
 use App\Http\Controllers\DashboardProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
