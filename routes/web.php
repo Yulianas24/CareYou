@@ -37,6 +37,8 @@ Route::get('/registrasi', [RegisterController::class, 'index'])->middleware('gue
 Route::post('/registrasi', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', [DashboardBookingController::class, 'index'])->middleware('konselor');
+Route::get('/dashboard/{item:id}/selesai', [DashboardBookingController::class, 'selesai'])->middleware('konselor');
+Route::get('/dashboard/{item:id}/batal', [DashboardBookingController::class, 'batal'])->middleware('konselor');
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('konselor');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('konselor');
