@@ -63,16 +63,18 @@
                 <button href></button>
             @endauth
         </li>
-        <li class="p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" textLinks><a href="#pageHome">Home</a>
+        <li class="p-4 border-b-2 text-white border-blue-900/20 laptop:border-0 laptop:p-0 laptop:text-black" textLinks>
+            <a href="#pageHome">Home</a>
         </li>
-        <li class="p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" textLinks><a
-                href="#pageFitur">Fitur</a>
+        <li class="p-4 border-b-2 text-white border-blue-900/20 laptop:border-0 laptop:p-0 laptop:text-black" textLinks>
+            <a href="#pageFitur">Fitur</a>
         </li>
-        <li class="p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" textLinks><a
-                href="#pageKonselor">Konselor</a></li>
-        <li class="p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" textLinks><a
-                href="#pageArtikel">Artikel</a></li>
-        <li class="p-4 border-b-2 border-blue-900/20 laptop:border-0 laptop:p-0" textLinks><a href="#">Tentang
+        <li class="p-4 border-b-2 text-white border-blue-900/20 laptop:border-0 laptop:p-0 laptop:text-black" textLinks>
+            <a href="#pageKonselor">Konselor</a></li>
+        <li class="p-4 border-b-2 text-white border-blue-900/20 laptop:border-0 laptop:p-0 laptop:text-black" textLinks>
+            <a href="#pageArtikel">Artikel</a></li>
+        <li class="p-4 border-b-2 text-white border-blue-900/20 laptop:border-0 laptop:p-0 laptop:text-black" textLinks>
+            <a href="#">Tentang
                 Kami</a></li>
     </ul>
     <ul class="laptop:hidden flex flex-col order-1 items-center justify-center z-40 px-8 cursor-pointer">
