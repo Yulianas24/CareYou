@@ -74,7 +74,7 @@ class KonselorController extends Controller
     public function booking(Request $request)
     {
         if (auth()->user()->level == 'konselor') {
-            return 'Login sebagai konseli untuk melakukan konsultasi';
+            return redirect('/konselor/' . $request->username)->with('error', 'Login sebagai konseli untuk melakukan konsultasi');
         }
 
         $validated_data = $request->validate([
