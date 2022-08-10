@@ -87,7 +87,7 @@ class KonselorController extends Controller
         ]);
         $check = Booking::where(['konselor_id' => $request->konselor_id, 'hari' => $request->hari, 'jam' => $request->jam, 'keterangan' => 'mengajukan'])->get()->count();
         if ($check != null) {
-            return redirect('/konselor/' . $request->username)->with('error', 'hari dan jam sudah di booking');
+            return redirect('/konselor/' . $request->username)->with('error', "hari $request->hari jam $request->jam sudah di booking");
         } else if (Booking::where(['user_id' => $request->user_id, 'keterangan' => 'mengajukan'])->get()->count() != null) {
             return redirect('/konselor/' . $request->username)->with('error', 'Anda sudah mendaftar konsultasi di konselor lain !');
         }

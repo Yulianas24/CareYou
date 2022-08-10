@@ -1,12 +1,6 @@
 @extends('layouts.pages')
 
 @section('container')
-
-    @if (session()->has('error'))
-        <script>
-            alert("{{ session('error') }}");
-        </script>
-    @endif
     {{-- ?: Template --}}
     <div class="flex h-52 w-screen">
         <div class="w-screen h-52 -z-50 absolute"> @include('/template/templateMain')</div>
@@ -16,7 +10,7 @@
     <div class="min-h-screen w-screen flex flex-col items-center">
         {{-- !: Container Profile Konselor --}}
         <div class=" w-1/1.2 min-h-75 relative tablet:w-4/5 tablet:min-h-52">
-            <div class="flex w-full h-full flex-col items-start absolute -top-14 justify-start tablet:flex-row">
+            <div class="flex w-full h-full flex-col items-start absolute -top-6 tablet:-top-14 justify-start tablet:flex-row">
                 {{-- Image Profile --}}
                 @if ($konselor->image)
                     <img class="h-52 rounded-2xl  max-h-52" src="{{ asset('storage/' . $konselor->image) }}" alt="">
@@ -30,10 +24,27 @@
                     <button class="bg-green-800 rounded-md py-2 px-6 my-1 text-white font-roboto tablet:mt-8"
                         button-booking disabled>Booked</button>
                     <p class="font-roboto font-semibold">Hari : {{ auth()->user()->booked->hari }}, Pukul : {{ auth()->user()->booked->jam < 10 ? '0' . auth()->user()->booked->jam : auth()->user()->booked->jam }}:00 WIB</p>
+
                     @else
-                    <button class="bg-blue-902 rounded-md py-2 px-6 my-1 text-white font-roboto tablet:mt-8"
+
+                        <div class="tablet:flex tablet:mt-8">
+                            <button class="bg-blue-902 rounded-md py-2 px-6  text-white font-roboto "
                         button-booking>Konsultasi
                         Sekarang</button>
+                        @if (session('error'))
+                            <div id="id01"
+                                class="alert px-6  text-base text-red-800 inline-flex items-center w-auto alert-dismissible fade show"
+                                role="alert">
+                                <p class="align-middle">{{ session('error') }}</p>
+                                <button type="button"
+                                    class=" w-7 h-7 ml-auto text-red-800 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline"
+                                    data-bs-dismiss="alert" aria-label="Close"> <span
+                                        onclick="document.getElementById('id01').style.display='none'"> &times;</button>
+                        </div>
+                        @endif
+                        </div>
+                        
+                    
                     @endif
                     
                 </div>
@@ -103,7 +114,7 @@
                 </div>
             </div>
             {{-- !: Pengalaman Konselor --}}
-            <div class="flex flex-col w-full laptop:mt-0 laptop:w-9/12 laptop:ml-7">
+            <div class="flex flex-col w-full mt-5 laptop:mt-0 laptop:w-9/12 laptop:ml-7">
                 <h1 class="font-roboto text-xl border-b-2 border-blue-902 pb-2 pr-8 w-fit">Tentang
                     {{ $konselor->name }}</h1>
                 {{-- !: Tentang Konselor --}}
