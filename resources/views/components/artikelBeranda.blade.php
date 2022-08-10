@@ -1,4 +1,4 @@
-<div class="min-h-screen w-screen px-2 flex-col desktop:px-16">
+<div id="pageArtikel" class="min-h-screen w-screen px-2 flex-col desktop:px-16">
     <h1 class="font-roboto text-2xl border-b-2 border-blue-601 w-fit pb-3 pr-4">Artikel</h1>
     <div class="w-full flex justify-center">
         <div class="flex justify-evenly flex-wrap w-full min-h-fit desktop:w-5/6">
