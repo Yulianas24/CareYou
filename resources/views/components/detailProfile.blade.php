@@ -3,7 +3,7 @@
     {{-- ?: Form Container --}}
 
     {{-- ?: Rounded Border --}}
-    <div class="w-full m-2 border-2 rounded-lg shadow-md flex justify-center items-center">
+    <div class="w-full m-2 border-2 rounded-lg shadow-md flex justify-center items-center desktop:w-2/3">
         <form action="/profile/{{ $user->username }}" method="post" enctype="multipart/form-data"
             class="min-h-full w-full flex-col flex items-center justify-between py-3 tablet:flex-row">
             @method('put')
