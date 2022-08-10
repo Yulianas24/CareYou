@@ -1,31 +1,31 @@
 {{-- ?: Parent Container Profile --}}
-<div class="w-full h-3/4 flex justify-center items-center">
+<div class="w-full min-h-screen flex justify-center items-center">
     {{-- ?: Form Container --}}
 
     {{-- ?: Rounded Border --}}
-    <div class="h-5/6 w-3/5 border-2 rounded-lg shadow-md flex justify-center items-center">
-
+    <div class="w-full m-2 border-2 rounded-lg shadow-md flex justify-center items-center">
         <form action="/profile/{{ $user->username }}" method="post" enctype="multipart/form-data"
-            class="h-1/1.1 w-1/1.2 flex justify-between">
+            class="min-h-full w-full flex-col flex items-center justify-between py-3 tablet:flex-row">
             @method('put')
             @csrf
             {{-- !: Parent Photo Container --}}
-            <div class="h-full w-1/1.3 flex justify-center items-center border rounded-xl shadow-lg">
+            <div
+                class="h-102 w-1/1.1 flex justify-evenly items-center p-2 rounded-xl shadow-lg tablet:w-3/4 tablet:mx-3">
                 {{-- !: Children Photo Container --}}
-                <div class="h-1/1.2 w-1/1.2 flex flex-col items-center justify-between">
+                <div class="h-1/1.1 w-1/1.2 flex flex-col items-center justify-between mt-3 tablet:mt-0>
                     {{-- !: Photo --}}
-                    <input type="hidden" name="oldImage" value="{{ $user->image }}">
+                    <input type="hidden"
+                    name="oldImage" value="{{ $user->image }}">
                     @if ($user->image)
-                        <figure class="w-full h-3/4 bg-white">
-                            <img src="{{ asset('storage/' . $user->image) }}" class="imgPreview">
-                        </figure>
+                        <picture class="w-full h-full flex justify-center items-center bg-white">
+                            <img src="{{ asset('storage/' . $user->image) }}" class="imgPreview max-h-full">
+                        </picture>
                     @else
-                        <figure class=" w-full h-3/4 bg-white">
-                            <img class="imgPreview" src="" alt="">
-                        </figure>
+                        <picture class=" w-full h-full flex justify-center items-center bg-white">
+                            <img class="imgPreview max-h-full" src="" alt="">
+                        </picture>
                     @endif
                     {{-- todo:  Input Photo --}}
-
                     <input type="file" name="image" id="image" input-photo class="hidden absolute"
                         onchange="previewImage()">
                     @error('image')
@@ -36,19 +36,14 @@
                         onchange="previewImage()">Ubah
                         Foto</a>
                     <p class="text-gray-500 text-sm">Ekstensi file .JPG dan .JPEG</p>
-
-
                 </div>
             </div>
             {{-- !: Container InputText --}}
-            <div class="h-full w-1/1.3 flex flex-col justify-between">
+            <div class="h-full w-full flex flex-col justify-between p-3">
                 {{-- !: Akun Container --}}
-                <div class="flex flex-col">
+                <div class="flex flex-col my-3">
                     {{-- todo:  Header --}}
-                    <div class="flex flex-col">
-                        <h1 class="font-roboto font-semibold text-2xl">Akun</h1>
-                        <span class="h-0.5 w-2/5 bg-gray-500"></span>
-                    </div>
+                    <h1 class="font-roboto font-semibold text-2xl border-b-2 border-gray-500 w-fit pr-5">Akun</h1>
                     {{-- Text Input Container --}}
                     <div class="flex flex-col ">
                         {{-- todo:  Username --}}
@@ -73,12 +68,11 @@
                 </div>
 
                 {{-- !: Biodata Diri Container --}}
-                <div class="flex flex-col">
+                <div class="flex flex-col my-3">
                     {{-- todo:  Header --}}
-                    <div class="flex flex-col">
-                        <h1 class="font-roboto font-semibold text-2xl">Biodata Diri</h1>
-                        <span class="h-0.5 w-2/5 bg-gray-500"></span>
-                    </div>
+                    <h1 class="font-roboto font-semibold text-2xl border-b-2 border-gray-500 w-fit pr-5">Biodata
+                        Diri
+                    </h1>
                     {{-- Text Input Container --}}
                     <div class="flex flex-col ">
                         {{-- todo:  Nama --}}
@@ -135,12 +129,9 @@
                 </div>
 
                 {{-- !: Kontak Container --}}
-                <div class="flex flex-col">
+                <div class="flex flex-col my-3">
                     {{-- todo:  Header --}}
-                    <div class="flex flex-col">
-                        <h1 class="font-roboto font-semibold text-2xl">Kontak</h1>
-                        <span class="h-0.5 w-2/5 bg-gray-500"></span>
-                    </div>
+                    <h1 class="font-roboto font-semibold text-2xl border-b-2 border-gray-500 w-fit pr-5">Kontak</h1>
                     {{-- Text Input Container --}}
                     <div class="flex flex-col ">
                         {{-- todo:  Email --}}
@@ -169,11 +160,11 @@
                                     edit-button>
                             </div>
                         </div>
-
                     </div>
-                    <button type="submit"
-                        class="w-full py-3 text-center cursor-pointer rounded-md font-roboto font-semibold duration-300 text-blue-902 border border-blue-902 hover:bg-blue-902 hover:text-white">Submit</button>
                 </div>
+                {{-- todo: Button submit --}}
+                <button type="submit"
+                    class="w-full py-3 text-center cursor-pointer rounded-md font-roboto font-semibold duration-300 text-blue-902 border border-blue-902 hover:bg-blue-902 hover:text-white">Submit</button>
             </div>
         </form>
     </div>
