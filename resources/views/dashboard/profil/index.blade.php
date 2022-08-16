@@ -19,7 +19,7 @@
   <br>
 
   <div class="w-full h-full">
-    <div class="flex w-full flex-row">
+    <div class="laptop:flex w-full flex-row">
       <div class="flex-col basis-1/4 w-full h-auto">
           
         @if ($konselor->image)
@@ -68,7 +68,7 @@
           </div>
       </div>
       {{-- Tentang --}}
-      <div class="basis-3/4 w-full min-h-102 ml-3 dark:bg-gray-900 rounded-lg shadow-lg p-5 text-gray-800 dark:text-white">
+      <div class="basis-3/4 w-full min-h-102 laptop:ml-3 dark:bg-gray-900 rounded-lg shadow-lg p-5 text-gray-800 dark:text-white">
         <h1 class="text-3xl  w-auto font-semibold text-gray-800 dark:text-white">Tentang</h1>
         <div class="w-1/2 h-1 dark:bg-blue-900 bg-blue-700 mt-2 rounded-full"></div>
         <p class="text-justify">
