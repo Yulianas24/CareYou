@@ -9,80 +9,81 @@
         </div>
 
         {{-- !: Booking Konselor --}}
-        
-            {{-- Hari --}}
-            <div class="flex flex-col">
-                <h3 class="font-roboto py-2 text-lg font-medium border-b-2 border-blue-902 w-fit pr-4">Hari</h3>
-                <p class="font-roboto text-sm py-2 ">Pilih Hari Konsultasi</p>
-                {{-- todo: Jam --}}
-                <select name="hari" id="mySelect" class="border-2 border-gray-300 rounded-lg py-2 w-full px-4" onchange="myFunction()" required>
-                    <option value="" selected hidden>Pilih hari</option>
 
-                    @foreach ($konselor->jadwal->unique('hari') as $item)
-                        <option value="{{ $item->hari }}">{{ $item->hari }}</option>
-                    @endforeach
-                </select>
-                @for ($i = 0; $i < $konselor->jadwal->count(); $i++)
+        {{-- Hari --}}
+        <div class="flex flex-col">
+            <h3 class="font-roboto py-2 text-lg font-medium border-b-2 border-blue-902 w-fit pr-4">Hari</h3>
+            <p class="font-roboto text-sm py-2 ">Pilih Hari Konsultasi</p>
+            {{-- todo: Jam --}}
+            <select name="hari" id="mySelect" class="border-2 border-gray-300 rounded-lg py-2 w-full px-4"
+                onchange="myFunction()" required>
+                <option value="" selected hidden>Pilih hari</option>
+
+                @foreach ($konselor->jadwal->unique('hari') as $item)
+                    <option value="{{ $item->hari }}">{{ $item->hari }}</option>
+                @endforeach
+            </select>
+            @for ($i = 0; $i < $konselor->jadwal->count(); $i++)
                 <p id="{{ $konselor->jadwal[$i]->hari }}_mulai" hidden>{{ $konselor->jadwal[$i]->mulai_jam }}</p>
                 <p id="{{ $konselor->jadwal[$i]->hari }}_hingga" hidden>{{ $konselor->jadwal[$i]->hingga_jam }}</p>
-                @endfor
+            @endfor
 
-            </div>
+        </div>
 
-                
 
-            {{-- Tanggal --}}
-            <div class="flex flex-col">
-                <h3 class="font-roboto py-2 text-lg font-medium border-b-2 border-blue-902 w-fit pr-4">Jam</h3>
-                <p class="font-roboto text-sm py-2 ">Pilih Jam Konsultasi</p>
-                {{-- todo: Tanggal --}}
-                <select name="jam" id="jam" class="border-2 border-gray-300 rounded-lg py-2 w-full px-4" required>
-                    {{-- <option value="" selected hidden>Pilih jam</option>
+
+        {{-- Tanggal --}}
+        <div class="flex flex-col">
+            <h3 class="font-roboto py-2 text-lg font-medium border-b-2 border-blue-902 w-fit pr-4">Jam</h3>
+            <p class="font-roboto text-sm py-2 ">Pilih Jam Konsultasi</p>
+            {{-- todo: Tanggal --}}
+            <select name="jam" id="jam" class="border-2 border-gray-300 rounded-lg py-2 w-full px-4" required>
+                {{-- <option value="" selected hidden>Pilih jam</option>
                         @for ($i = $konselor->jadwal[0]->mulai_jam; $i < $konselor->jadwal[0]->hingga_jam; $i++)
-                            @if ($i<10)
+                            @if ($i < 10)
                             <option value="{{ $i }}">0{{ $i }}:00</option>
                             @else
                             <option value="{{ $i }}">{{ $i }}:00</option>
                             @endif
                         @endfor --}}
-                </select>
-                
-            </div>
-            <button type="submit" class="font-roboto bg-blue-902 py-2 my-2 rounded-lg text-white">Pilih Waktu</button>
-      
+            </select>
+
+        </div>
+        <button booking-konsultasi type="submit" class="font-roboto bg-blue-902 py-2 my-2 rounded-lg text-white">Pilih
+            Waktu</button>
+
     </div>
 </div>
 
 
 <script>
     var jadwal = @json($jadwal);
+
     function myFunction() {
-        
-        
+
+
         var x = document.getElementById("mySelect").value;
-        var select = document.getElementById("jam");  
+        var select = document.getElementById("jam");
         while (select.options.length > 0) {
-                select.remove(0);
-                }
+            select.remove(0);
+        }
 
         jadwal.forEach(element => {
-            if(x === element.hari) {
+            if (x === element.hari) {
                 var i = element.mulai_jam;
-                for(i;i<=element.hingga_jam;i++){  
-                    if (i<10) {
-                        select.options[select.options.length] = new Option('0'+i+':00',i); 
+                for (i; i <= element.hingga_jam; i++) {
+                    if (i < 10) {
+                        select.options[select.options.length] = new Option('0' + i + ':00', i);
                     } else {
-                        select.options[select.options.length] = new Option(i+':00',i);  
+                        select.options[select.options.length] = new Option(i + ':00', i);
                     }
-                    
-                } 
+
+                }
             }
 
-            
-            
-        });
-        
-    }
 
-    
+
+        });
+
+    }
 </script>
