@@ -37,15 +37,8 @@
             <h3 class="font-roboto py-2 text-lg font-medium border-b-2 border-blue-902 w-fit pr-4">Jam</h3>
             <p class="font-roboto text-sm py-2 ">Pilih Jam Konsultasi</p>
             {{-- todo: Tanggal --}}
-            <select name="jam" id="jam" class="border-2 border-gray-300 rounded-lg py-2 w-full px-4" required>
-                {{-- <option value="" selected hidden>Pilih jam</option>
-                        @for ($i = $konselor->jadwal[0]->mulai_jam; $i < $konselor->jadwal[0]->hingga_jam; $i++)
-                            @if ($i < 10)
-                            <option value="{{ $i }}">0{{ $i }}:00</option>
-                            @else
-                            <option value="{{ $i }}">{{ $i }}:00</option>
-                            @endif
-                        @endfor --}}
+            <select list-time-konselor name="jam" id="jam"
+                class="border-2 border-gray-300 rounded-lg py-2 w-full px-4" required>
             </select>
 
         </div>
@@ -77,13 +70,8 @@
                     } else {
                         select.options[select.options.length] = new Option(i + ':00', i);
                     }
-
                 }
             }
-
-
-
         });
-
     }
 </script>

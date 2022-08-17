@@ -1,6 +1,6 @@
 <div succes-booking class="hidden flex-col justify-evenly h-[431px] w-[611px] rounded-xl bg-white shadow-lg">
     {{-- ?: Succes Info --}}
-    <div class="flex px-10 flex-col items-center">
+    <div class="flex px-10 flex-col items-center border">
         <img src="/asset/icons/succesIcon.svg" alt="" class="h-[172px]">
         <h1 class="font-roboto text-4xl text-blue-601">Konselor Berhasil</h1>
     </div>

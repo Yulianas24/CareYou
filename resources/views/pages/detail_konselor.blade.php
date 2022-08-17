@@ -26,10 +26,13 @@
                         auth()->user()->booked->keterangan == 'mengajukan' &&
                         auth()->user()->booked->konselor_id == $konselor->id)
                         <button class="bg-green-800 rounded-md py-2 px-6 my-1 text-white font-roboto tablet:mt-8"
-                            button-booking disabled>Booked</button>
+                            disabled>Booked</button>
                         <p class="font-roboto font-semibold">Hari : {{ auth()->user()->booked->hari }}, Pukul :
                             {{ auth()->user()->booked->jam < 10 ? '0' . auth()->user()->booked->jam : auth()->user()->booked->jam }}:00
                             WIB</p>
+                        @if (session('error'))
+                            @include('/components/succesBooking')
+                        @endif
                     @else
                         <div class="tablet:flex tablet:mt-8">
                             <button class="bg-blue-902 rounded-md py-2 px-6  text-white font-roboto "
@@ -47,8 +50,8 @@
                                 </div>
                             @endif
                         </div>
+                    @endif
                 </div>
-                @endif
             </div>
         </div>
 
@@ -141,7 +144,6 @@
             <input type="hidden" name="username" value="{{ $konselor->username }}">
             @include('/partials/bookingKonselor')
             @include('/partials/bookingKonselorOfflineBooking')
-            @include('/components/succesBooking')
         </div>
     </form>
     <script src="{{ asset('js/detailKonselor.js') }}"></script>
