@@ -5,8 +5,8 @@
         <h1 class="font-roboto text-4xl text-blue-601">Konselor Berhasil</h1>
     </div>
     <div class="flex px-10 justify-between">
-        <button
-            class="border border-blue-901 text-white rounded-lg font-roboto font-bold py-2 px-8 bg-blue-901">Home</button>
+        <button class="border border-blue-901 text-white rounded-lg font-roboto font-bold py-2 px-8 bg-blue-901"><a
+                href="/dashboard">Home</a></button>
         <button class="border border-blue-901 text-blue-901 rounded-lg font-roboto font-bold py-2 px-4">Kirim
             Pesan</button>
     </div>
