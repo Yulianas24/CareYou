@@ -30,7 +30,8 @@
                         <p class="font-roboto font-semibold">Hari : {{ auth()->user()->booked->hari }}, Pukul :
                             {{ auth()->user()->booked->jam < 10 ? '0' . auth()->user()->booked->jam : auth()->user()->booked->jam }}:00
                             WIB</p>
-                        @if (session('error'))
+                        @if (session('success'))
+                        
                             @include('/components/succesBooking')
                         @endif
                     @else

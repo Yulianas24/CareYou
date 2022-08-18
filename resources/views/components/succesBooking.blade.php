@@ -1,8 +1,8 @@
-<div succes-booking class="hidden flex-col justify-evenly h-[431px] w-[611px] rounded-xl bg-white shadow-lg">
+<div succes-booking class="fixed top-[20%] left-[30%]  justify-evenly h-auto laptop:w-[40%] rounded-xl bg-white shadow-2xl p-7">
     {{-- ?: Succes Info --}}
-    <div class="flex px-10 flex-col items-center border">
+    <div class="flex  flex-col items-center border mb-14">
         <img src="/asset/icons/succesIcon.svg" alt="" class="h-[172px]">
-        <h1 class="font-roboto text-4xl text-blue-601">Konselor Berhasil</h1>
+        <h1 class="font-roboto font-medium text-[32px] text-blue-601">Konselor Berhasil di Booking</h1>
     </div>
     <div class="flex px-10 justify-between">
         <button class="border border-blue-901 text-white rounded-lg font-roboto font-bold py-2 px-8 bg-blue-901"><a
