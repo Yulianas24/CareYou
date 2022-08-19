@@ -76,7 +76,7 @@
         <h1 class="text-2xl  text-center font-semibold text-gray-800 dark:text-white mt-5">
             Tambah Jadwal
         </h1>
-        <form action="/dashboard/jadwal" method="post" class="p-10">
+        <form action="/dashboard/jadwal" method="post" class="phone:p-5 p-10 ">
             @csrf
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
             <div>
