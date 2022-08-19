@@ -3,10 +3,10 @@
 @section('dashboard')
 <div class="overflow-auto h-screen  tablet:px-4 ">
 
-<h1 class="text-4xl phone:text-center font-semibold text-gray-800 dark:text-white">
+<h1 class="text-4xl text-center tablet:text-left font-semibold text-gray-800 dark:text-white">
     Jadwal
 </h1>
-<div class="w-32 phone:w-full h-1 bg-blue-700 dark:bg-blue-800 mt-3 mb-12"></div>
+<div class="w-full tablet:w-32 h-1 bg-blue-700 dark:bg-blue-800 mt-3 mb-12"></div>
 
 <div class="grid laptop:grid-cols-6 gap-4 w-full h-auto ">
 
@@ -20,12 +20,10 @@
         <table class="table-auto w-full mb-4 dark:text-white ">
             <thead>
             <tr class="border-b border-gray-500">
-                <th class="phone:hidden  p-1 w-10" scope="col">No</th>
+                <th class=" hidden tablet:inline-table p-1 w-20" scope="col">No</th>
                 <th class=" p-1 text-left" scope="col">Hari</th>
-                <th class=" phone:hidden p-1  text-left" scope="col">Mulai Pukul</th>
-                <th class=" phone:hidden p-1  text-left" scope="col">Hingga Pukul</th>
-                {{-- Khusus phone --}}
-                <th class=" hidden phone:block p-1  text-center" scope="col">Jam</th>
+                <th class=" p-1  text-center" scope="col">Mulai Pukul</th>
+                <th class=" p-1  text-center" scope="col">Hingga Pukul</th>
 
                 <th class=" p-1  " scope="col">Action</th>
             </tr>
@@ -33,11 +31,10 @@
             <tbody>
             @foreach ($jadwal as $item)
             <tr class="border-b border-gray-600">
-                <td class="phone:hidden py-2 text-center">{{ $loop->iteration }}</td>
+                <td class="hidden tablet:table-cell w-20 py-2 text-center">{{ $loop->iteration }}</td>
                 <td class="py-2">{{ $item->hari }}</td>
-                <td class="phone:hidden py-2">{{ ($item->mulai_jam<10)? '0'.$item->mulai_jam : $item->mulai_jam }}:00</td>
-                <td class="phone:hidden py-2">{{ ($item->hingga_jam<10)? '0'.$item->hingga_jam : $item->hingga_jam }}:00</td>
-                <td class="hidden phone:block py-2">{{ ($item->hingga_jam<10)? '0'.$item->hingga_jam : $item->hingga_jam }}:00 - {{ ($item->hingga_jam<10)? '0'.$item->hingga_jam : $item->hingga_jam }}:00</td>
+                <td class="py-2 text-center">{{ ($item->mulai_jam<10)? '0'.$item->mulai_jam : $item->mulai_jam }}:00</td>
+                <td class="py-2 text-center">{{ ($item->hingga_jam<10)? '0'.$item->hingga_jam : $item->hingga_jam }}:00</td>
                 <td class="py-2 text-center">
                     <form action="/dashboard/jadwal/{{ $item->hari }}" method="POST" class="inline-flex">
                         @method('delete')

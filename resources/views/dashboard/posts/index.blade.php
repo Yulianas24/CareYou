@@ -28,19 +28,19 @@
     <table class="table-auto w-full  dark:text-white">
       <thead>
         <tr class="border-b border-gray-500">
-          <th class="phone:hidden  p-1 w-10" scope="col">No</th>
+          <th class="phone:hidden tablet:block p-1 w-10" scope="col">No</th>
           <th class=" p-1 text-left" scope="col">Title</th>
           <th class=" p-1 w-48 text-left" scope="col">Category</th>
-          <th class=" p-1  w-48" scope="col">Action</th>
+          <th class=" p-1  w-52" scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         @foreach ($posts as $post)
         <tr class="border-b border-gray-600 ">
-          <td class="phone:hidden py-2 text-center">{{ $loop->iteration }}</td>
+          <td class="phone:hidden tablet:block py-2 text-center">{{ $loop->iteration }}</td>
           <td class="py-2">{{ $post->title }}</td>
           <td class="py-2">{{ $post->category->name }}</td>
-          <td class="py-2 text-center flex-cols">
+          <td class="py-2 text-center tablet:w-75 ">
             <a href="/dashboard/posts/{{ $post->slug }}" >
               <button class="bg-green-500 hover:bg-green-700  text-white py-1 w-20 rounded-sm">Show</button>
             </a>
