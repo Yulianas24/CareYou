@@ -25,10 +25,10 @@
   <br>
   <a href="/dashboard/posts/create" class="bg-blue-500 hover:bg-blue-700  text-white py-1 px-2 rounded-md">Tambah post baru</a>
   <div class="mt-4 w-full h-auto">
-    <table class="table-fixed w-full  dark:text-white">
+    <table class="table-auto w-full  dark:text-white">
       <thead>
         <tr class="border-b border-gray-500">
-          <th class=" p-1 w-10" scope="col">No</th>
+          <th class="phone:hidden  p-1 w-10" scope="col">No</th>
           <th class=" p-1 text-left" scope="col">Title</th>
           <th class=" p-1 w-48 text-left" scope="col">Category</th>
           <th class=" p-1  w-48" scope="col">Action</th>
@@ -37,20 +37,20 @@
       <tbody>
         @foreach ($posts as $post)
         <tr class="border-b border-gray-600 ">
-          <td class="py-2 text-center">{{ $loop->iteration }}</td>
+          <td class="phone:hidden py-2 text-center">{{ $loop->iteration }}</td>
           <td class="py-2">{{ $post->title }}</td>
           <td class="py-2">{{ $post->category->name }}</td>
-          <td class="py-2 text-center">
+          <td class="py-2 text-center flex-cols">
             <a href="/dashboard/posts/{{ $post->slug }}" >
-              <button class="bg-green-500 hover:bg-green-700  text-white py-1 px-2 rounded-sm">Show</button>
+              <button class="bg-green-500 hover:bg-green-700  text-white py-1 w-20 rounded-sm">Show</button>
             </a>
             <a href="/dashboard/posts/{{ $post->slug }}/edit" >
-              <button class="bg-yellow-500 hover:bg-yellow-700  text-white py-1 px-2 rounded-sm">Edit</button>
+              <button class="bg-yellow-500 hover:bg-yellow-700  text-white py-1 w-20 rounded-sm">Edit</button>
             </a>
             <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="inline-flex">
               @method('delete')
               @csrf
-              <button type="submit" class="bg-red-500 hover:bg-red-700  text-white py-1 px-2 rounded-sm" onclick="return confirm('Apakah anda yakin?')">Delete</button>
+              <button type="submit" class="bg-red-500 hover:bg-red-700  text-white py-1 w-20 rounded-sm" onclick="return confirm('Apakah anda yakin?')">Delete</button>
             </form>
             
           </td>

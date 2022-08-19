@@ -1,39 +1,43 @@
 @extends('layouts/dashboard')
 
 @section('dashboard')
-<div class="overflow-auto h-screen  px-4 md:px-6">
+<div class="overflow-auto h-screen  tablet:px-4 ">
 
-<h1 class="text-4xl  font-semibold text-gray-800 dark:text-white">
+<h1 class="text-4xl phone:text-center font-semibold text-gray-800 dark:text-white">
     Jadwal
 </h1>
-<div class="w-32 h-1 bg-blue-700 dark:bg-blue-800 mt-3 mb-12"></div>
+<div class="w-32 phone:w-full h-1 bg-blue-700 dark:bg-blue-800 mt-3 mb-12"></div>
 
 <div class="grid laptop:grid-cols-6 gap-4 w-full h-auto ">
 
 
     {{-- Tampilkan Jadwal --}}
-    <div class="w-full h-auto col-span-4 dark:bg-gray-900 rounded-2xl shadow-2xl">
+    <div class="w-full h-auto col-span-4 dark:bg-gray-900 tablet:rounded-2xl shadow-2xl p-1">
         <h1 class="text-2xl  text-center font-semibold text-gray-800 dark:text-white my-5">
             Jadwal Tersedia
         </h1>
 
-        <table class="table-fixed w-full mb-4 dark:text-white">
+        <table class="table-auto w-full mb-4 dark:text-white ">
             <thead>
             <tr class="border-b border-gray-500">
-                <th class=" p-1 w-10" scope="col">No</th>
+                <th class="phone:hidden  p-1 w-10" scope="col">No</th>
                 <th class=" p-1 text-left" scope="col">Hari</th>
-                <th class=" p-1  text-left" scope="col">Mulai Pukul</th>
-                <th class=" p-1  text-left" scope="col">Hingga Pukul</th>
+                <th class=" phone:hidden p-1  text-left" scope="col">Mulai Pukul</th>
+                <th class=" phone:hidden p-1  text-left" scope="col">Hingga Pukul</th>
+                {{-- Khusus phone --}}
+                <th class=" hidden phone:block p-1  text-center" scope="col">Jam</th>
+
                 <th class=" p-1  " scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
             @foreach ($jadwal as $item)
-            <tr class="border-b border-gray-600 ">
-                <td class="py-2 text-center">{{ $loop->iteration }}</td>
+            <tr class="border-b border-gray-600">
+                <td class="phone:hidden py-2 text-center">{{ $loop->iteration }}</td>
                 <td class="py-2">{{ $item->hari }}</td>
-                <td class="py-2">{{ ($item->mulai_jam<10)? '0'.$item->mulai_jam : $item->mulai_jam }}:00</td>
-                <td class="py-2">{{ ($item->hingga_jam<10)? '0'.$item->hingga_jam : $item->hingga_jam }}:00</td>
+                <td class="phone:hidden py-2">{{ ($item->mulai_jam<10)? '0'.$item->mulai_jam : $item->mulai_jam }}:00</td>
+                <td class="phone:hidden py-2">{{ ($item->hingga_jam<10)? '0'.$item->hingga_jam : $item->hingga_jam }}:00</td>
+                <td class="hidden phone:block py-2">{{ ($item->hingga_jam<10)? '0'.$item->hingga_jam : $item->hingga_jam }}:00 - {{ ($item->hingga_jam<10)? '0'.$item->hingga_jam : $item->hingga_jam }}:00</td>
                 <td class="py-2 text-center">
                     <form action="/dashboard/jadwal/{{ $item->hari }}" method="POST" class="inline-flex">
                         @method('delete')
@@ -68,7 +72,7 @@
     </div>
 
     {{-- Tambah Jadwal --}}
-    <div class="w-full h-min col-span-2 dark:bg-gray-900 rounded-2xl shadow-2xl">
+    <div class="w-[100%] h-min col-span-4 laptop:col-span-2 dark:bg-gray-900 tablet:rounded-2xl shadow-2xl">
         <h1 class="text-2xl  text-center font-semibold text-gray-800 dark:text-white mt-5">
             Tambah Jadwal
         </h1>
@@ -112,9 +116,9 @@
 
             </div>
 
-            <div class="grid laptop:grid-cols-2 mt-5 gap-8">
+            <div class="grid grid-cols-2 mt-5 gap-8">
                 <div>
-                    <label for="mulai_jam" class="form-label inline-block mb-2 text-gray-700 dark:text-white">Mulai Jam :</label>
+                    <label for="mulai_jam" class="form-label inline-block mb-2 text-gray-700 dark:text-white">Mulai :</label>
                     @error('mulai_jam')
                     <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
                     @enderror
@@ -152,67 +156,65 @@
                 </div>
 
                 <div>
-                    <label for="hingga_jam" class="form-label inline-block mb-2 text-gray-700 dark:text-white">Hingga Jam :</label>
-                @error('hingga_jam')
-                    <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
-                @enderror
-                <select type="text" class="form-control
-                    block
-                    w-full
-                    px-3
-                    py-1.5
-                    text-base
-                    font-normal
-                    text-gray-700
-                    dark:text-white
-                    dark:bg-gray-800
-                    focus:dark:bg-gray-800
-                    focus:dark:text-white
-                    bg-white bg-clip-padding
-                    border border-solid border-gray-300
-                    rounded
-                    transition
-                    ease-in-out
-                    m-0
-                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="hari"
-                    aria-describedby="hingga_jam" placeholder="hingga_jam" id="hingga_jam" name="hingga_jam" required value="{{ old('hingga_jam') }}">
-                        <option value="" selected hidden>Pilih jam</option>
-                        @for ($i = 0; $i < 24; $i++)
-                            @if ($i<10)
-                            <option value="{{ $i }}">0{{ $i }}:00</option>
-                            @else
-                            <option value="{{ $i }}">{{ $i }}:00</option>
-                            @endif
-                        @endfor
-                        
-                        
-                    </select>
-                <br>
-                <button type="submit" class="
-                w-full
-                px-6
-                py-2.5
-                bg-blue-600
-                text-white
-                font-medium
-                text-xs
-                leading-tight
-                uppercase
-                rounded
-                shadow-md
-                hover:bg-blue-700 hover:shadow-lg
-                focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-                active:bg-blue-800 active:shadow-lg
-                transition
-                duration-150
-                ease-in-out">Tambah Jadwal</button>
+                    <label for="hingga_jam" class="form-label inline-block mb-2 text-gray-700 dark:text-white">Hingga :</label>
+                    @error('hingga_jam')
+                        <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+                    @enderror
+                    <select type="text" class="form-control
+                        block
+                        w-full
+                        px-3
+                        py-1.5
+                        text-base
+                        font-normal
+                        text-gray-700
+                        dark:text-white
+                        dark:bg-gray-800
+                        focus:dark:bg-gray-800
+                        focus:dark:text-white
+                        bg-white bg-clip-padding
+                        border border-solid border-gray-300
+                        rounded
+                        transition
+                        ease-in-out
+                        m-0
+                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="hari"
+                        aria-describedby="hingga_jam" placeholder="hingga_jam" id="hingga_jam" name="hingga_jam" required value="{{ old('hingga_jam') }}">
+                            <option value="" selected hidden>Pilih jam</option>
+                            @for ($i = 0; $i < 24; $i++)
+                                @if ($i<10)
+                                <option value="{{ $i }}">0{{ $i }}:00</option>
+                                @else
+                                <option value="{{ $i }}">{{ $i }}:00</option>
+                                @endif
+                            @endfor
+                            
+                            
+                        </select>
+                
+                    
                 </div>
                 
             </div>
-            
-        
-        
-        
+            <br>
+            <button type="submit" class="
+                    w-full
+                    px-6
+                    py-2.5
+                    bg-blue-600
+                    text-white
+                    font-medium
+                    text-xs
+                    leading-tight
+                    uppercase
+                    rounded
+                    shadow-md
+                    hover:bg-blue-700 hover:shadow-lg
+                    focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+                    active:bg-blue-800 active:shadow-lg
+                    transition
+                    duration-150
+                    ease-in-out">Tambah Jadwal</button>
         </form>
     </div>
 </div>

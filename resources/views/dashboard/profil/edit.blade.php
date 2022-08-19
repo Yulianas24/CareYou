@@ -12,10 +12,10 @@
       @csrf
       <div>
         
-        <div class="grid grid-cols-6 h-auto pb-20 gap-3">
+        <div class="grid laptop:grid-cols-6 h-auto pb-20 gap-3">
 
           {{-- tentang --}}
-          <div class="col-span-4 form-group mb-2  w-full h-80">
+          <div class="laptop:col-span-4 form-group mb-2  w-[100%] h-80">
             <label for="tentang" class="form-label inline-block mb-2">tentang</label>
             @error('tentang')
                   <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
@@ -24,9 +24,9 @@
             <trix-editor input="tentang" class="h-full overflow-scroll"></trix-editor>
           </div>
           {{-- upload Gambar --}}
-          <div class="col-span-2 w-auto">
+          <div class="phone:mt-20 laptop:col-span-2 w-auto">
             <label for="formFile" class="form-label inline-block mb-2 ">Foto Profil</label>
-           <input type="hidden" name="oldImage" value = "{{ $konselor->image }}">
+            <input type="hidden" name="oldImage" value = "{{ $konselor->image }}">
             @if ($konselor->image)
             <img src="{{ asset('storage/' . $konselor->image) }}" alt="" class="imgPreview">
             @else
@@ -57,9 +57,6 @@
             <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
             @enderror
           </div>
-
-          
-          
         </div>
         
 
