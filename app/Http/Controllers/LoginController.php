@@ -28,7 +28,6 @@ class LoginController extends Controller
 
         ]);
 
-
         if (Auth::attempt($credentials)) {
             $level = User::where('username', $credentials['username'])->get('level')[0];
             $request->session()->regenerate();
