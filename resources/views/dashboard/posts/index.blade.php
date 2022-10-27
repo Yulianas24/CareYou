@@ -1,5 +1,4 @@
 @extends('layouts/dashboard')
-
 @section('dashboard')
 <div class="overflow-auto h-screen  px-4 md:px-6">
   @if (session()->has('success'))  
