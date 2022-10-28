@@ -1,5 +1,4 @@
 @extends('layouts.pages')
-
 @section('container')
     {{-- ?: Template --}}
     <div class="flex h-52 w-screen">
@@ -96,13 +95,14 @@
                 <div class="flex flex-col my-2">
                     <h3 class="font-roboto text-lg">Fokus Penanganan Permasalahan</h3>
                     {{-- todo: List Penanganan Masalah --}}
-                    @if ($konselor->profile->penanganan_masalah)
-                    @for ($j = 0; $j < count($masalah[$loop->index]); $j++)
-                    <li class="flex" font-roboto=""><img class="mx-5 " src="/asset/icons/checklist.svg" alt="">{{   $masalah[$loop->index][$j]   }}</li>
-                    @endfor
-                    @else
+                @if ($masalah)
+                @foreach ($masalah as $item)
+                    
+                <li class="flex" font-roboto=""><img class="mx-5 " src="/asset/icons/checklist.svg" alt="">{{   $item  }}</li>
+                @endforeach
+                @else
                     <p>Tidak Ada</p>
-                    @endif
+                @endif
                 </div>
 
                 {{-- Container Jadwal Konseling --}}
