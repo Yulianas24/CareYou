@@ -21,13 +21,12 @@
             <h3 class="font-roboto font-medium text-lg">Fokus Penaganan masalah :</h3>
         </figcaption>
         <figcaption class="h-full w-1/1.2">
-            @if ($masalah[0])
-            <ul class="flex flex-col h-full w-full justify-evenly">
-                @for ($i = 0; $i < count($masalah[0]); $i++)
-                    <li class="flex" font-roboto=""><img class="mx-5" src="/asset/icons/checklist.svg"
-                            alt="">{{ $masalah[0][$i] }}</li>
+            @if ($item->profile->penanganan_masalah)
+                @for ($j = 0; $j < count($masalah[$loop->index]); $j++)
+                <li class="flex" font-roboto=""><img class="mx-5 " src="/asset/icons/checklist.svg" alt="">{{   $masalah[$loop->index][$j]   }}</li>
                 @endfor
-            </ul>
+            @else
+                <p>Tidak Ada</p>
             @endif
             
         </figcaption>
