@@ -96,12 +96,13 @@
                 <div class="flex flex-col my-2">
                     <h3 class="font-roboto text-lg">Fokus Penanganan Permasalahan</h3>
                     {{-- todo: List Penanganan Masalah --}}
-                    @for ($i = 0; $i < count($masalah); $i++)
-                        <figure class="flex">
-                            <img src="/asset/icons/checklist.svg" alt="checklistIcon">
-                            <figcaption class="pl-2 font-roboto">{{ $masalah[$i] }}</figcaption>
-                        </figure>
+                    @if ($konselor->profile->penanganan_masalah)
+                    @for ($j = 0; $j < count($masalah[$loop->index]); $j++)
+                    <li class="flex" font-roboto=""><img class="mx-5 " src="/asset/icons/checklist.svg" alt="">{{   $masalah[$loop->index][$j]   }}</li>
                     @endfor
+                    @else
+                    <p>Tidak Ada</p>
+                    @endif
                 </div>
 
                 {{-- Container Jadwal Konseling --}}
