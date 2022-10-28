@@ -21,7 +21,7 @@
             <h3 class="font-roboto font-medium text-lg">Fokus Penaganan masalah :</h3>
         </figcaption>
         <figcaption class="h-full w-1/1.2">
-            @if ($masalah != null)
+            @if ($masalah[0])
             <ul class="flex flex-col h-full w-full justify-evenly">
                 @for ($i = 0; $i < count($masalah[0]); $i++)
                     <li class="flex" font-roboto=""><img class="mx-5" src="/asset/icons/checklist.svg"
