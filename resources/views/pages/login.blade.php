@@ -18,14 +18,14 @@
         {{-- ?: CareYou  Container --}}
         <div class=" laptop:col-span-3 laptop:bg-blue-901 laptop:relative">
             <div
-                class="flex justify-between mb-12 px-8
-                 flex-col laptop:px-0 laptop:mb-0 laptop:h-32 laptop:absolute laptop:top-44 laptop:left-16">
+                class="flex justify-between mb-12 px-10
+                 flex-col laptop:px-0 laptop:mb-0 laptop:h-32 laptop:absolute laptop:top-52 laptop:left-20">
                 <picture>
                     <source media="(min-width:1024px)" srcset="/asset/logo.svg">
                     <source media="(min-width:320px)" srcset="/asset/mainLogo.svg">
                     <img src="/asset/logo.svg" alt="LogoCareYou" class="h-14 laptop:h-16">
                 </picture>
-                <p class="font-poppins font-normal text-gray-901 text-lg">Care about your mental health</p>
+                <p class="font-poppins font-normal text-gray-901 text-xl">Care about your mental health</p>
             </div>
 
             <img src="/asset/theme/Ellipse1.svg" alt="" srcset=""
