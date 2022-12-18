@@ -16,20 +16,19 @@
         class="flex flex-col justify-center p-2 w-screen min-h-screen tablet:p-0 laptop:grid laptop:grid-cols-7 laptop:grid-rows-none">
 
         {{-- ?: CareYou  Container --}}
-        <div class=" laptop:col-span-3 laptop:bg-blue-901 laptop:relative">
-            <div
-                class="flex justify-between mb-12 px-8
-                 flex-col laptop:px-0 laptop:mb-0 laptop:h-32 laptop:absolute laptop:top-44 laptop:left-16">
-                <picture>
+        <div class="grid h-full justify-items-center items-center laptop:col-span-3 laptop:bg-blue-901 laptop:relative">
+            <img src="/asset/theme/Ellipse1.svg" alt="" srcset=""
+                class="hidden laptop:block laptop:absolute laptop:right-0 laptop:top-0">
+            <div class="grid justify-item-center mb-12 px-10 ">
+                <picture class="mx-auto">
                     <source media="(min-width:1024px)" srcset="/asset/logo.svg">
                     <source media="(min-width:320px)" srcset="/asset/mainLogo.svg">
                     <img src="/asset/logo.svg" alt="LogoCareYou" class="h-14 laptop:h-16">
                 </picture>
-                <p class="font-poppins font-normal text-gray-901 text-lg">Care about your mental health</p>
+                <p class="font-poppins font-normal text-gray-901 text-2xl text-center">Care about your mental health</p>
             </div>
 
-            <img src="/asset/theme/Ellipse1.svg" alt="" srcset=""
-                class="hidden laptop:block laptop:absolute laptop:right-0">
+            
             <img src="/asset/theme/Ellipse2.svg" alt="" srcset=""
                 class="hidden laptop:block laptop:absolute laptop:left-0 laptop:bottom-0">
         </div>
