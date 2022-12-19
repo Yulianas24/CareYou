@@ -141,7 +141,7 @@
         {{-- ?: Login Button --}}
         <a href="/login">
             <figure
-                class="border-2 font-roboto px-12 text-white  py-1 rounded-lg hover:bg-blue-902 cursor-pointer duration-500 hover:text-white laptop:px-8 laptop:border-blue-902"
+                class="border-2 font-roboto px-12  py-1 rounded-lg hover:bg-blue-902 cursor-pointer duration-500 hover:text-white laptop:px-8 laptop:border-blue-902"
                 loginText>
                 Login</figure>
         </a>
