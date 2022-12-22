@@ -7,7 +7,7 @@
             CareYou
         </h1>
         <figcaption
-            class="h-5/6 min-h-min flex flex-col items-center pt-10 laptop:pt-0 laptop:flex-row laptop:justify-evenly ">
+            class="h-5/6 min-h-min flex flex-wrap justify-evenly space-x-3 items-center pt-10 laptop:space-x-0 laptop:pt-0 ">
             @include('/partials/cardTutorial')
         </figcaption>
     </figure>
