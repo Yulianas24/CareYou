@@ -35,7 +35,7 @@
       </form>
     </div>
     @if ($konselor->count())
-      <div class="grid laptop:grid-cols-3 tablet:grid-cols-2 gap-8 justify-items-center w-full">
+      <div class="grid laptop:grid-cols-4 tablet:grid-cols-2 gap-8 justify-items-center w-full">
     
       @foreach ($konselor as $item)
 
