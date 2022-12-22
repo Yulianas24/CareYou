@@ -3,9 +3,9 @@
     <div class="w-full flex justify-center">
         <div class="flex justify-evenly flex-wrap w-full min-h-fit desktop:w-5/6">
             {{-- !: Card Stress --}}
-            <div class="relative m-10">
+            <div class="relative m-10 h-fit">
                 <a href="/posts?category=stress">
-                    <div wrap-image class="bg-gray-800/70 z-20 absolute rounded-lg"></div>
+                    <div class="bg-gray-800/70 z-20 absolute rounded-lg h-full w-full"></div>
                     <img image-gendre src="\asset\img\stress.jpg" alt="" class="rounded-lg z-10 bg-cover w-96">
                     <h2
                         class="font-roboto text-3xl font-bold absolute left-8 top-1/2 z-30 text-white border-b-2 border-white pr-20">
@@ -14,9 +14,9 @@
                 </a>
             </div>
             {{-- !: Card Depresi --}}
-            <div class="relative m-10">
+            <div class="relative m-10 h-fit">
                 <a href="/posts?category=depresi">
-                    <div wrap-image class="bg-gray-800/70 z-20 absolute rounded-lg"></div>
+                    <div class="bg-gray-800/70 z-20 absolute rounded-lg h-full w-full"></div>
                     <img image-gendre src="\asset\img\depresi.jpg" alt="" class="rounded-lg z-10 bg-cover w-96">
                     <h2
                         class="font-roboto text-3xl font-bold absolute left-8 top-1/2 z-30 text-white border-b-2 border-white pr-20">
@@ -25,9 +25,9 @@
                 </a>
             </div>
             {{-- !: Card Kecemasan --}}
-            <div class="relative m-10">
+            <div class="relative m-10 h-fit">
                 <a href="/posts?category=kecemasan">
-                    <div wrap-image class="bg-gray-800/70 z-20 absolute rounded-lg"></div>
+                    <div class="bg-gray-800/70 z-20 absolute rounded-lg h-full w-full"></div>
                     <img image-gendre src="\asset\img\kecemasan.jpg" alt=""
                         class="rounded-lg z-10 bg-cover w-96">
                     <h2
@@ -37,9 +37,9 @@
                 </a>
             </div>
             {{-- !: Card Toxic RelationShip --}}
-            <div class="relative m-10">
+            <div class="relative m-10 h-fit">
                 <a href="/posts?category=toxic relationship">
-                    <div wrap-image class="bg-gray-800/70 z-20 absolute rounded-lg"></div>
+                    <div class="bg-gray-800/70 z-20 absolute rounded-lg h-full w-full"></div>
                     <img image-gendre src="\asset\img\toxic_relationship.jpg" alt=""
                         class="rounded-lg z-10 bg-cover w-96">
                     <h2
