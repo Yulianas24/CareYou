@@ -13,9 +13,9 @@ class HomeController extends Controller
 
         $items = '';
         if (User::where('level', 'konselor')->with('profile') != null) {
-            $konselor = User::where('level', 'konselor')->with('profile')->latest()->paginate(3);
+            $konselor = User::where('level', 'konselor')->with('profile')->latest()->paginate(4);
             $items = collect();
-            for ($i = 0; $i < 3; $i++) {
+            for ($i = 0; $i < 4; $i++) {
                 if ($konselor[$i] != null) {
                     $data = $konselor[$i]->profile->penanganan_masalah;
                     $data = json_decode($data, true);

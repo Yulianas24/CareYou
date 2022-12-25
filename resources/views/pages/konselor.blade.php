@@ -39,21 +39,21 @@
     
       @foreach ($konselor as $item)
 
-      <div class="h-auto laptop:w-75 rounded-3xl flex flex-col bg-white justify-start shadow-xl">
+      <div class="laptop:w-64 h-[400px] rounded-3xl flex flex-col bg-white justify-start shadow-xl">
       
         @if ($item->image)
-        <picture ><img class="rounded-t-3xl object-cover w-full h-60" src="{{ asset('storage/'.$item->image) }}" alt="" srcset=""></picture>
+        <picture ><img class="rounded-t-3xl object-cover w-full h-52" src="{{ asset('storage/'.$item->image) }}" alt="" srcset=""></picture>
         @else
-        <picture><img class="rounded-t-3xl object-cover w-full h-60" src="/asset/img/cardKonselor.png" alt="" srcset=""></picture>
+        <picture><img class="rounded-t-3xl object-cover w-full h-52" src="/asset/img/cardKonselor.png" alt="" srcset=""></picture>
         @endif
         
-        <figure class="text-center font-roboto font-medium text-lg">
+        <figure class="text-center font-roboto font-medium text-lg mt-2">
             {{ $item->name }}
         </figure>
         {{-- ?: Container Penanganan --}}
         <figure class="flex flex-col items-center h-44 w-full mt-3">
             <figcaption class="flex w-1/1.1 mb-2-">
-                <h3 class="font-roboto font-medium text-lg">Fokus Penaganan masalah :</h3>
+                <h3 class="font-roboto font-medium text-base">Penanganan masalah :</h3>
                 
             </figcaption>
             <figcaption class="h-full w-1/1.2">

@@ -1,24 +1,21 @@
 {{-- !: Card 1 --}}
 @foreach ($konselor as $item)
-<div class="h-102 w-94 rounded-3xl flex flex-col bg-white mx-2 justify-start">
-
-    
-
+<div class="h-96 w-64 rounded-xl flex flex-col bg-white mx-2 justify-start">
     @if ($item->image)
-        <picture><img class="rounded-t-3xl object-cover h-64 w-full" src="{{ asset('storage/' . $item->image) }}" alt=""
+        <picture><img class="rounded-t-3xl object-cover h-52 w-full" src="{{ asset('storage/' . $item->image) }}" alt=""
                 srcset="">
         </picture>
     @else
-        <picture><img src="/asset/img/cardKonselor.png" class="rounded-t-3xl object-cover h-64 w-full" alt="" srcset=""></picture>
+        <picture><img src="/asset/img/cardKonselor.png" class="rounded-t-xl object-cover h-52   w-full" alt="" srcset=""></picture>
     @endif
 
-    <figure class="text-center font-roboto font-medium text-lg">
+    <figure class="text-center font-roboto text-lg mt-2 font-medium">
         {{ $item->name }}
     </figure>
     {{-- ?: Container Penanganan --}}
     <figure class="flex flex-col items-center h-44 w-full mt-3">
         <figcaption class="flex w-1/1.1 ">
-            <h3 class="font-roboto font-medium text-lg">Fokus Penaganan masalah :</h3>
+            <h3 class="font-roboto font-medium text-base">Penanganan masalah :</h3>
         </figcaption>
         <figcaption class="h-full w-1/1.2">
             @if ($item->profile->penanganan_masalah)
@@ -33,10 +30,8 @@
     </figure>
     {{-- ?: Container Button --}}
     <figure class="flex w-full h-full items-center justify-center">
-        <a href="/konselor/{{ $item->username }}">
-            <figcaption class="flex items-center bg-blue-902 h-10 px-7 text-white rounded-lg cursor-pointer">Lihat
-                Profil Lengkap
-            </figcaption>
+        <a href="/konselor/{{ $item->username }}" class="flex items-center bg-blue-902 h-8 px-5 text-sm text-white rounded-md cursor-pointer hover:bg-blue-800">
+            Lihat Profil Lengkap
         </a>
     </figure>
 </div>
