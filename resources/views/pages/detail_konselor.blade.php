@@ -185,7 +185,7 @@
             <input type="hidden" name="user_id" value="{{ auth()->user() ? auth()->user()->id : '' }}">
             <input type="hidden" name="keterangan" value="mengajukan">
             <input type="hidden" name="username" value="{{ $konselor->username }}">
-            @include('/partials/bookingKonselor')
+            {{-- @include('/partials/bookingKonselor') --}}
             @include('/partials/bookingKonselorOfflineBooking')
         </div>
     </form>
