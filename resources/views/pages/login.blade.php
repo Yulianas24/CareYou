@@ -26,8 +26,10 @@
                     <img src="/asset/logo.svg" alt="LogoCareYou" class="h-14 laptop:h-16">
                 </picture>
                 <p class="font-poppins font-normal text-gray-901 text-center text-lg laptop:text-2xl">Care about your mental health</p>
-                <a href="" class="laptop:fixed top-4 left-4">
-                    <div class="text-base bg-blue-901 text-white w-fit p-2 rounded-lg font-poppins laptop:bg-white  laptop:hover:bg-blue-901 laptop:hover:text-white laptop:text-black">Kembali Ke Beranda</div>
+                <a href="/" class="laptop:fixed top-4 left-4 text-base bg-blue-901 
+                text-white w-fit p-2 rounded-lg font-poppins laptop:bg-white  laptop:hover:bg-blue-901 
+                laptop:hover:text-white laptop:text-black">
+                    Kembali Ke Beranda
                 </a>
             </div>
 

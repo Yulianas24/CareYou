@@ -24,8 +24,10 @@
                     <img src="/asset/logo.svg" alt="LogoCareYou" class="h-14 laptop:h-16">
                 </picture>
                 <p class="font-poppins font-normal text-gray-901 text-lg laptop:text-white laptop:text-2xl">Care about your mental health</p>
-                <a href="" class="laptop:fixed top-4 left-4">
-                    <div class="text-base bg-blue-901 text-white w-fit p-2 rounded-lg font-poppins laptop:bg-white  laptop:hover:bg-blue-901 laptop:hover:text-white laptop:text-black">Kembali Ke Beranda</div>
+                <a href="/" class="laptop:fixed top-4 left-4 text-base bg-blue-901 
+                text-white w-fit p-2 rounded-lg font-poppins laptop:bg-white  laptop:hover:bg-blue-901 
+                laptop:hover:text-white laptop:text-black">
+                    Kembali Ke Beranda
                 </a>
             </div>
             <img src="/asset/theme/Ellipse1.svg" alt="" srcset=""
@@ -42,8 +44,8 @@
                         <form class="w-full h-full" method="post" action="/registrasi">
                             @csrf
                             <div class="border-b-2 border-gray-100 mt-3">
-                                <h1 class="font-roboto font-medium text-center text-4xl laptop:text-5xl laptop:pb-2">
-                                    Buat Akun</h1>
+                                <h1 class="font-roboto font-medium text-center text-2xl laptop:text-3xl laptop:pb-2">
+                                    Daftar Akun CareYou</h1>
                             </div>
                             <div class="grid grid-cols-6 content-between laptop:content-evenly gap-3 mt-5 w-full h-96">
                                 <div class="col-span-3">
