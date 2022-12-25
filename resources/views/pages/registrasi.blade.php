@@ -86,7 +86,7 @@
                                             style="margin-bottom: -20px ">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="col-span-3">
+                                <div class="col-span-6">
                                     <label for="password"
                                         class="block  text-sm font-poppins font-normal text-gray-700">password</label>
                                     <input type="password" name="password" placeholder="password" id="password"
@@ -99,7 +99,8 @@
                                             style="margin-bottom: -20px ">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="col-span-3">
+                                <input type="hidden" name="level" value="konseli">
+                                {{-- <div class="col-span-3">
                                     <label for="level"
                                         class="block  text-sm font-poppins font-normal text-gray-700">Daftar
                                         sebagai</label>
@@ -109,7 +110,7 @@
                                         <option value="konseli" selected>Konseli</option>
                                         <option value="konselor">Konselor</option>
                                     </select>
-                                </div>
+                                </div> --}}
 
                                 <div class="grid col-start-2 col-span-4 text-center justify-items-center">
                                     <button type="submit"
