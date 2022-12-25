@@ -1,9 +1,9 @@
-const navbar = document.querySelector(["nav"]);
+const navigation = document.querySelector("[navigation]");
 const textLinks = document.querySelectorAll("[textLinks]");
 const loginText = document.querySelector("[loginText]");
 const hamburger = document.querySelectorAll("[hamburger]");
 const mobileBar = document.querySelector("[mobileBar]");
-const classNavbar = navbar.classList;
+const classNavbar = navigation.classList;
 const classLoginText = loginText.classList;
 const laptopScreen = window.innerWidth >= 1024;
 const mobileScreen = window.innerWidth < 1024;
