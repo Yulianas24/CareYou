@@ -131,10 +131,47 @@
                         Belum ada keterangan
                     @endif
                 </div>
-                <div class="w-full h-28 bg-slate-300 mt-5">
-                    <h1 class="font-semibold">Rekomendasi Konselor</h1>
+                {{-- Rekomendasi Konselor --}}
+                <div class="w-full h-auto mt-5 pb-10">
+                    <h1 class="font-semibold mb-3">Rekomendasi Konselor</h1>
                     <div class="flex w-full">
-                        @include('partials/cardKonselor')
+                        @foreach ($saran_konselor as $item)
+                        <div class="h-[350px] w-[250px] rounded-3xl flex flex-col bg-white mx-2 justify-start shadow-lg">
+                            @if ($item->image)
+                                <picture><img class="rounded-t-3xl object-cover h-40 w-full" src="{{ asset('storage/' . $item->image) }}" alt=""
+                                        srcset="">
+                                </picture>
+                            @else
+                                <picture><img src="/asset/img/cardKonselor.png" class="rounded-t-3xl object-cover h-44 w-full" alt="" srcset=""></picture>
+                            @endif
+                        
+                            <figure class="text-center font-roboto font-medium text-lg">
+                                {{ $item->name }}
+                            </figure>
+                            {{-- ?: Container Penanganan --}}
+                            <figure class="flex flex-col items-center h-44 w-full mt-3">
+                                <figcaption class="flex w-1/1.1 ">
+                                    <h3 class="font-roboto font-medium text-base">Penaganan masalah :</h3>
+                                </figcaption>
+                                <figcaption class="h-full w-1/1.2">
+                                    @if ($item->penanganan_masalah)
+                                        <li class="flex" font-roboto=""><img class="mx-5 " src="/asset/icons/checklist.svg" alt="">{{  substr($item->penanganan_masalah, 2, -2)   }}</li>
+                                    @else
+                                        <p>Tidak Ada</p>
+                                    @endif
+                                    
+                                </figcaption>
+                            </figure>
+                            {{-- ?: Container Button --}}
+                            <figure class="flex w-full h-full items-center justify-center">
+                                <a href="/konselor/{{ $item->username }}">
+                                    <figcaption class="flex items-center bg-blue-902 h-10 px-7 text-white rounded-lg cursor-pointer">Lihat
+                                        Profil Lengkap
+                                    </figcaption>
+                                </a>
+                            </figure>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

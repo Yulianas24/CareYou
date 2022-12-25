@@ -52,10 +52,11 @@ class KonselorController extends Controller
      */
     public function show(User $user)
     {
+        $data = $user->profile->penanganan_masalah;
         $rekomendasi = DB::table('users')
             ->join('counselor_profiles', 'users.id', '=', 'counselor_profiles.user_id')
-            ->select('users.id', 'users.name', 'users.username', 'users.image', 'counselor_profiles.penanganan_masalah')->get();
-        $data = $user->profile->penanganan_masalah;
+            ->select('users.id', 'users.name', 'users.username', 'users.image', 'counselor_profiles.penanganan_masalah')
+            ->where('counselor_profiles.penanganan_masalah', $data)->take(3)->get();
         $data = json_decode($data, true);
 
         return view('pages.detail_konselor', [
