@@ -5,8 +5,8 @@
             {{-- !: Card Stress --}}
             <div class="relative m-10 h-fit">
                 <a href="/posts?category=stress">
-                    <div class="bg-gray-800/70 z-20 absolute rounded-lg h-full w-full"></div>
-                    <img image-gendre src="\asset\img\stress.jpg" alt="" class="rounded-lg z-10 bg-cover w-96">
+                    
+                    <img image-gendre src="\asset\img\stress.png" alt="" class="rounded-lg z-10 bg-cover w-96 brightness-[0.4]">
                     <h2
                         class="font-roboto text-3xl font-bold absolute left-8 top-1/2 z-30 text-white border-b-2 border-white pr-20">
                         Stress
@@ -16,8 +16,8 @@
             {{-- !: Card Depresi --}}
             <div class="relative m-10 h-fit">
                 <a href="/posts?category=depresi">
-                    <div class="bg-gray-800/70 z-20 absolute rounded-lg h-full w-full"></div>
-                    <img image-gendre src="\asset\img\depresi.jpg" alt="" class="rounded-lg z-10 bg-cover w-96">
+                    
+                    <img image-gendre src="\asset\img\depresi.png" alt="" class="rounded-lg z-10 bg-cover w-96 brightness-[0.4]">
                     <h2
                         class="font-roboto text-3xl font-bold absolute left-8 top-1/2 z-30 text-white border-b-2 border-white pr-20">
                         Depresi
@@ -27,9 +27,9 @@
             {{-- !: Card Kecemasan --}}
             <div class="relative m-10 h-fit">
                 <a href="/posts?category=kecemasan">
-                    <div class="bg-gray-800/70 z-20 absolute rounded-lg h-full w-full"></div>
-                    <img image-gendre src="\asset\img\kecemasan.jpg" alt=""
-                        class="rounded-lg z-10 bg-cover w-96">
+                    
+                    <img image-gendre src="\asset\img\kecemasan.png" alt=""
+                        class="rounded-lg z-10 bg-cover w-96 brightness-[0.4]">
                     <h2
                         class="font-roboto text-3xl font-bold absolute left-8 top-1/2 z-30 text-white border-b-2 border-white pr-20">
                         Kecemasan
@@ -39,11 +39,11 @@
             {{-- !: Card Toxic RelationShip --}}
             <div class="relative m-10 h-fit">
                 <a href="/posts?category=toxic relationship">
-                    <div class="bg-gray-800/70 z-20 absolute rounded-lg h-full w-full"></div>
-                    <img image-gendre src="\asset\img\toxic_relationship.jpg" alt=""
-                        class="rounded-lg z-10 bg-cover w-96">
+                    
+                    <img image-gendre src="\asset\img\toxic_relationship.png" alt=""
+                        class="rounded-lg z-10 bg-cover w-96 brightness-[0.4]">
                     <h2
-                        class="font-roboto text-3xl font-bold absolute left-8 top-1/2 z-30 text-white border-b-2 border-white pr-20">
+                        class="font-roboto text-3xl font-bold absolute left-8 top-1/2 z-30 text-white border-b-2 border-white pr-12">
                         Toxic RelationShip
                     </h2>
                 </a>
