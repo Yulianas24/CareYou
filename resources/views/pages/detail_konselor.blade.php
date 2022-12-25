@@ -93,12 +93,12 @@
 
                 {{-- Container Fokus Dan Permasalahan --}}
                 <div class="flex flex-col my-2">
-                    <h3 class="font-roboto text-lg">Fokus Penanganan Permasalahan</h3>
+                    <h3 class="font-roboto text-base">Fokus Penanganan Permasalahan</h3>
                     {{-- todo: List Penanganan Masalah --}}
                 @if ($masalah)
                 @foreach ($masalah as $item)
                     
-                <li class="flex" font-roboto=""><img class="mx-5 " src="/asset/icons/checklist.svg" alt="">{{   $item  }}</li>
+                <li class="flex" font-roboto=""><img class="pr-2" src="/asset/icons/checklist.svg" alt="">{{   $item  }}</li>
                 @endforeach
                 @else
                     <p>Tidak Ada</p>
@@ -130,6 +130,12 @@
                     @else
                         Belum ada keterangan
                     @endif
+                </div>
+                <div class="w-full h-28 bg-slate-300 mt-5">
+                    <h1 class="font-semibold">Rekomendasi Konselor</h1>
+                    <div class="flex w-full">
+                        @include('partials/cardKonselor')
+                    </div>
                 </div>
             </div>
         </div>

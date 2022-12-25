@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
 use App\Models\jadwalCounselor;
+use Illuminate\Support\Facades\DB;
 
 class KonselorController extends Controller
 {
@@ -51,7 +52,9 @@ class KonselorController extends Controller
      */
     public function show(User $user)
     {
-        //
+        $rekomendasi = DB::table('users')
+            ->join('counselor_profiles', 'users.id', '=', 'counselor_profiles.user_id')
+            ->select('users.id', 'users.name', 'users.username', 'users.image', 'counselor_profiles.penanganan_masalah')->get();
         $data = $user->profile->penanganan_masalah;
         $data = json_decode($data, true);
 
@@ -59,6 +62,7 @@ class KonselorController extends Controller
             'title' => 'Detail Konselor',
             'konselor' => $user,
             'masalah' => $data,
+            'saran_konselor' => $rekomendasi,
             'jadwal' => jadwalCounselor::where('user_id', $user->id)
                 ->orderByRaw("hari DESC, mulai_jam ASC")->get(),
         ]);
