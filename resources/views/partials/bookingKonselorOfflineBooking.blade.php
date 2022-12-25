@@ -4,7 +4,7 @@
     <div class="flex flex-col w-full h-full p-4">
         {{-- !: Header --}}
         <div class="flex w-full justify-between">
-            <h1 class="font-roboto text-xl font-medium">Pilih Waktu Konsultasi</h1>
+            <h1 class="font-roboto text-xl font-medium">Buat Janji Konsultasi</h1>
             <img src="/asset/icons/closeIcon.svg" alt="close icon" class="h-8 pr-2 cursor-pointer" close-pop-up-booking>
         </div>
 
