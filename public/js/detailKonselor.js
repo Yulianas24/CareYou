@@ -11,6 +11,11 @@ let booked = false;
 buttonBooking.addEventListener("click", () => {
     BookingContainer.classList.remove("hidden");
     BookingContainer.classList.add("flex");
+
+    opsiKonsultasi.classList.remove("block");
+    opsiKonsultasi.classList.add("hidden");
+    jadwalContainer.classList.remove("hidden");
+    jadwalContainer.classList.add("block");
 });
 
 closeBooking.forEach((n) => {
@@ -18,11 +23,4 @@ closeBooking.forEach((n) => {
         BookingContainer.classList.remove("flex");
         BookingContainer.classList.add("hidden");
     });
-});
-
-bookingKonselor.addEventListener("click", () => {
-    opsiKonsultasi.classList.remove("block");
-    opsiKonsultasi.classList.add("hidden");
-    jadwalContainer.classList.remove("hidden");
-    jadwalContainer.classList.add("block");
 });

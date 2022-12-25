@@ -39,7 +39,7 @@
     
       @foreach ($konselor as $item)
 
-      <div class="laptop:w-64 h-[400px] rounded-3xl flex flex-col bg-white justify-start shadow-xl">
+      <div class="laptop:w-64 h-[400px] rounded-3xl flex flex-col bg-white justify-start shadow-lg shadow-gray-300">
       
         @if ($item->image)
         <picture ><img class="rounded-t-3xl object-cover w-full h-52" src="{{ asset('storage/'.$item->image) }}" alt="" srcset=""></picture>
