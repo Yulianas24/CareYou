@@ -2,7 +2,7 @@
 @foreach ($konselor as $item)
 <div class="h-96 w-64 rounded-xl flex flex-col bg-white mx-2 justify-start">
     @if ($item->image)
-        <picture><img class="rounded-t-3xl object-cover h-52 w-full" src="{{ asset('storage/' . $item->image) }}" alt=""
+        <picture><img class="rounded-t-xl object-cover h-52 w-full" src="{{ asset('storage/' . $item->image) }}" alt=""
                 srcset="">
         </picture>
     @else
