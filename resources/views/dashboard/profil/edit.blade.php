@@ -283,7 +283,7 @@
         
          {{-- Fokus penanganan masalah  --}}
          <div class="form-group mb-2 ">
-          <label for="kampus" class="form-label inline-block mb-2">Fokus penanganan masalah (CTRL + klik kiri untuk memilih opsi lebih dari satu)</label>
+          <label for="kampus" class="form-label inline-block mb-2">Fokus penanganan masalah</label>
           <select type="text" class="form-control
             block
             w-full
@@ -300,11 +300,11 @@
              focus:outline-none" id="title"
             aria-describedby="kampus" placeholder="S1" name="penanganan_masalah[]" multiple>
     
-            @foreach ($kategori as $category)
+              @foreach ($kategori as $category)
 
-            <option value="{{ $category->name }}">{{ $category ->name }}</option>
-            
-            @endforeach
+              <option value="{{ $category->name }}">{{ $category ->name }}</option>
+              
+              @endforeach
               
             </select>
         </div>
