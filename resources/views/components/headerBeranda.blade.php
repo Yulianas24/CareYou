@@ -1,9 +1,8 @@
 <div class="h-screen w-screen" id="pageHome">
-    {{-- ?: Background Filter --}}
-    <div class=" h-full w-full bg-black opacity-80 absolute -z-10"></div>
+    
     {{-- ?: Image Background --}}
     <img src="/asset/img/backgroundHome.png" alt="backgroundBeranda" srcset=""
-        class="object-cover -z-50 h-screen w-screen absolute bg-scroll">
+        class="object-cover -z-50 h-screen w-screen absolute bg-scroll brightness-[0.2]">
     {{-- ?: Container Intro --}}
     <figure class="flex flex-col w-full h-full justify-center items-center z-20">
         {{-- ?: Sub Container --}}
