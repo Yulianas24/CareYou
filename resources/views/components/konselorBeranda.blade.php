@@ -1,7 +1,7 @@
 <div class="absolute -z-50 w-screen h-screen">
     @include('template/templateKonselor')
 </div>
-<div class="laptop:px-28 w-screen min-h-screen h-fit flex flex-col justify-evenly laptop:justify-center desktop:justify-evenly items-center "
+<div class="laptop:px-24 w-screen min-h-screen h-fit flex flex-col justify-evenly laptop:justify-center desktop:justify-evenly items-center "
     id="pageKonselor">
     {{-- ?: Container Text --}}
     <figure class="flex justify-between w-full px-2 laptop:w-1/1.2 laptop:mb-20 desktop:mb-0 desktop:mt-10">
