@@ -1,6 +1,6 @@
 {{-- !: Card 1 --}}
 @foreach ($konselor as $item)
-<div class="h-96 w-64 rounded-xl flex flex-col bg-white mx-2 justify-start">
+<div class="h-[500px] w-64 rounded-xl flex flex-col bg-white mx-2 justify-start">
     @if ($item->image)
         <picture><img class="rounded-t-xl object-cover h-52 w-full" src="{{ asset('storage/' . $item->image) }}" alt=""
                 srcset="">
@@ -13,23 +13,27 @@
         {{ $item->name }}
     </figure>
     {{-- ?: Container Penanganan --}}
-    <figure class="flex flex-col items-center h-44 w-full mt-3">
-        <figcaption class="flex w-1/1.1 ">
-            <h3 class="font-roboto font-medium text-base">Penanganan masalah :</h3>
+    <figure class="flex flex-col items-center h-fit space-y-4 w-full mt-3 px-2">
+        <figcaption class="flex w-full ">
+            <h3 class="font-roboto font-medium text-base ">Penanganan masalah :</h3>
         </figcaption>
-        <figcaption class="h-full w-1/1.2">
+        <figcaption class="h-full space-y-2 w-full">
             @if ($item->profile->penanganan_masalah)
                 @for ($j = 0; $j < count($masalah[$loop->index]); $j++)
-                <li class="flex" font-roboto=""><img class="mx-5 " src="/asset/icons/checklist.svg" alt="">{{   $masalah[$loop->index][$j]   }}</li>
+                <li class="flex" font-roboto=""><img class="mr-3 " src="/asset/icons/checklist.svg" alt="">{{   $masalah[$loop->index][$j]   }}</li>
                 @endfor
             @else
                 <p>Tidak Ada</p>
             @endif
             
         </figcaption>
+        <div class=" px-2 rounded-full bg-oran text-white flex bg-[#FCD41C] self-start">
+            <img src="/asset/icons/star-icon.svg" alt="icon-star" class="h-6">
+            <em>4.1</em>
+        </div>
     </figure>
     {{-- ?: Container Button --}}
-    <figure class="flex w-full h-full items-center justify-center">
+    <figure class="flex w-full h-full my-4 items-center justify-center">
         <a href="/konselor/{{ $item->username }}" class="flex items-center bg-blue-902 h-8 px-5 text-sm text-white rounded-md cursor-pointer hover:bg-blue-800">
             Lihat Profil Lengkap
         </a>

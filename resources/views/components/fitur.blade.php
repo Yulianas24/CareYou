@@ -1,7 +1,7 @@
 <div class="flex w-screen min-h-screen justify-center items-center" id="pageFitur">
     <figure class="grid-cols-2 w-10/12 h-4/5">
         <figcaption class="flex flex-col w-full">
-            <h1 class="font-roboto font-medium justify-between text-3xl h-14">Fitur Care You</h1>
+            <h1 class="font-roboto font-medium justify-between text-3xl h-14 mt-4">Fitur Care You</h1>
             <span class="w-2/6 h-0.5 bg-blue-902"></span>
         </figcaption>
 
