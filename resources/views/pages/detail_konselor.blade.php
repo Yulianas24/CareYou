@@ -20,6 +20,13 @@
                 {{-- !: Name and booking container --}}
                 <div class="flex flex-col w-full h-full justify-end items-start tablet:pl-12">
                     <h1 class="font-roboto font-semibold text-2xl my-1">{{ $konselor->name }}</h1>
+
+                    {{-- Rating --}}
+                    <div class=" px-2 rounded-full bg-oran text-white flex bg-[#FCD41C] self-start">
+                        <img src="/asset/icons/star-icon.svg" alt="icon-star" class="h-6">
+                        <em>4.1</em>
+                    </div>
+                    
                     @if (auth()->user() != null &&
                         auth()->user()->booked != null &&
                         auth()->user()->booked->keterangan == 'mengajukan' &&
