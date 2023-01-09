@@ -26,7 +26,7 @@
                         <img src="/asset/icons/star-icon.svg" alt="icon-star" class="h-6">
                         <em>4.1</em>
                     </div>
-                    
+
                     @if (auth()->user() != null &&
                         auth()->user()->booked != null &&
                         auth()->user()->booked->keterangan == 'mengajukan' &&
@@ -63,7 +63,7 @@
         </div>
 
         {{-- ?: Container Detail Konselor --}}
-        <div class="flex flex-col min-h-[80vh] w-1/1.2 tablet:w-4/5 laptop:flex-row">
+        <div class="flex flex-col  w-1/1.2 tablet:w-4/5 laptop:flex-row">
             {{-- !: Detail Profil --}}
             <div class="flex flex-col">
                 {{-- Header Detail --}}
@@ -138,47 +138,50 @@
                         Belum ada keterangan
                     @endif
                 </div>
-                {{-- Rekomendasi Konselor --}}
-                <div class="w-full h-auto mt-5 pb-10">
-                    <h1 class="font-semibold mb-3">Rekomendasi Konselor</h1>
-                    <div class="flex w-full overflow-y-auto">
-                        @foreach ($saran_konselor as $item)
-                        <div class="flex-none h-[250px] w-[200px] rounded-xl flex flex-col bg-white mx-2 justify-start shadow-md shadow-gray-500 mb-5">
-                            @if ($item->image)
-                                <picture><img class="rounded-t-xl object-cover h-32 w-full" src="{{ asset('storage/' . $item->image) }}" alt=""
-                                        srcset="">
-                                </picture>
+            </div>
+        </div>
+
+        {{-- Rekomendasi Konselor --}}
+        <div class="h-fit mt-8 pb-10 w-1/1.2 tablet:w-4/5">
+            <h1 class="font-semibold mb-4">Rekomendasi Konselor</h1>
+            <div class="flex w-full overflow-y-auto">
+                @foreach ($saran_konselor as $item)
+                <div class="flex-none h-[500px] w-[290px] rounded-xl flex flex-col bg-white mx-2 justify-start shadow-md shadow-gray-500 mb-5">
+                    @if ($item->image)
+                    <picture><img class="rounded-t-xl object-cover h-32 w-full" src="{{ asset('storage/' . $item->image) }}" alt=""
+                        srcset="">
+                </picture>
+                    @else
+                        <picture><img src="/asset/img/cardKonselor.png" class="rounded-t-xl object-cover h-52 w-full" alt="" srcset=""></picture>
+                    @endif
+                
+                    <figure class="text-center font-roboto font-thin text-md mt-2">
+                        {{ $item->name }}
+                    </figure>
+                    {{-- ?: Container Penanganan --}}
+                    <figure class="flex flex-col items-center h-44 w-full mt-1">
+                        <figcaption class="flex w-1/1.1 ">
+                            <h3 class="font-roboto font-medium text-sm">Penanganan masalah :</h3>
+                        </figcaption>
+                        <figcaption class="h-full w-1/1.2">
+                            @if ($item->penanganan_masalah)
+
+                            {{-- !: Bagian ini Ubah --}}
+                                {{-- <li class="flex items-center text-sm" font-roboto=""><img class="mx-2" src="/asset/icons/checklist.svg" alt="">{{  substr($item->penanganan_masalah, 2, -2)   }}</li> --}}
                             @else
-                                <picture><img src="/asset/img/cardKonselor.png" class="rounded-t-xl object-cover h-32 w-full" alt="" srcset=""></picture>
+                                <p>Tidak Ada</p>
                             @endif
-                        
-                            <figure class="text-center font-roboto font-thin text-md mt-2">
-                                {{ $item->name }}
-                            </figure>
-                            {{-- ?: Container Penanganan --}}
-                            <figure class="flex flex-col items-center h-44 w-full mt-1">
-                                <figcaption class="flex w-1/1.1 ">
-                                    <h3 class="font-roboto font-medium text-sm">Penanganan masalah :</h3>
-                                </figcaption>
-                                <figcaption class="h-full w-1/1.2">
-                                    @if ($item->penanganan_masalah)
-                                        <li class="flex items-center text-sm" font-roboto=""><img class="mx-2" src="/asset/icons/checklist.svg" alt="">{{  substr($item->penanganan_masalah, 2, -2)   }}</li>
-                                    @else
-                                        <p>Tidak Ada</p>
-                                    @endif
-                                    
-                                </figcaption>
-                            </figure>
-                            {{-- ?: Container Button --}}
-                            <figure class="flex w-full h-full items-center justify-center">
-                                <a href="/konselor/{{ $item->username }}" class="flex items-center bg-blue-902 h-7 px-4 text-[12px] text-white rounded-md cursor-pointer">
-                                    Lihat Profil Lengkap
-                                </a>
-                            </figure>
-                        </div>
-                        @endforeach
-                    </div>
+                            
+                        </figcaption>
+                    </figure>
+                    {{-- ?: Container Button --}}
+                    <figure class="flex w-full h-full items-center justify-center">
+                        <a href="/konselor/{{ $item->username }}" class="flex items-center bg-blue-902 h-7 px-4 text-[12px] text-white rounded-md cursor-pointer">
+                            Lihat Profil Lengkap
+                        </a>
+                    </figure>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
