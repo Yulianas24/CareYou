@@ -101,7 +101,15 @@ class DatabaseSeeder extends Seeder
     ]);
     Category::create([
       'name' => 'Toxic Relationship',
-      'slug' => 'toxic relationship'
+      'slug' => 'toxic_relationship'
+    ]);
+    Category::create([
+      'name' => 'Manajemen Emosi',
+      'slug' => 'manajemen_emosi'
+    ]);
+    Category::create([
+      'name' => 'Quarterlife Crisis',
+      'slug' => 'quarterlife_crisis'
     ]);
 
 
