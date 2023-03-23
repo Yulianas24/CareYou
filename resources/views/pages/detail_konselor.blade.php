@@ -145,7 +145,7 @@
         <div class="h-fit mt-8 pb-10 w-1/1.2 tablet:w-4/5">
             <h1 class="font-semibold mb-4">Rekomendasi Konselor</h1>
             <div class="flex w-full overflow-y-auto">
-                @foreach ($saran_konselor as $item)
+                @foreach ($saran_konselor as  $key => $item)
                 <div class="flex-none h-[500px] w-[290px] rounded-xl flex flex-col bg-white mx-2 justify-start shadow-md shadow-gray-500 mb-5">
                     @if ($item->image)
                     <picture><img class="rounded-t-xl object-cover h-32 w-full" src="{{ asset('storage/' . $item->image) }}" alt=""
@@ -167,7 +167,9 @@
                             @if ($item->penanganan_masalah)
 
                             {{-- !: Bagian ini Ubah --}}
-                                {{-- <li class="flex items-center text-sm" font-roboto=""><img class="mx-2" src="/asset/icons/checklist.svg" alt="">{{  substr($item->penanganan_masalah, 2, -2)   }}</li> --}}
+                            @foreach ($pm[$key] as $saran_pm)
+                                <li class="flex items-center text-sm" font-roboto=""><img class="mx-2" src="/asset/icons/checklist.svg" alt="">{{  $saran_pm  }}</li>
+                            @endforeach
                             @else
                                 <p>Tidak Ada</p>
                             @endif

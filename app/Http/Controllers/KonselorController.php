@@ -52,18 +52,28 @@ class KonselorController extends Controller
      */
     public function show(User $user)
     {
+
         $data = $user->profile->penanganan_masalah;
+        $data =  json_decode($data, true);
         $rekomendasi = DB::table('users')
             ->join('counselor_profiles', 'users.id', '=', 'counselor_profiles.user_id')
             ->select('users.id', 'users.name', 'users.username', 'users.image', 'counselor_profiles.penanganan_masalah')
-            ->where('counselor_profiles.penanganan_masalah', $data)->take(3)->get();
-        $data = json_decode($data, true);
+            ->where('counselor_profiles.penanganan_masalah', 'like', "%{$data[0]}%")->take(5)->get();
+        // 'name', 'like', "{$keyword}%"
 
+        $pm = collect();
+        for ($i = 0; $i < $rekomendasi->count(); $i++) {
+            $item = $rekomendasi[$i]->penanganan_masalah;
+            $item = json_decode($item, true);
+            $pm->push($item);
+        };
+        // return json_decode($rekomendasi[0]->penanganan_masalah, true);
         return view('pages.detail_konselor', [
             'title' => 'Detail Konselor',
             'konselor' => $user,
             'masalah' => $data,
             'saran_konselor' => $rekomendasi,
+            'pm' => $pm,
             'jadwal' => jadwalCounselor::where('user_id', $user->id)
                 ->orderByRaw("hari DESC, mulai_jam ASC")->get(),
         ]);
