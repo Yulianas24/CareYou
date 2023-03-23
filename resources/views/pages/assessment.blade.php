@@ -20,7 +20,7 @@
             <span class="w-5 h-1 rounded-full block bg-blue-601"></span>
             <span class="w-5 h-1 rounded-full block bg-blue-601"></span>
         </div>
-
+        <p id="test"></p>
         <div class="w-[832px] shadow-md rounded-lg h-fit p-8">
             <h2>Selama sebulan terakhir, seberapa sering anda merasa tidak
                 mampu menyelesaikan hal-hal yang harus dikerjakan</h2>
@@ -33,7 +33,7 @@
     </div>
 
     <script>
-        const asessment = @json(assessments)
-        console.log(asessment);
+        const asessments = @json($assessments);
+        console.log(asessments)
     </script>
 @endsection
