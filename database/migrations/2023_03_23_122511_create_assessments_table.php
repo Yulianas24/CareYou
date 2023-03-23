@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('assessments', function (Blueprint $table) {
             $table->id();
             $table->string('question');
-            $table->string('options');
+            $table->string('category');
+            $table->text('options');
             $table->timestamps();
         });
     }

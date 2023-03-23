@@ -17,7 +17,9 @@ class AssessmentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'question' => 'test',
+            'options' => '',
+            'category' => '',
         ];
     }
 }
