@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssessmentController;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -68,3 +69,5 @@ Route::get('/categories', function () {
 Route::get('/konselor', [KonselorController::class, 'index']);
 Route::get('/konselor/{user:username}', [KonselorController::class, 'show']);
 Route::post('/konselor/{user:username}/book', [KonselorController::class, 'booking'])->middleware('auth');
+
+Route::get('/assessment', [AssessmentController::class, 'index']);
