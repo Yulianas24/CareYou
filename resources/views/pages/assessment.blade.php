@@ -1,7 +1,7 @@
 @extends('layouts.pages')
 
 @section('container')
-    <div class="min-h-screen w-full flex justify-center">
+    <div class="min-h-screen w-full flex justify-center p-4 laptop:p-0">
         <div class="w-full flex space-y-8 flex-col items-start justify-center laptop:w-1/2">
             <div class="flex flex-col  items-center space-y-4 w-fit mx-auto">
                 <h1 class="text-2xl w-fit font-bold"><span>Ketahui Lebih Awal </span>
