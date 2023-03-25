@@ -54,6 +54,8 @@
 
         function setOptions(options) {
             let allOptions = options.split(",")
+            containerOptions.innerText = ''
+
 
             allOptions.forEach(data => {
                 let containerOption = document.createElement("div")
@@ -101,17 +103,22 @@
         }
 
         nextButton.addEventListener("click", () => {
-            if (currentIndex < asessments.length) {
+
+            if (currentIndex + 1 != asessments.length) {
                 currentIndex += 1
                 setQuestions()
+                setOptions(asessments[currentIndex].options)
             }
         });
 
 
 
         prevButton.addEventListener("click", () => {
-            currentIndex -= 1
-            setQuestions()
+            if (currentIndex != 0) {
+                currentIndex -= 1
+                setQuestions()
+                setOptions(asessments[currentIndex].options)
+            }
         })
 
         setQuestions()
