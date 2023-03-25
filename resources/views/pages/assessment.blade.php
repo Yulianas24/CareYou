@@ -26,8 +26,15 @@
             <div class="w-full shadow-md rounded-lg h-fit p-8">
                 <h2 id="quesitioner-question"></h2>
 
-                <div id="list-options">
-                    <input type="radio" name="option" id="questions-options"><label for="option">nknasa</label>
+                <div id="container-list-options" class="flex flex-col space-y-4">
+                    <div id="questions-option" class="p-2  shadow-md rounded-md">
+                        <input type="radio" name="option" id="radio-questions-options" class="cursor-pointer"><label
+                            id="label-radio-options" for="option" class="cursor-pointer">nknasa</label>
+                    </div>
+                    <div class="questions-option">
+                        <input type="radio" name="option" id="radio-questions-options" class="cursor-pointer"><label
+                            id="label-radio-options" for="option" class="cursor-pointer">nknasa</label>
+                    </div>
                 </div>
                 <div class="flex flex-col">
                     <div class="flex justify-between"><button id="prev-button"
@@ -43,6 +50,9 @@
         const question = document.querySelector('#quesitioner-question')
         const nextButton = document.querySelector('#next-button')
         const prevButton = document.querySelector('#prev-button')
+        let labelOptios = document.querySelectorAll('#label-radio-options')
+        let radioOptions = document.querySelectorAll('#radio-questions-options')
+        let containerOptions = document.querySelector('#container-list-options')
         let selecetOptionsIndex = null
         let currentQuestion = 0
         let currentIndex = 0
@@ -53,6 +63,37 @@
 
         function setOptions(options) {
             let allOptions = options.split(",")
+
+            allOptions.forEach(data => {
+                let containerOption = document.createElement("div")
+                let inputElement = document.createElement("input")
+                let labelElement = document.createElement("label")
+                containerOption.setAttribute("class", "p-2  shadow-md rounded-md")
+                containerOption.setAttribute("id", "questions-option")
+                inputElement.setAttribute("type", "radio")
+                inputElement.setAttribute("name", "option")
+                inputElement.setAttribute("id", "radio-questions-options")
+                labelElement.innerText = data
+                labelElement.setAttribute("id", "label-radio-options")
+                labelElement.setAttribute("for", "option")
+                labelElement.setAttribute("class", "cursor-pointer")
+
+                containerOptions.append(containerOption)
+                containerOption.append(inputElement)
+
+                containerOption.append(labelElement)
+
+                containerOptions.append(containerOption)
+                labelOptios = document.querySelectorAll('#label-radio-options')
+                radioOptions = document.querySelectorAll('#radio-questions-options')
+
+                labelOptios.forEach((element, i) => {
+                    element.addEventListener("click", () => {
+                        radioOptions[i].checked = true
+                    })
+                });
+
+            })
         }
 
         nextButton.addEventListener("click", () => {
@@ -62,11 +103,14 @@
             }
         });
 
+
+
         prevButton.addEventListener("click", () => {
             currentIndex -= 1
             setQuestions()
         })
 
         setQuestions()
+        setOptions(asessments[currentIndex].options)
     </script>
 @endsection
