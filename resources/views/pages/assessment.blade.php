@@ -11,7 +11,7 @@
                     mengetahui
                     hasilnya dengan cepat dan bisa konsultasi dengan konselor CareYou. Jawabanmu bersifat rahasia</p>
             </div>
-            <div class="grid grid-cols-9">
+            <div class="grid grid-cols-9 w-full gap-4">
                 <span class="w-full h-1 rounded-full block bg-blue-601"></span>
                 <span class="w-full h-1 rounded-full block bg-blue-601"></span>
                 <span class="w-full h-1 rounded-full block bg-blue-601"></span>
