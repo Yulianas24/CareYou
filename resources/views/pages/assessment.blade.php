@@ -22,19 +22,9 @@
                 <span class="w-full h-1 rounded-full block bg-blue-601"></span>
                 <span class="w-full h-1 rounded-full block bg-blue-601"></span>
             </div>
-            <p id="test"></p>
-            <div class="w-full shadow-md rounded-lg h-fit p-8">
+            <div class="w-full shadow-md rounded-lg h-fit space-y-6 p-8">
                 <h2 id="quesitioner-question"></h2>
-
                 <div id="container-list-options" class="flex flex-col space-y-4">
-                    <div id="questions-option" class="p-2  shadow-md rounded-md">
-                        <input type="radio" name="option" id="radio-questions-options" class="cursor-pointer"><label
-                            id="label-radio-options" for="option" class="cursor-pointer">nknasa</label>
-                    </div>
-                    <div class="questions-option">
-                        <input type="radio" name="option" id="radio-questions-options" class="cursor-pointer"><label
-                            id="label-radio-options" for="option" class="cursor-pointer">nknasa</label>
-                    </div>
                 </div>
                 <div class="flex flex-col">
                     <div class="flex justify-between"><button id="prev-button"
@@ -53,6 +43,7 @@
         let labelOptios = document.querySelectorAll('#label-radio-options')
         let radioOptions = document.querySelectorAll('#radio-questions-options')
         let containerOptions = document.querySelector('#container-list-options')
+        let questionOptions = document.querySelectorAll('#questions-option')
         let selecetOptionsIndex = null
         let currentQuestion = 0
         let currentIndex = 0
@@ -68,12 +59,14 @@
                 let containerOption = document.createElement("div")
                 let inputElement = document.createElement("input")
                 let labelElement = document.createElement("label")
-                containerOption.setAttribute("class", "p-2  shadow-md rounded-md")
+
+                containerOption.setAttribute("class", "p-2  shadow-md rounded-md cursor-pointer")
                 containerOption.setAttribute("id", "questions-option")
                 inputElement.setAttribute("type", "radio")
                 inputElement.setAttribute("name", "option")
                 inputElement.setAttribute("id", "radio-questions-options")
                 inputElement.setAttribute("value", data)
+                inputElement.setAttribute("class", "hidden")
                 labelElement.innerText = data
                 labelElement.setAttribute("id", "label-radio-options")
                 labelElement.setAttribute("for", "option")
@@ -87,12 +80,22 @@
                 containerOptions.append(containerOption)
                 labelOptios = document.querySelectorAll('#label-radio-options')
                 radioOptions = document.querySelectorAll('#radio-questions-options')
+                questionOptions = document.querySelectorAll('#questions-option')
 
-                labelOptios.forEach((element, i) => {
+                questionOptions.forEach((element, i) => {
                     element.addEventListener("click", () => {
+
                         radioOptions[i].checked = true
+                        if (radioOptions[i].checked) {
+                            questionOptions.forEach(el2 => {
+                                el2.classList.remove("bg-blue-601")
+                                el2.classList.remove("text-white")
+                            })
+                            questionOptions[i].classList.add("bg-blue-601")
+                            questionOptions[i].classList.add("text-white")
+                        }
                     })
-                });
+                })
 
             })
         }
