@@ -73,6 +73,7 @@
                 inputElement.setAttribute("type", "radio")
                 inputElement.setAttribute("name", "option")
                 inputElement.setAttribute("id", "radio-questions-options")
+                inputElement.setAttribute("value", data)
                 labelElement.innerText = data
                 labelElement.setAttribute("id", "label-radio-options")
                 labelElement.setAttribute("for", "option")
