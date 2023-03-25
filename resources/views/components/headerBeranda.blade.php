@@ -1,5 +1,5 @@
 <div class="h-screen w-screen" id="pageHome">
-    
+
     {{-- ?: Image Background --}}
     <img src="/asset/img/backgroundHome.png" alt="backgroundBeranda" srcset=""
         class="object-cover -z-50 h-screen w-screen absolute bg-scroll brightness-[0.2]">
@@ -23,10 +23,10 @@
             </figcaption>
         </div>
         {{-- ?: Coba Sekarang --}}
-        <figure
+        <a href="/assessment"
             class="bg-blue-902 text-white flex items-center justify-center w-80 h-14 rounded-lg cursor-pointer hover:bg-blue-900">
             Coba Sekarang
             <img src="/asset/icons/rightArrow.svg" alt="arowRight" srcset="" class="h-5 pl-1">
-        </figure>
+        </a>
     </figure>
 </div>
