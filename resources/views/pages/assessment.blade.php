@@ -11,16 +11,8 @@
                     mengetahui
                     hasilnya dengan cepat dan bisa konsultasi dengan konselor CareYou. Jawabanmu bersifat rahasia</p>
             </div>
-            <div class="grid grid-cols-9 w-full gap-4">
-                <span class="w-full h-1 rounded-full block bg-blue-601"></span>
-                <span class="w-full h-1 rounded-full block bg-blue-601"></span>
-                <span class="w-full h-1 rounded-full block bg-blue-601"></span>
-                <span class="w-full h-1 rounded-full block bg-blue-601"></span>
-                <span class="w-full h-1 rounded-full block bg-blue-601"></span>
-                <span class="w-full h-1 rounded-full block bg-blue-601"></span>
-                <span class="w-full h-1 rounded-full block bg-blue-601"></span>
-                <span class="w-full h-1 rounded-full block bg-blue-601"></span>
-                <span class="w-full h-1 rounded-full block bg-blue-601"></span>
+            <div id="container-number-question" class="grid grid-cols-9 w-full gap-4">
+
             </div>
             <div class="w-full shadow-md rounded-lg h-fit space-y-6 p-8">
                 <h2 id="quesitioner-question"></h2>
@@ -44,9 +36,27 @@
         let radioOptions = document.querySelectorAll('#radio-questions-options')
         let containerOptions = document.querySelector('#container-list-options')
         let questionOptions = document.querySelectorAll('#questions-option')
+        let containerNumberQuestion = document.querySelector('#container-number-question')
         let selecetOptionsIndex = null
         let currentQuestion = 0
         let currentIndex = 0
+
+        function numberQuestion() {
+            containerNumberQuestion.innerText = ''
+            for (let i = 0; i < asessments.length; i++) {
+                let createNumbure = document.createElement('span')
+                createNumbure.setAttribute('id', 'list-number')
+                createNumbure.setAttribute('class', 'w-full h-1 rounded-full block ')
+                if (i <= currentIndex) {
+                    createNumbure.classList.remove('bg-gray-500')
+                    createNumbure.classList.add('bg-blue-601')
+                } else {
+                    createNumbure.classList.remove('bg-blue-601')
+                    createNumbure.classList.add('bg-gray-500')
+                }
+                containerNumberQuestion.append(createNumbure)
+            }
+        }
 
         function setQuestions() {
             question.innerText = asessments[currentIndex].question
@@ -108,6 +118,7 @@
                 currentIndex += 1
                 setQuestions()
                 setOptions(asessments[currentIndex].options)
+                numberQuestion()
             }
         });
 
@@ -118,10 +129,12 @@
                 currentIndex -= 1
                 setQuestions()
                 setOptions(asessments[currentIndex].options)
+                numberQuestion()
             }
         })
 
         setQuestions()
         setOptions(asessments[currentIndex].options)
+        numberQuestion()
     </script>
 @endsection
