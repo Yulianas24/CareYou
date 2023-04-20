@@ -71,3 +71,4 @@ Route::get('/konselor/{user:username}', [KonselorController::class, 'show']);
 Route::post('/konselor/{user:username}/book', [KonselorController::class, 'booking'])->middleware('auth');
 
 Route::get('/assessment', [AssessmentController::class, 'index']);
+Route::post('/assessment', [AssessmentController::class, 'store']);

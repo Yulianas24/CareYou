@@ -14,4 +14,8 @@ class AssessmentController extends Controller
             'assessments' => Assessment::all(),
         ]);
     }
+
+    public function store(Request $request) {
+        return json_decode($request->answer_list);
+    }
 }

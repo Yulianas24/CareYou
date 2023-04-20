@@ -6,7 +6,11 @@
 @tailwind utilities;
 @layer components {
     .answer-label {
-        @apply peer-checked:bg-[#2984D5] hover:bg-gray-100 peer-checked:shadow-none peer-checked:text-white w-full block p-2 rounded-lg border shadow-md cursor-pointer
+        @apply peer-checked:bg-[#2984D5] hover:bg-gray-100 peer-checked:shadow-none 
+        peer-checked:text-white w-full block p-2 rounded-lg border shadow-md cursor-pointer
+    }
+    .assessment-button {
+        @apply bg-blue-601 py-2 px-6 text-white rounded-lg 
     }
 }
 @layer base {
