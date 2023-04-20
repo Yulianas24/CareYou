@@ -25,7 +25,7 @@
         
         <div class="flex flex-col w-full md:space-y-4">
             {{-- navbar --}}
-            <header class=" w-full h-16  fixed z-10 dark:bg-gray-800 border-b border-gray-700 flex items-center justify-between pb-2">
+            <header class=" w-full h-16  fixed z-10 dark:bg-gray-800 bg-white border-b border-gray-700 flex items-center justify-between pb-2">
 
                 {{-- mobile Sidebar --}}
                 <div class="block  ml-6">
