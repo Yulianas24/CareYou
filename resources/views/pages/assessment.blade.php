@@ -11,16 +11,20 @@
                     hasilnya dengan cepat dan bisa konsultasi dengan konselor CareYou. Jawabanmu bersifat rahasia</p>
             </div>
             <div id="number-position" class="flex w-full gap-2">
-                
+                {{-- Number position --}}
             </div>
             <div class="w-full shadow-md rounded-lg h-fit space-y-6 p-8">
-                <h2 id="set_question"></h2>
+                <h2 id="set_question">
+                    {{-- Set Question --}}
+                </h2>
                 <div id="set-option" class="w-full grid gap-3">
+                    {{-- Set Option List --}}
                 </div>
                 <div class="flex flex-col">
                     <div class="flex justify-between">
                         <button id="prev-button" class="bg-blue-601 py-2 px-6 text-white rounded-lg" onclick="change('prev', null)">Kembali</button>
                         <button id="next-button" class="bg-blue-601 py-2 px-6 text-white rounded-lg" onclick="change('next', null)">Next</button>
+                        <button hidden id="submit-button" class="bg-blue-601 py-2 px-6 text-white rounded-lg" onclick="submit()">Submit</button>
                     </div>
                 </div>
             </div>
@@ -39,7 +43,7 @@
             document.getElementById('number-position').innerHTML = ''
             for (let i = 0; i < asessments.length; i++) {
                 document.getElementById('number-position').innerHTML += `
-                    <button onclick="change(null, ${i})" class="w-full ${i == index_page  ? (answers[i] ? 'bg-blue-500' : 'bg-blue-300')
+                    <button onclick="change(null, ${i})" class="w-full ${i == index_page  ? 'bg-blue-300'
                     : (answers[i] ? 'bg-blue-500' : 'bg-gray-200')} h-1 rounded-md"></button>
                 `;
             }
@@ -52,7 +56,10 @@
             } else {
                 index_page = position
             }
-            document.getElementById('set_question').innerText = asessments[index_page].question;
+
+            document.getElementById('next-button').hidden = (index_page == asessments.length-1)
+            document.getElementById('submit-button').hidden = !(index_page == asessments.length-1)
+            document.getElementById('set_question').innerText = asessments[index_page].question
             initOption()
             initPageNumber()
         }
@@ -76,8 +83,13 @@
                 </div>`
             });
         }
+        function submit(){
+            answers.forEach((answer, index) => {
+                console.log({
+                    question_id : asessments[index].id,
+                    answer : answer,
+                })
+            });
+        }
     </script>
 @endsection
-
-
-
