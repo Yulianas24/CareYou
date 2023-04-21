@@ -28,20 +28,21 @@
   </form>
   </div>
   @if ($posts->count())
-    <div class="grid laptop:grid-cols-3 justify-items-center w-full">
-  
+    <div class=" justify-items-center w-full tablet:px-20">
     @foreach ($posts as $item)
-
-        <div class="transition-duration: 150ms max-w-sm rounded overflow-hidden bg-gray-100 hover:bg-gray-200 my-5 shadow-lg hover:shadow-xl">
-          @if ($item->image)
-          <a href="/posts/{{ $item -> slug }}">
-            <img class="object-cover w-full h-60 " src="{{ asset('storage/' . $item->image) }}" alt="Sunset in the mountains">
-          </a>
-          @else          
-          <a href="/posts/{{ $item -> slug }}">
-            <img class="object-cover w-full desktop:h-60 " src="\asset\img\Image_not_available.jpg" alt="Sunset in the mountains">
-          </a>
-          @endif
+        <div class="flex transition-duration: 150ms w-full rounded overflow-hidden bg-gray-100 hover:bg-gray-200 my-5 shadow-lg hover:shadow-xl">
+          <div class="flex-none tablet:w-[300px]">
+              
+            @if ($item->image)
+            <a href="/posts/{{ $item -> slug }}">
+              <img class="object-cover w-full tablet:h-60 " src="{{ asset('storage/' . $item->image) }}" alt="Sunset in the mountains">
+            </a>
+            @else          
+            <a href="/posts/{{ $item -> slug }}">
+              <img class="object-cover w-full desktop:h-60 " src="\asset\img\Image_not_available.jpg" alt="Sunset in the mountains">
+            </a>
+            @endif
+          </div>
 
           <div class="px-6 py-1">
             <span class="text-xs text-gray-500 italic">posted {{ $item->created_at->diffForHumans() }}</span></p>
