@@ -28,34 +28,36 @@
   </form>
   </div>
   @if ($posts->count())
-    <div class=" justify-items-center w-full tablet:px-20">
+    <div class="grid justify-items-center w-full tablet:px-10">
+  
     @foreach ($posts as $item)
-        <div class="flex transition-duration: 150ms w-full rounded overflow-hidden bg-gray-100 hover:bg-gray-200 my-5 shadow-lg hover:shadow-xl">
-          <div class="flex-none tablet:w-[300px]">
-              
+
+        <div class="tablet:flex transition-duration: 150ms w-full rounded overflow-hidden bg-gray-100 hover:bg-gray-200 my-5 shadow-lg hover:shadow-xl">
+          <div class="flex-none tablet:w-[200px] tablet:h-[150px]">
             @if ($item->image)
             <a href="/posts/{{ $item -> slug }}">
-              <img class="object-cover w-full tablet:h-60 " src="{{ asset('storage/' . $item->image) }}" alt="Sunset in the mountains">
+              <img class="object-cover w-full h-full" src="{{ asset('storage/' . $item->image) }}" alt="Sunset in the mountains">
             </a>
             @else          
             <a href="/posts/{{ $item -> slug }}">
-              <img class="object-cover w-full desktop:h-60 " src="\asset\img\Image_not_available.jpg" alt="Sunset in the mountains">
+              <img class="object-cover w-full h-full" src="\asset\img\Image_not_available.jpg" alt="Sunset in the mountains">
             </a>
             @endif
           </div>
+          
 
-          <div class="px-6 py-1">
-            <span class="text-xs text-gray-500 italic">posted {{ $item->created_at->diffForHumans() }}</span></p>
-
+          <div class="px-6 py-1 grid tablet:content-center tablet:gap-2">
+            <span class="text-xs text-gray-500 italic tablet:hidden">posted {{ $item->created_at->diffForHumans() }}</span>
+            
             <div class="font-bold text-xl mb-2"><a href="/posts/{{ $item -> slug }}">{{ $item -> title }}</a></div>
             <p>By. <a class="text-blue-800 font-semibold" href="/posts?user={{ $item -> user -> username }}">{{ $item->user->username }}</a> in <a class="text-blue-800 font-semibold" href="/posts?category={{ $item -> category -> slug }}">{{ $item->category->name }}</a>
-      
-
-            <p class="text-gray-700 text-base">
-              {{ $item -> excerpt }}
-            </p>
+              
+              
+              <p class="text-gray-700 text-base">
+                {{ $item -> excerpt }}
+              </p>
           </div>
-          <div class="px-6  pb-2">
+          <div class="px-6  pb-2 tablet:hidden">
             <a href="/posts/{{ $item -> slug }}" class="inline-block bg-gray-200 hover:bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:cursor-pointer">Read more</a>
             
           </div>
