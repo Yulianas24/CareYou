@@ -38,7 +38,7 @@
             </div>
             {{-- !: Card Toxic RelationShip --}}
             <div class="relative m-8 h-fit">
-                <a href="/posts?category=toxic relationship">
+                <a href="/posts?category=toxic_relationship">
                     
                     <img image-gendre src="\asset\img\toxic_relationship.png" alt=""
                         class="rounded-lg z-10 bg-cover w-96 brightness-[0.4]">
@@ -50,7 +50,7 @@
             </div>
             {{-- !: Card Quarter Life Crisis --}}
             <div class="relative m-8 h-fit">
-                <a href="/posts?category=toxic relationship">
+                <a href="/posts?category=quarterlife_crisis">
                     
                     <img image-gendre src="\asset\img\quarter-life.png" alt=""
                         class="rounded-lg z-10 bg-cover w-96 brightness-[0.4]">
@@ -62,7 +62,7 @@
             </div>
             {{-- !: Card Manajemen Emosi --}}
             <div class="relative m-8 h-fit">
-                <a href="/posts?category=toxic relationship">
+                <a href="/posts?category=manajemen_emosi">
                     
                     <img image-gendre src="\asset\img\manajemen-emosi.png" alt=""
                         class="rounded-lg z-10 bg-cover w-96 brightness-[0.4]">
