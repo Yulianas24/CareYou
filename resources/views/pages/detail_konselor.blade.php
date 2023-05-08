@@ -146,11 +146,11 @@
             <h1 class="font-semibold mb-4">Rekomendasi Konselor</h1>
             <div class="flex w-full overflow-y-auto">
                 @foreach ($saran_konselor as  $key => $item)
-                <div class="flex-none h-[500px] w-[290px] rounded-xl flex flex-col bg-white mx-2 justify-start shadow-md shadow-gray-500 mb-5">
+                <div class="relative overflow-hidden flex-none h-[450px] w-[290px] rounded-xl bg-white mx-2 justify-start shadow-md shadow-gray-500 mb-5">
                     @if ($item->image)
                     <picture><img class="rounded-t-xl object-cover h-32 w-full" src="{{ asset('storage/' . $item->image) }}" alt=""
                         srcset="">
-                </picture>
+                    </picture>
                     @else
                         <picture><img src="/asset/img/cardKonselor.png" class="rounded-t-xl object-cover h-52 w-full" alt="" srcset=""></picture>
                     @endif
@@ -159,7 +159,7 @@
                         {{ $item->name }}
                     </figure>
                     {{-- ?: Container Penanganan --}}
-                    <figure class="flex flex-col items-center h-44 w-full mt-1">
+                    <figure class="items-center h-44 w-full mt-1">
                         <figcaption class="flex w-1/1.1 ">
                             <h3 class="font-roboto font-medium text-sm">Penanganan masalah :</h3>
                         </figcaption>
@@ -177,11 +177,9 @@
                         </figcaption>
                     </figure>
                     {{-- ?: Container Button --}}
-                    <figure class="flex w-full h-full items-center justify-center">
-                        <a href="/konselor/{{ $item->username }}" class="flex items-center bg-blue-902 h-7 px-4 text-[12px] text-white rounded-md cursor-pointer">
-                            Lihat Profil Lengkap
-                        </a>
-                    </figure>
+                    <a href="/konselor/{{ $item->username }}" class="absolute bottom-0 bg-blue-902 py-4  text-center text-[12px] w-full text-white cursor-pointer">
+                        Lihat Profil Lengkap
+                    </a>
                 </div>
                 @endforeach
             </div>

@@ -36,17 +36,13 @@
     </div>
     @if ($konselor->count())
       <div class="grid laptop:grid-cols-4 tablet:grid-cols-2 gap-8 justify-items-center w-full">
-    
       @foreach ($konselor as $item)
-
-      <div class="laptop:w-64 h-[400px] rounded-3xl flex flex-col bg-white justify-start shadow-lg shadow-gray-300">
-      
+      <div class="w-full tablet:w-64 h-[400px] rounded-2xl overflow-hidden flex flex-col bg-white justify-start shadow-lg shadow-gray-300">
         @if ($item->image)
-        <picture ><img class="rounded-t-3xl object-cover w-full h-52" src="{{ asset('storage/'.$item->image) }}" alt="" srcset=""></picture>
+        <img class="object-cover w-full h-52" src="{{ asset('storage/'.$item->image) }}" alt="" srcset="">
         @else
-        <picture><img class="rounded-t-3xl object-cover w-full h-52" src="/asset/img/cardKonselor.png" alt="" srcset=""></picture>
+        <img class="object-cover w-full h-52" src="/asset/img/cardKonselor.png" alt="" srcset="">
         @endif
-        
         <figure class="text-center font-roboto font-medium text-lg mt-2">
             {{ $item->name }}
         </figure>
@@ -61,7 +57,7 @@
     
                     @if ($item->profile->penanganan_masalah)
                       @for ($j = 0; $j < count($masalah[$loop->index]); $j++)
-                      <li class="flex" font-roboto=""><img class="mx-5 " src="/asset/icons/checklist.svg" alt="">{{   $masalah[$loop->index][$j]   }}</li>
+                      <li class="flex" font-roboto=""><img class="mx-5" src="/asset/icons/checklist.svg" alt="">{{   $masalah[$loop->index][$j]   }}</li>
                       @endfor
                     @else
                       <p>Tidak Ada</p>
@@ -71,9 +67,9 @@
             </figcaption>
         </figure>
         {{-- ?: Container Button --}}
-        <figure class="flex w-full h-full items-center justify-center">
-            <a href="/konselor/{{ $item->username }}">
-              <figcaption class="flex items-center bg-blue-902 h-10 px-7 text-white rounded-lg hover:cursor-pointer">Lihat Profil Lengkap
+        <figure class="flex w-full items-center justify-center">
+            <a href="/konselor/{{ $item->username }}" class="w-full">
+              <figcaption class="bg-blue-902 w-full text-white py-2 hover:cursor-pointer text-center">Lihat Profil Lengkap
               </figcaption>
             </a>
         </figure>

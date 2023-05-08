@@ -12,7 +12,7 @@
       <thead>
         <tr class="border-b border-gray-500">
           <th class=" p-1 w-12 phone:hidden" scope="col">No</th>
-          <th class=" phone:sticky left-0 p-1 text-left w-40 bg-gray-800" scope="col">Nama</th>
+          <th class=" phone:sticky left-0 p-1 text-left w-40" scope="col">Nama</th>
           <th class=" p-1 text-center " scope="col">Chat</th>
           <th class=" p-1 text-center" scope="col">Hari</th>
           <th class=" p-1 text-center" scope="col">Jam Konsultasi</th>
@@ -26,7 +26,7 @@
         @foreach (auth()->user()->booking as $item)
         <tr class="border-b border-gray-600 ">
           <td class="py-2 text-center phone:hidden">{{ $loop->iteration }}</td>
-          <td class="phone:sticky left-0 py-2 w-40 bg-gray-800">{{ $item->konseli->name }}</td>
+          <td class="phone:sticky left-0 py-2 w-40">{{ $item->konseli->name }}</td>
           <td class="py-2 text-center ">
             <a href="/chatify/{{ $item->konseli->id }}" >
               <button class="bg-blue-500 hover:bg-blue-700  text-white py-1 px-2 rounded-sm">Kirim Pesan</button>
