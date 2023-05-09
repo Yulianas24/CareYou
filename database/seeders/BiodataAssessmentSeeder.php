@@ -55,5 +55,25 @@ class BiodataAssessmentSeeder extends Seeder
             'category' => 'biodata',
             'options' => 'Pernah,Belum Pernah',
         ]);
+        Assessment::create([
+            'question' => 'Ceritakan secara singkat kejadian atau peristiwa yang mendorongmu untuk melakukan konseling',
+            'category' => 'kategori',
+            'type' => 'long_essay',
+        ]);
+        Assessment::create([
+            'question' => 'Ceritakan secara singkat perasaanmu dalam dua minggu terakhir',
+            'category' => 'kategori',
+            'type' => 'long_essay',
+        ]);
+        Assessment::create([
+            'question' => 'Adakah aktivitas atau perilaku dalam dua minggu terakhir yang menurut kamu mengganggu kegiatanmu akhir-akhir ini? Kalau ada coba ceritakan secara singkat',
+            'category' => 'kategori',
+            'type' => 'long_essay',
+        ]);
+        Assessment::create([
+            'question' => 'Sebutkan harapanmu dalam konseling ini?',
+            'category' => 'kategori',
+            'type' => 'long_essay',
+        ]);
     }
 }

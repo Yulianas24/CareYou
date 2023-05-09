@@ -75,3 +75,5 @@ Route::post('/assessment', [AssessmentController::class, 'store']);
 
 Route::get('/assessment/biodata', [AssessmentController::class, 'indexBio'])->middleware('auth');
 Route::post('/assessment/biodata', [AssessmentController::class, 'storeBio'])->middleware('auth');
+Route::get('/assessment/kategori', [AssessmentController::class, 'indexKategori'])->middleware('auth');
+Route::post('/assessment/kategori', [AssessmentController::class, 'storeKategori'])->middleware('auth');

@@ -21,7 +21,14 @@ class AssessmentController extends Controller
             'assessments' => Assessment::where('category', 'biodata')->get(),
         ]);
     }
+    public function indexKategori(){
+        return view('pages.assessment_kategori', [
+            'title' => 'Assessment Kategori',
+            'assessments' => Assessment::where('category', 'kategori')->get(),
+        ]);
+    }
     public function storeBio(Request $request) { 
+        try {
             $data = json_decode($request->answers);
             // return $data;
             $bio = new UserProfile();
@@ -35,8 +42,24 @@ class AssessmentController extends Controller
             $bio->orientasi_seksual = $data[6]->answer;
             $bio->riwayat_konsultasi = $data[7]->answer;
             $bio->save();
-            return $data;
+            
+            return redirect()->intended('/assessment/kategori');        
+        } catch (\Throwable $th) {
+            return redirect()->intended('/');
+        }
     }
+    public function storeKategori(Request $request) { 
+        $data = json_decode($request->answers);
+        UserProfile::where('user_id', auth()->user()->id)
+        ->update([
+            'peristiwa' => $data[0]->answer,
+            'perasaan_terakhir' => $data[1]->answer,
+            'perilaku_pengganggu_kegiatan' => $data[2]->answer,
+            'harapan_konsultasi' => $data[3]->answer,
+        ]);
+        return redirect()->intended('/');
+    }
+
     public function store(Request $request) {
         $data = json_decode($request->answers);
         $values = 0;

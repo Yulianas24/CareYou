@@ -30,10 +30,9 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            $level = User::where('username', $credentials['username'])->get('level', 'id')[0];
-            $biodata = UserProfile::where('user_id', $level['id'])->count();
+            $level = User::where('username', $credentials['username'])->get('level')[0];
+            $biodata = UserProfile::where('user_id', auth()->user()->id)->count();
             $request->session()->regenerate();
-
             if ($level['level'] === 'konseli') {
                 if($biodata != 0){
                     return redirect()->intended('/');
