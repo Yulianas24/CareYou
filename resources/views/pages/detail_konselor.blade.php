@@ -31,8 +31,14 @@
                         auth()->user()->booked != null &&
                         auth()->user()->booked->keterangan == 'mengajukan' &&
                         auth()->user()->booked->konselor_id == $konselor->id)
-                        <button class="bg-green-800 rounded-md py-2 px-6 my-1 text-white font-roboto tablet:mt-8"
+                        <div class="flex gap-2">
+                            <button class="bg-green-800 rounded-md py-2 px-6 my-1 text-white font-roboto"
                             disabled>Booked</button>
+                        <a href="/chatify/{{ $konselor->id }} " target="_blank">
+                            <button class="bg-blue-800 rounded-md py-2 px-6 my-1 text-white font-roboto">Kirim
+                                Pesan</button>
+                        </a>
+                        </div>
                         <p class="font-roboto font-semibold">Hari : {{ auth()->user()->booked->hari }}, Pukul :
                             {{ auth()->user()->booked->jam < 10 ? '0' . auth()->user()->booked->jam : auth()->user()->booked->jam }}:00
                             WIB</p>

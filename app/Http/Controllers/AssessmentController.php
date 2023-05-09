@@ -15,6 +15,12 @@ class AssessmentController extends Controller
             'assessments' => Assessment::where('category', 'pss')->get(),
         ]);
     }
+    public function indexResult(){
+        return view('pages.assessment_result', [
+            'title' => 'Assessment Result',
+            'detail' => UserProfile::where('user_id', auth()->user()->id)->get()->first()
+        ]);
+    }
     public function indexBio(){
         return view('pages.assessment_bio', [
             'title' => 'Assessment Biodata',
@@ -57,7 +63,7 @@ class AssessmentController extends Controller
             'perilaku_pengganggu_kegiatan' => $data[2]->answer,
             'harapan_konsultasi' => $data[3]->answer,
         ]);
-        return redirect()->intended('/');
+        return redirect()->intended('/assessment/result');
     }
 
     public function store(Request $request) {
