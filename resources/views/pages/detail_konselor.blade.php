@@ -159,11 +159,11 @@
                         {{ $item->name }}
                     </figure>
                     {{-- ?: Container Penanganan --}}
-                    <figure class="items-center h-44 w-full mt-1">
-                        <figcaption class="flex w-1/1.1 ">
+                    <figure class="px-2 items-center h-44 w-full mt-1">
+                        <figcaption>
                             <h3 class="font-roboto font-medium text-sm">Penanganan masalah :</h3>
                         </figcaption>
-                        <figcaption class="h-full w-1/1.2">
+                        <figcaption class="h-full">
                             @if ($item->penanganan_masalah)
 
                             {{-- !: Bagian ini Ubah --}}
