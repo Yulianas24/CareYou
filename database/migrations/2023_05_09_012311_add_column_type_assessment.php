@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('assessments', function (Blueprint $table) {
-            $table->id();
-            $table->string('question');
-            $table->string('category');
-            $table->text('options')->nullable();
-            $table->timestamps();
+        Schema::table('assessments', function (Blueprint $table) {
+            //
+            $table->string('type')->default('options');
         });
     }
 
@@ -29,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assessments');
+        Schema::table('assessments', function (Blueprint $table) {
+            //
+        });
     }
 };

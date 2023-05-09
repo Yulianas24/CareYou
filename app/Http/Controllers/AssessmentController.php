@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Assessment;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 
 class AssessmentController extends Controller
@@ -11,8 +12,30 @@ class AssessmentController extends Controller
     public function index() {
         return view('pages.assessment', [
             'title' => 'assessment',
-            'assessments' => Assessment::all(),
+            'assessments' => Assessment::where('category', 'pss')->get(),
         ]);
+    }
+    public function indexBio(){
+        return view('pages.assessment_bio', [
+            'title' => 'Assessment Biodata',
+            'assessments' => Assessment::where('category', 'biodata')->get(),
+        ]);
+    }
+    public function storeBio(Request $request) { 
+            $data = json_decode($request->answers);
+            // return $data;
+            $bio = new UserProfile();
+            $bio->user_id = auth()->user()->id;
+            $bio->jenis_kelamin = $data[0]->answer;
+            $bio->umur = $data[1]->answer;
+            $bio->asal_daerah = $data[2]->answer;
+            $bio->status_hubungan = $data[3]->answer;
+            $bio->agama = $data[4]->answer;
+            $bio->suku = $data[5]->answer;
+            $bio->orientasi_seksual = $data[6]->answer;
+            $bio->riwayat_konsultasi = $data[7]->answer;
+            $bio->save();
+            return $data;
     }
     public function store(Request $request) {
         $data = json_decode($request->answers);

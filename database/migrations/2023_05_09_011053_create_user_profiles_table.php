@@ -15,6 +15,15 @@ return new class extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->unique();
+            $table->string('jenis_kelamin');
+            $table->string('umur');
+            $table->string('asal_daerah');
+            $table->string('status_hubungan');
+            $table->string('agama');
+            $table->string('suku');
+            $table->string('orientasi_seksual');
+            $table->string('riwayat_konsultasi');
             $table->timestamps();
         });
     }

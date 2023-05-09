@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,11 +30,15 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            $level = User::where('username', $credentials['username'])->get('level')[0];
+            $level = User::where('username', $credentials['username'])->get('level', 'id')[0];
+            $biodata = UserProfile::where('user_id', $level['id'])->count();
             $request->session()->regenerate();
 
             if ($level['level'] === 'konseli') {
-                return redirect()->intended('/');
+                if($biodata != 0){
+                    return redirect()->intended('/');
+                }
+                return redirect()->intended('/assessment/biodata');
             } elseif ($level['level'] === 'konselor') {
                 return redirect()->intended('/dashboard');
             }
