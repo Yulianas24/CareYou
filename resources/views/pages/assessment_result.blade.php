@@ -1,13 +1,13 @@
 @extends('layouts.pages')
 
 @section('container')
-    <div class="min-h-screen w-full  p-4 laptop:p-0">
+    <div class="mb-10 w-full grid justify-items-center p-4 laptop:p-0">
       <div class="text-center">
         <h1 class="font-semibold text-xl text-[#0661B0]">Intip Hasil Kesehatan Mentalmu Yuk!</h1>
         <p class="mt-2 text-lg">Kamu sudah berhasil mengisi tes kesehatan mental dari CareYou. Hasilnya menunjukkan</p>
       </div>
       {{-- content --}}
-      <div class="mx-auto laptop:w-[60%] tablet:flex tablet:h-[1000px] my-10 shadow-sm shadow-gray-600 rounded-lg tablet:overflow-hidden">
+      <div class="mx-auto laptop:w-[60%] tablet:flex tablet:h-[600px] my-10 shadow-sm shadow-gray-600 rounded-lg tablet:overflow-hidden">
         {{-- sidebar --}}
         <div class="flex-none tablet:w-2/5 bg-[#1E308D] h-full py-10 px-5">
           {{-- image container --}}
@@ -78,6 +78,7 @@
           </div>
         </div>
       </div>
+      <a href="/konselor" class=" w-[60%] text-center text-white rounded-lg bg-[#0661B0] py-2">Pilih Konselor</a>
       {{-- end of content --}}
     </div>
 @endsection
