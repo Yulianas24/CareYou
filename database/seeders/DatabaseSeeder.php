@@ -16,13 +16,13 @@ class DatabaseSeeder extends Seeder
   public function run()
   {  
     $this->call([
-      // KampusSeeder::class,
-      // UserSeeder::class,
-      // CategorySeeder::class,
-      // AssessmentSeeder::class,
+      KampusSeeder::class,
+      UserSeeder::class,
+      CategorySeeder::class,
+      AssessmentSeeder::class,
       BiodataAssessmentSeeder::class,
     ]);
-    // Post::factory(100)->create();
+    Post::factory(100)->create();
 
   }
 }
