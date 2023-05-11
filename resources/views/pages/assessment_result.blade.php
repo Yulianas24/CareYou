@@ -74,7 +74,17 @@
                 </defs>
               </svg>
               </span>Hasil Assesmen</h1>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde repudiandae dolores laborum impedit incidunt odit hic recusandae officiis fuga quasi inventore blanditiis, eius atque dolorum voluptate voluptatum temporibus? Sapiente, cum!</p>
+              <p>Peristiwa yang mendorong untuk melakukan konseling : </p>
+              <p> {{ $detail->peristiwa }} </p>
+              <br>
+              <p>Perasaan dalam 2 minggu terakhir : </p>
+              <p> {{ $detail->perasaan_terakhir }} </p>
+              <br>
+              <p>perilaku yang mengganggu kegiatan sehari-hari : </p>
+              <p> {{ $detail->perilaku_pengganggu_kegiatan }} </p>
+              <br>
+              <p>Harapan setelah melakukan konseling : </p>
+              <p> {{ $detail->harapan_konsultasi }} </p>
           </div>
         </div>
       </div>
