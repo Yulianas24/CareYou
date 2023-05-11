@@ -154,7 +154,7 @@
                 @foreach ($saran_konselor as  $key => $item)
                 <div class="relative overflow-hidden flex-none h-[450px] w-[290px] rounded-xl bg-white mx-2 justify-start shadow-md shadow-gray-500 mb-5">
                     @if ($item->image)
-                    <picture><img class="rounded-t-xl object-cover h-32 w-full" src="{{ asset('storage/' . $item->image) }}" alt=""
+                    <picture><img class="rounded-t-xl object-cover h-52 w-full" src="{{ asset('storage/' . $item->image) }}" alt=""
                         srcset="">
                     </picture>
                     @else
