@@ -22,10 +22,10 @@
                     <h1 class="font-roboto font-semibold text-2xl my-1">{{ $konselor->name }}</h1>
 
                     {{-- Rating --}}
-                    <div class=" px-2 rounded-full bg-oran text-white flex bg-[#FCD41C] self-start">
+                    {{-- <div class=" px-2 rounded-full bg-oran text-white flex bg-[#FCD41C] self-start">
                         <img src="/asset/icons/star-icon.svg" alt="icon-star" class="h-6">
                         <em>4.1</em>
-                    </div>
+                    </div> --}}
 
                     @if (auth()->user() != null &&
                         auth()->user()->booked != null &&

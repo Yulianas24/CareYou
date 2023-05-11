@@ -29,10 +29,10 @@
                 @endif
 
             </figcaption>
-            <div class=" px-2 rounded-full bg-oran text-white flex bg-[#FCD41C] self-start">
+            {{-- <div class=" px-2 rounded-full bg-oran text-white flex bg-[#FCD41C] self-start">
                 <img src="/asset/icons/star-icon.svg" alt="icon-star" class="h-6">
                 <em>4.1</em>
-            </div>
+            </div> --}}
         </figure>
         {{-- ?: Container Button --}}
         <figure class="flex w-full h-full justify-center items-end">
