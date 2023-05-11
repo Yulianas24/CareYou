@@ -34,6 +34,39 @@
         </button>
       </form>
     </div>
+    <div class=" w-full h-fit justify-between mb-3 gap-2 hidden laptop:flex">
+      <a class="block text-center text-white px-8 py-2 rounded-md  {{ Request::has('pendekatan') ? 'bg-gray-400' : 'bg-[#0661B0]' }}"  href="/konselor">
+        semua
+      </a>
+      <a class="block text-center text-white px-8 py-2 rounded-md  {{ Request('pendekatan')=="Gestalt" ? 'bg-[#0661B0]' : 'bg-gray-400' }}"  
+      href="/konselor?pendekatan=Gestalt">
+        Gestalt
+      </a>
+      <a class="block text-center text-white px-8 py-2 rounded-md  {{ Request('pendekatan')=="REBT" ? 'bg-[#0661B0]' : 'bg-gray-400' }}"  
+      href="/konselor?pendekatan=REBT">
+        REBT
+      </a>
+      <a class="block text-center text-white px-8 py-2 rounded-md  {{ Request('pendekatan')=="Realitas" ? 'bg-[#0661B0]' : 'bg-gray-400' }}"  
+      href="/konselor?pendekatan=Realitas">
+        Realitas
+      </a>
+      <a class="block text-center text-white px-8 py-2 rounded-md  {{ Request('pendekatan')=="CBT" ? 'bg-[#0661B0]' : 'bg-gray-400' }}"  
+      href="/konselor?pendekatan=CBT">
+        CBT
+      </a>
+      <a class="block text-center text-white px-8 py-2 rounded-md  {{ Request('pendekatan')=="Behavoral" ? 'bg-[#0661B0]' : 'bg-gray-400' }}"  
+      href="/konselor?pendekatan=Behavoral">
+        Behavoral
+      </a>
+      <a class="block text-center text-white px-8 py-2 rounded-md  {{ Request('pendekatan')=="Konseling Islam" ? 'bg-[#0661B0]' : 'bg-gray-400' }}"  
+      href="/konselor?pendekatan=Konseling Islam">
+        Konseling Islam
+      </a>
+      <a class="block text-center text-white px-8 py-2 rounded-md  {{ Request('pendekatan')=="Person Center" ? 'bg-[#0661B0]' : 'bg-gray-400' }}"  
+      href="/konselor?pendekatan=Person Center">
+        Person Center
+      </a>
+    </div>
     @if ($konselor->count())
       <div class="grid laptop:grid-cols-4 tablet:grid-cols-2 gap-8 justify-items-center w-full">
       @foreach ($konselor as $item)
