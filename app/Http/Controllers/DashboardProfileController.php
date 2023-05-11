@@ -119,6 +119,7 @@ class DashboardProfileController extends Controller
             'pend_s1' => '',
             'pend_s2' => '',
             'pend_s3' => '',
+            'kategori_pendekatan' => '',
             'penanganan_masalah' => '',
             'tentang' => '',
         ]);

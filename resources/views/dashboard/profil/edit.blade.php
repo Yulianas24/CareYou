@@ -85,7 +85,8 @@
               aria-describedby="name" placeholder="name" id="name" name="name" required value="{{ old('name', $konselor->name) }}">
               
           </div>
-          {{-- username --}}
+          <div class="w-full grid grid-cols-2 gap-3">
+            {{-- username --}}
           <div class="form-group mb-2">
             <label for="username" class="form-label inline-block mb-2">username</label>
             @error('username')
@@ -105,6 +106,42 @@
               m-0
               focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               placeholder="username" id="username" name="username" required value="{{ old('username', $konselor->username) }}">
+          </div>
+          {{-- pendekatan --}}
+          <div class="form-group mb-2">
+            <label for="kategori_pendekatan" class="form-label inline-block mb-2">Metode Pendekatan</label>
+            @error('kategori_pendekatan')
+                <p class="block text-xs font-poppins font-normal text-pink-700 ">{{ $message }}</p>
+              @enderror
+              <select type="text" class="form-control
+              block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              dark:bg-gray-700
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="kategori_pendekatan"
+              aria-describedby="kategori_pendekatan" placeholder="Metode Pendekatan" name="kategori_pendekatan">
+                @if ($profile->kategori_pendekatan != null)
+                <option value="{{ $profile->kategori_pendekatan }}" selected hidden>{{ $profile->kategori_pendekatan }}</option>
+                @else
+                <option value="" selected hidden>none</option>
+                @endif
+                <option value="Gestalt">Gestalt</option>
+                <option value="REBT">REBT</option>
+                <option value="Realitas">Realitas</option>
+                <option value="CBT">CBT</option>
+                <option value="Behavoral">Behavoral</option>
+                <option value="Konseling Islam">Konseling Islam</option>
+                <option value="Person Center">Person Center</option>
+              </select>
+          </div>
           </div>
           
         </div>

@@ -65,6 +65,14 @@
               </ul>
             </div>
 
+            {{-- kategori pendekatan  --}}
+            <div class="px-5 pb-5">
+              <h2 class="text-base font-semibold">Metode Pendekatan:</h1>
+              <ul class="list-disc text-sm font-normal ml-5">
+                <li> {{ $profile->kategori_pendekatan }} </li>
+              </ul>
+            </div>
+
           </div>
       </div>
       {{-- Tentang --}}
