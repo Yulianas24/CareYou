@@ -37,10 +37,10 @@
                                     class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
                             </li>
                         @endif
-                        <li>
+                        {{-- <li>
                             <a href="/notification"
                                 class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Notification</a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="/profile/{{ auth()->user()->username }}/edit"
                                 class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profil</a>
@@ -119,10 +119,10 @@
                                 class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
                         </li>
                     @endif
-                    <li>
+                    {{-- <li>
                         <a href="/notification"
                             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Notification</a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a href="/profile/{{ auth()->user()->username }}/edit"
                             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profil</a>
