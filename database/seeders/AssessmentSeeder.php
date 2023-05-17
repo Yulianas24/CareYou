@@ -31,23 +31,23 @@ class AssessmentSeeder extends Seeder
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
           Assessment::create([
-            'question' => 'Selama sebulan terakhir, seberapa sering anda merasa yakin terhadap kemampuan diri untuk mengatasi masalah pribadi',
+            'question' => 'Selama sebulan terakhir, seberapa sering anda merasa tidak yakin terhadap kemampuan diri untuk mengatasi masalah pribadi',
             'category' => 'pss',
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
           Assessment::create([
-            'question' => 'Selama sebulan terakhir, seberapa sering anda merasa segala sesuatu yang terjadi sesuai dengan harapan anda',
+            'question' => 'Selama sebulan terakhir, seberapa sering anda merasa segala sesuatu yang terjadi tidak sesuai dengan harapan anda',
             'category' => 'pss',
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
           Assessment::create([
-            'question' => 'Selama sebulan terakhir, seberapa sering anda mampu mengontrol rasa mudah tersinggung dalam kehidupan anda',
+            'question' => 'Selama sebulan terakhir, seberapa sering anda tidak mampu mengontrol rasa mudah tersinggung dalam kehidupan anda',
             'category' => 'pss',
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
           
           Assessment::create([
-            'question' => 'Selama sebulan terakhir, seberapa sering anda merasa lebih mampu mengatasi masalah jika dibandingkan dengan orang lain',
+            'question' => 'Selama sebulan terakhir, seberapa sering anda merasa tidak mampu mengatasi masalah jika dibandingkan dengan orang lain',
             'category' => 'pss',
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
@@ -61,49 +61,51 @@ class AssessmentSeeder extends Seeder
             'category' => 'pss',
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
+          
+          // pss2
           Assessment::create([
             'question' => 'Selama sebulan terakhir, seberapa sering anda marah karena adanya masalah yang tidak dapat anda kendalikan',
-            'category' => 'pss',
+            'category' => 'pss2',
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
           Assessment::create([
-            'question' => 'Selama sebulan terakhir, seberapa sering anda merasa lebih mampu mengatasi masalah jika dibandingkan dengan orang lain',
-            'category' => 'pss',
+            'question' => 'Selama sebulan terakhir, seberapa sering anda merasa tidak mampu mengatasi masalah jika dibandingkan dengan orang lain',
+            'category' => 'pss2',
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
           Assessment::create([
-            'question' => 'Selama sebulan terakhir, seberapa sering anda mampu mengontrol rasa mudah tersinggung dalam kehidupan anda',
-            'category' => 'pss',
+            'question' => 'Selama sebulan terakhir, seberapa sering anda tidak mampu mengontrol rasa mudah tersinggung dalam kehidupan anda',
+            'category' => 'pss2',
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
           Assessment::create([
             'question' => 'Selama sebulan terakhir, seberapa sering anda merasa tidak mampu menyelesaikan hal-hal yang harus dikerjakan',
-            'category' => 'pss',
+            'category' => 'pss2',
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
           Assessment::create([
-            'question' => 'Selama sebulan terakhir, seberapa sering anda merasa segala sesuatu yang terjadi sesuai dengan harapan anda',
-            'category' => 'pss',
+            'question' => 'Selama sebulan terakhir, seberapa sering anda merasa segala sesuatu yang terjadi tidak sesuai dengan harapan anda',
+            'category' => 'pss2',
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
           Assessment::create([
-            'question' => 'Selama sebulan terakhir, seberapa sering anda merasa yakin terhadap kemampuan diri untuk mengatasi masalah pribadi',
-            'category' => 'pss',
+            'question' => 'Selama sebulan terakhir, seberapa sering anda merasa tidak yakin terhadap kemampuan diri untuk mengatasi masalah pribadi',
+            'category' => 'pss2',
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
           Assessment::create([
             'question' => 'Selama sebulan terakhir, seberapa sering anda merasa gelisah dan tertekan',
-            'category' => 'pss',
+            'category' => 'pss2',
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
           Assessment::create([
             'question' => 'Selama sebulan terakhir, seberapa sering anda merasa tidak mampu mengontrol hal-hal yang penting dalam kehidupan anda',
-            'category' => 'pss',
+            'category' => 'pss2',
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
           Assessment::create([
             'question' => 'Selama sebulan terakhir, seberapa sering anda marah karena sesuatu yang tidak terduga',
-            'category' => 'pss',
+            'category' => 'pss2',
             'options' => 'Tidak pernah,Hampir tidak pernah (1-2 kali),Kadang-kadang (3-4 kali),Hampir sering (5-6 kali),Sangat sering (lebih dari 6 kali)',
           ]);
       
