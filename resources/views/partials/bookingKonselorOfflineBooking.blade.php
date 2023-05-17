@@ -50,28 +50,27 @@
 
 
 <script>
-    var jadwal = @json($jadwal);
-
+    let jadwal = @json($jadwal);
     function myFunction() {
-
-
-        var x = document.getElementById("mySelect").value;
-        var select = document.getElementById("jam");
+        let x = document.getElementById("mySelect").value;
+        let select = document.getElementById("jam");
+        let mulai, hingga = 0;
         while (select.options.length > 0) {
             select.remove(0);
         }
-
         jadwal.forEach(element => {
             if (x === element.hari) {
-                var i = element.mulai_jam;
-                for (i; i <= element.hingga_jam; i++) {
-                    if (i < 10) {
-                        select.options[select.options.length] = new Option('0' + i + ':00', i);
-                    } else {
-                        select.options[select.options.length] = new Option(i + ':00', i);
-                    }
-                }
+                mulai = Number(element.mulai_jam);
+                hingga = Number(element.hingga_jam);
             }
         });
+        console.log(mulai)
+        for (let i = mulai; i <= hingga; i++) {
+            if (i < 10) {
+                select.options[select.options.length] = new Option('0' + i + ':00', i);
+            } else {
+                select.options[select.options.length] = new Option(i + ':00', i);
+            }
+        }
     }
 </script>
