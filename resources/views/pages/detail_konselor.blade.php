@@ -79,26 +79,26 @@
                     <h3 class="font-roboto text-lg">Pendidikan</h3>
                     {{-- todo: List Pendidikan --}}
                     {{-- Pendidikan S1 --}}
-                    @if ($konselor->profile->pend_s1)
+                    @if ($konselor->profile?->pend_s1)
                         <figure class="flex">
                             <img src="/asset/icons/checklist.svg" alt="checklistIcon">
-                            <figcaption class="pl-2 font-roboto">Psikologi {{ $konselor->profile->pend_s1 }} - S1
+                            <figcaption class="pl-2 font-roboto">Psikologi {{ $konselor->profile?->pend_s1 }} - S1
                             </figcaption>
                         </figure>
                     @endif
                     {{-- Pendidikan S2 --}}
-                    @if ($konselor->profile->pend_s2)
+                    @if ($konselor->profile?->pend_s2)
                         <figure class="flex">
                             <img src="/asset/icons/checklist.svg" alt="checklistIcon">
-                            <figcaption class="pl-2 font-roboto">Psikologi {{ $konselor->profile->pend_s2 }} - S2
+                            <figcaption class="pl-2 font-roboto">Psikologi {{ $konselor->profile?->pend_s2 }} - S2
                             </figcaption>
                         </figure>
                     @endif
                     {{-- Pendidikan S3 --}}
-                    @if ($konselor->profile->pend_s3)
+                    @if ($konselor->profile?->pend_s3)
                         <figure class="flex">
                             <img src="/asset/icons/checklist.svg" alt="checklistIcon">
-                            <figcaption class="pl-2 font-roboto">Psikologi {{ $konselor->profile->pend_s3 }} - S3
+                            <figcaption class="pl-2 font-roboto">Psikologi {{ $konselor->profile?->pend_s3 }} - S3
                             </figcaption>
                         </figure>
                     @endif
@@ -138,8 +138,8 @@
                     {{ $konselor->name }}</h1>
                 {{-- !: Tentang Konselor --}}
                 <div class="my-2">
-                    @if ($konselor->profile->tentang)
-                        {!! $konselor->profile->tentang !!}
+                    @if ($konselor->profile?->tentang)
+                        {!! $konselor->profile?->tentang !!}
                     @else
                         Belum ada keterangan
                     @endif
@@ -151,43 +151,45 @@
         <div class="h-fit mt-8 pb-10 w-1/1.2 tablet:w-4/5">
             <h1 class="font-semibold mb-4">Rekomendasi Konselor</h1>
             <div class="flex w-full overflow-y-auto">
-                @foreach ($saran_konselor as  $key => $item)
-                <div class="relative overflow-hidden flex-none h-[450px] w-[290px] rounded-xl bg-white mx-2 justify-start shadow-md shadow-gray-500 mb-5">
-                    @if ($item->image)
-                    <picture><img class="rounded-t-xl object-cover h-52 w-full" src="{{ asset('storage/' . $item->image) }}" alt=""
-                        srcset="">
-                    </picture>
-                    @else
-                        <picture><img src="/asset/img/cardKonselor.png" class="rounded-t-xl object-cover h-52 w-full" alt="" srcset=""></picture>
-                    @endif
-                
-                    <figure class="text-center font-roboto font-thin text-md mt-2">
-                        {{ $item->name }}
-                    </figure>
-                    {{-- ?: Container Penanganan --}}
-                    <figure class="px-2 items-center h-44 w-full mt-1">
-                        <figcaption>
-                            <h3 class="font-roboto font-medium text-sm">Penanganan masalah :</h3>
-                        </figcaption>
-                        <figcaption class="h-full">
-                            @if ($item->penanganan_masalah)
+                @if ($saran_konselor)
+                    @foreach ($saran_konselor as  $key => $item)
+                    <div class="relative overflow-hidden flex-none h-[450px] w-[290px] rounded-xl bg-white mx-2 justify-start shadow-md shadow-gray-500 mb-5">
+                        @if ($item->image)
+                        <picture><img class="rounded-t-xl object-cover h-52 w-full" src="{{ asset('storage/' . $item->image) }}" alt=""
+                            srcset="">
+                        </picture>
+                        @else
+                            <picture><img src="/asset/img/cardKonselor.png" class="rounded-t-xl object-cover h-52 w-full" alt="" srcset=""></picture>
+                        @endif
+                    
+                        <figure class="text-center font-roboto font-thin text-md mt-2">
+                            {{ $item->name }}
+                        </figure>
+                        {{-- ?: Container Penanganan --}}
+                        <figure class="px-2 items-center h-44 w-full mt-1">
+                            <figcaption>
+                                <h3 class="font-roboto font-medium text-sm">Penanganan masalah :</h3>
+                            </figcaption>
+                            <figcaption class="h-full">
+                                @if ($item->penanganan_masalah)
 
-                            {{-- !: Bagian ini Ubah --}}
-                            @foreach ($pm[$key] as $saran_pm)
-                                <li class="flex items-center text-sm" font-roboto=""><img class="mx-2" src="/asset/icons/checklist.svg" alt="">{{  $saran_pm  }}</li>
-                            @endforeach
-                            @else
-                                <p>Tidak Ada</p>
-                            @endif
-                            
-                        </figcaption>
-                    </figure>
-                    {{-- ?: Container Button --}}
-                    <a href="/konselor/{{ $item->username }}" class="absolute bottom-0 bg-blue-902 py-4  text-center text-[12px] w-full text-white cursor-pointer">
-                        Lihat Profil Lengkap
-                    </a>
-                </div>
-                @endforeach
+                                {{-- !: Bagian ini Ubah --}}
+                                @foreach ($pm[$key] as $saran_pm)
+                                    <li class="flex items-center text-sm" font-roboto=""><img class="mx-2" src="/asset/icons/checklist.svg" alt="">{{  $saran_pm  }}</li>
+                                @endforeach
+                                @else
+                                    <p>Tidak Ada</p>
+                                @endif
+                                
+                            </figcaption>
+                        </figure>
+                        {{-- ?: Container Button --}}
+                        <a href="/konselor/{{ $item->username }}" class="absolute bottom-0 bg-blue-902 py-4  text-center text-[12px] w-full text-white cursor-pointer">
+                            Lihat Profil Lengkap
+                        </a>
+                    </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>

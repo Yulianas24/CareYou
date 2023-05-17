@@ -17,7 +17,7 @@ class HomeController extends Controller
             $items = collect();
             for ($i = 0; $i < 4; $i++) {
                 if ($konselor[$i] != null) {
-                    $data = $konselor[$i]->profile->penanganan_masalah;
+                    $data = $konselor[$i]->profile->penanganan_masalah ?? null;
                     $data = json_decode($data, true);
                     $items->push($data);
                 }

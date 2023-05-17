@@ -19,7 +19,7 @@
                 <h3 class="font-roboto font-medium text-base ">Penanganan masalah :</h3>
             </figcaption>
             <figcaption class="h-full space-y-2 w-full">
-                @if ($item->profile->penanganan_masalah)
+                @if ($item->profile?->penanganan_masalah)
                     @for ($j = 0; $j < count($masalah[$loop->index]); $j++)
                         <li class="flex" font-roboto=""><img class="mr-3 " src="/asset/icons/checklist.svg"
                                 alt="">{{ $masalah[$loop->index][$j] }}</li>

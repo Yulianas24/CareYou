@@ -22,7 +22,7 @@ class KonselorController extends Controller
         $konselor = User::where('level', 'konselor')->with('profile')->get();
         $items = collect();
         for ($i = 0; $i < $konselor->count(); $i++) {
-            $data = $konselor[$i]->profile->penanganan_masalah;
+            $data = $konselor[$i]->profile->penanganan_masalah ?? null;
             $data = json_decode($data, true);
             $items->push($data);
         }
@@ -52,21 +52,26 @@ class KonselorController extends Controller
      */
     public function show(User $user)
     {
+        $rekomendasi = null;
+        $pm = null;
+        $data = null;
+        if ($user->profile?->penanganan_masalah) {
+            # code...
+            $data = $user->profile->penanganan_masalah;
+            $data =  json_decode($data, true);
+            $rekomendasi = DB::table('users')
+                ->join('counselor_profiles', 'users.id', '=', 'counselor_profiles.user_id')
+                ->select('users.id', 'users.name', 'users.username', 'users.image', 'counselor_profiles.penanganan_masalah')
+                ->where('counselor_profiles.penanganan_masalah', 'like', "%{$data[0]}%")->take(5)->get();
+            // 'name', 'like', "{$keyword}%"
+            $pm = collect();
+            for ($i = 0; $i < $rekomendasi->count(); $i++) {
+                $item = $rekomendasi[$i]->penanganan_masalah;
+                $item = json_decode($item, true);
+                $pm->push($item);
+            };
+        }
 
-        $data = $user->profile->penanganan_masalah;
-        $data =  json_decode($data, true);
-        $rekomendasi = DB::table('users')
-            ->join('counselor_profiles', 'users.id', '=', 'counselor_profiles.user_id')
-            ->select('users.id', 'users.name', 'users.username', 'users.image', 'counselor_profiles.penanganan_masalah')
-            ->where('counselor_profiles.penanganan_masalah', 'like', "%{$data[0]}%")->take(5)->get();
-        // 'name', 'like', "{$keyword}%"
-
-        $pm = collect();
-        for ($i = 0; $i < $rekomendasi->count(); $i++) {
-            $item = $rekomendasi[$i]->penanganan_masalah;
-            $item = json_decode($item, true);
-            $pm->push($item);
-        };
         // return json_decode($rekomendasi[0]->penanganan_masalah, true);
         return view('pages.detail_konselor', [
             'title' => 'Detail Konselor',
