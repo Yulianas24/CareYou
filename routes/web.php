@@ -45,6 +45,7 @@ Route::post('/registrasi-konselor', [RegisterController::class, 'storeKonselor']
 Route::get('/dashboard', [DashboardBookingController::class, 'index'])->middleware('konselor');
 Route::get('/dashboard/{item:id}/selesai', [DashboardBookingController::class, 'selesai'])->middleware('konselor');
 Route::get('/dashboard/{item:id}/batal', [DashboardBookingController::class, 'batal'])->middleware('konselor');
+Route::get('/result/{user:id}', [DashboardBookingController::class, 'result'])->middleware('konselor');
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('konselor');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('konselor');
@@ -52,6 +53,7 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 Route::resource('dashboard/profil', DashboardProfileController::class)->middleware('konselor');
 
 Route::resource('dashboard/jadwal', DashboardJadwalController::class)->middleware('konselor');
+
 
 
 

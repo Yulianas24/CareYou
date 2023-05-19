@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\User;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 
 class DashboardBookingController extends Controller
@@ -19,7 +21,15 @@ class DashboardBookingController extends Controller
             "title" => "Dashboard",
         ]);
     }
-
+    public function result($id){
+        $user = User::where('id', $id)->get()[0];
+        $profile = UserProfile::where('user_id', $id)->first();
+        return view('dashboard.assessment_result', [
+            'detail' => $profile,
+            'user' => $user,
+            'title' => 'Detail Konseli'
+        ]);
+    }
     public function selesai($id)
     {
 
