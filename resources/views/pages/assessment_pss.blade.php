@@ -21,13 +21,13 @@
                     {{-- Set Option List --}}
                 </div>
                 <div class="flex flex-col">
-                    <form class="flex justify-between" method="POST" action="/assessment/biodata">
+                    <form class="flex justify-between" method="POST" action="/assessment/pss">
                         @csrf
                         <textarea hidden name="answers" id="input-answers" cols="30" rows="10"></textarea>
                         <button type="button" id="prev-button" class="bg-blue-601 py-2 px-6 text-white rounded-lg" onclick="change('prev', null)">Kembali
                         </button>
                         <button type="button" id="next-button" class="bg-blue-601 py-2 px-6 text-white rounded-lg" onclick="change('next', null)">Next</button>
-                        <button hidden id="submit-button" class="bg-blue-601 py-2 px-6 text-white rounded-lg">Submit</button>
+                        <button hidden id="submit-button" class="bg-blue-601 py-2 px-6 text-white rounded-lg" onclick="submit()">Submit</button>
                     </form>
                 </div>
             </div>

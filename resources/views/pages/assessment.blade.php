@@ -33,64 +33,6 @@
             </div>
         </div>
     </div>
-    <script>
-        const asessments = @json($assessments);
-        let index_page = 0;
-        let answers = [];
-        document.getElementById('set_question').innerHTML = asessments[index_page].question;
-        initOption()
-        initPageNumber()
-         // set Number
-        function initPageNumber(){
-            document.getElementById('number-position').innerHTML = ''
-            for (let i = 0; i < asessments.length; i++) {
-                document.getElementById('number-position').innerHTML += `
-                    <button onclick="change(null, ${i})" class="w-full ${i == index_page  ? 'bg-blue-300'
-                    : (answers[i] ? 'bg-blue-500' : 'bg-gray-200')} h-1 rounded-md"></button>`;
-            }
-        }
-        // previous/next button
-        function change(params, position) {
-            if(position == null) {
-                index_page > 0 && params == 'prev' ? index_page-=1 : null
-                index_page < asessments.length-1 && params == 'next' ? index_page+=1 : null
-            } else {
-                index_page = position
-            }
-            document.getElementById('next-button').hidden = (index_page == asessments.length-1)
-            document.getElementById('submit-button').hidden = !(index_page == asessments.length-1)
-            document.getElementById('set_question').innerText = asessments[index_page].question
-            initOption()
-            initPageNumber()
-        }
-        // set Answer
-        function setAnswer(params) {
-            answers[index_page] = params
-            initPageNumber()
-            let answer_array = []
-            answers.forEach((answer, index) => {
-                answer_array.push({
-                    question_id : asessments[index].id,
-                    answer : answer,
-                })
-            });
-            document.getElementById('input-answers').innerHTML = JSON.stringify(answer_array);
-            
-        }
-        // init options
-        function initOption() {
-            let options = asessments[index_page].options.split(',')
-            document.getElementById('set-option').innerHTML = ' '
-            options.forEach((option, option_index) => {
-                document.getElementById('set-option').innerHTML += 
-                `<div>
-                    <input ${answers[index_page] == option ? 'checked' : ''} type="radio" id="${option_index}" 
-                    name="answer_${index_page}" class="peer hidden" value="text" onChange="setAnswer('${option}')">
-                    <label for="${option_index}" class="answer-label">
-                        ${option}
-                    </label>
-                </div>`
-            });
-        }
-    </script>
+    @include('script.assessment', ['assessments' => $assessments])
+
 @endsection

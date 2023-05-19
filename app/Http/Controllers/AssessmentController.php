@@ -16,15 +16,22 @@ class AssessmentController extends Controller
         ]);
     }
     public function indexResult(){
+        $detail = UserProfile::where('user_id', auth()->user()->id)->get()->first();
         return view('pages.assessment_result', [
             'title' => 'Assessment Result',
-            'detail' => UserProfile::where('user_id', auth()->user()->id)->get()->first()
+            'detail' => $detail
         ]);
     }
     public function indexBio(){
         return view('pages.assessment_bio', [
             'title' => 'Assessment Biodata',
             'assessments' => Assessment::where('category', 'biodata')->get(),
+        ]);
+    }
+    public function indexPss(){
+        return view('pages.assessment_pss', [
+            'title' => 'Assessment PSS',
+            'assessments' => Assessment::where('category', 'pss2')->get(),
         ]);
     }
     public function indexKategori(){
@@ -49,10 +56,26 @@ class AssessmentController extends Controller
             $bio->riwayat_konsultasi = $data[7]->answer;
             $bio->save();
             
-            return redirect()->intended('/assessment/kategori');        
+            return redirect()->intended('/assessment/pss');        
         } catch (\Throwable $th) {
             return redirect()->intended('/');
         }
+    }
+    public function storePss(Request $request) { 
+        $data = json_decode($request->answers);
+        UserProfile::where('user_id', auth()->user()->id)
+        ->update([
+            'question_1' => $data[0]->answer,
+            'question_2' => $data[1]->answer,
+            'question_3' => $data[2]->answer,
+            'question_4' => $data[3]->answer,
+            'question_5' => $data[4]->answer,
+            'question_6' => $data[5]->answer,
+            'question_7' => $data[6]->answer,
+            'question_8' => $data[7]->answer,
+            'question_9' => $data[8]->answer,
+        ]);
+        return redirect()->intended('/assessment/kategori');
     }
     public function storeKategori(Request $request) { 
         $data = json_decode($request->answers);

@@ -9,9 +9,11 @@
       {{-- content --}}
       <div class="mx-auto laptop:w-[60%] tablet:flex tablet:h-[600px] my-10 shadow-sm shadow-gray-600 rounded-lg tablet:overflow-hidden">
         {{-- sidebar --}}
-        <div class="flex-none tablet:w-2/5 bg-[#1E308D] h-full py-10 px-5">
+        <div class="flex-none tablet:w-2/5 bg-[#1E308D] py-10 px-5">
           {{-- image container --}}
-          <div class="mx-auto w-36 h-36 bg-gray-200 rounded-full mb-8"></div>
+          <div class="mx-auto w-36 h-36 bg-gray-200 rounded-full mb-8 grid justify-items-center content-center uppercase text-4xl font-semibold text-[#1E308D]">
+            {{ substr(auth()->user()->username,0, 2) }}
+          </div>
           {{-- End of image container --}}
           <h1 class="bg-white/30 px-2 py-1 mb-5 rounded-md text-white text-bold text-lg flex">
             <span class="mr-2">
@@ -55,12 +57,12 @@
           
         </div>
         {{-- end of sidebar --}}
-        <div class="p-4 w-full h-full">
+        <div class="p-4 w-full h-full overflow-auto">
           <div class="text-xl py-2 font-semibold border-b w-full border-[#90FFE0]">
             <h1> {{ auth()->user()->name }} </h1>
             <h1> {{ auth()->user()->email }} </h1>
           </div>
-          <div class="w-full mt-5">
+          <div class="w-full mt-5 overflow-auto h-[80%]">
             <h1 class="bg-[#1E308D] px-2 py-2 mb-5 rounded-md text-white text-bold text-lg flex">
               <span class="mr-2">
               <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -74,6 +76,7 @@
                 </defs>
               </svg>
               </span>Hasil Assesmen</h1>
+              <p class="mb-4">Tingkat stress anda <span id="tingkat_stress" class=""></span>.</p>
               <p>Peristiwa yang mendorong untuk melakukan konseling : </p>
               <p> {{ $detail->peristiwa }} </p>
               <br>
@@ -91,4 +94,54 @@
       <a href="/konselor" class=" w-[60%] text-center text-white rounded-lg bg-[#0661B0] py-2">Pilih Konselor</a>
       {{-- end of content --}}
     </div>
+    <script>
+      const detail = @json($detail);
+      let value = convert(detail.question_1);
+      value += convert(detail.question_2);
+      value += convert(detail.question_3);
+      value += convert(detail.question_4);
+      value += convert(detail.question_5);
+      value += convert(detail.question_6);
+      value += convert(detail.question_7);
+      value += convert(detail.question_8);
+      value += convert(detail.question_9);
+      console.log(value);
+
+      let result = '';
+      let stress = document.getElementById("tingkat_stress");
+      if(value/9 <= 2.5) {
+        result = "Rendah";
+        stress.classList = "text-green-800 font-bold"
+      } else if (value/9 <= 4) {
+        result = "Sedang";
+        stress.classList = "text-yellow-800 font-bold"
+      } else {
+        result = "Cukup Tinggi";
+        stress.classList = "text-red-800 font-bold"
+      }
+      console.log(result)
+      stress.innerHTML = result;
+      function convert(params) {
+        switch (params) {
+                case 'Tidak pernah':
+                    return 1;
+                    break;
+                case 'Hampir tidak pernah (1-2 kali)':
+                    return 2;
+                    break;
+                case 'Kadang-kadang (3-4 kali)':
+                    return 3;
+                    break;
+                case 'Hampir sering (5-6 kali)':
+                    return 4;
+                    break;
+                case 'Sangat sering (lebih dari 6 kali)':
+                    return 5;
+                    break;
+                default:
+                    return 0;
+                    break;
+            }
+      }
+    </script>
 @endsection
