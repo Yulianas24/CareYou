@@ -121,7 +121,10 @@
                 {{-- Container Jadwal Konseling --}}
                 <div class="flex flex-col my-2">
                 <h3 class="font-roboto text-lg">Pendekatan</h3>
-                    <p class="font-roboto"> {{$konselor->kategori_pendekatan ?? 'Tidak Ada'}} </p>
+                <div class="flex gap-2">
+                    <img src="/asset/icons/checklist.svg" alt="checklistIcon">
+                    <p class="font-roboto"> {{$konselor->profile->kategori_pendekatan ?? 'Tidak Ada'}} </p>
+                </div>
                 </div>
                 {{-- Container Jadwal Konseling --}}
                 <div class="flex flex-col my-2">
