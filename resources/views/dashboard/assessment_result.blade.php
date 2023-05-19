@@ -2,10 +2,6 @@
 
 @section('container')
     <div class="mb-10 w-full grid justify-items-center p-4 laptop:p-0">
-      <div class="text-center">
-        <h1 class="font-semibold text-xl text-[#0661B0]">Intip Hasil Kesehatan Mentalmu Yuk!</h1>
-        <p class="mt-2 text-lg">Kamu sudah berhasil mengisi tes kesehatan mental dari CareYou. Hasilnya menunjukkan</p>
-      </div>
       {{-- content --}}
       <div class="mx-auto laptop:w-[60%] tablet:flex tablet:h-[600px] my-10 shadow-sm shadow-gray-600 rounded-lg tablet:overflow-hidden">
         {{-- sidebar --}}
