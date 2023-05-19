@@ -39,6 +39,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/registrasi', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/registrasi', [RegisterController::class, 'store']);
 
+Route::get('/registrasi-konselor', [RegisterController::class, 'indexKonselor'])->middleware('guest');
+Route::post('/registrasi-konselor', [RegisterController::class, 'storeKonselor']);
+
 Route::get('/dashboard', [DashboardBookingController::class, 'index'])->middleware('konselor');
 Route::get('/dashboard/{item:id}/selesai', [DashboardBookingController::class, 'selesai'])->middleware('konselor');
 Route::get('/dashboard/{item:id}/batal', [DashboardBookingController::class, 'batal'])->middleware('konselor');

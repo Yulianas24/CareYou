@@ -71,8 +71,9 @@ class KonselorController extends Controller
                 $pm->push($item);
             };
         }
-
+        
         // return json_decode($rekomendasi[0]->penanganan_masalah, true);
+        // return $user;
         return view('pages.detail_konselor', [
             'title' => 'Detail Konselor',
             'konselor' => $user,

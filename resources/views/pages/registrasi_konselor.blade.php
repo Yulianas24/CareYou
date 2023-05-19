@@ -39,11 +39,11 @@
             <div class=" flex w-95 h-102 rounded-lg shadow-lg shadow-gray-600/20">
                 <div class=" w-full h-full justify-center">
                     <div class=" w-full h-full justify-center p-5">
-                        <form class="w-full h-full" method="post" action="/registrasi">
+                        <form class="w-full h-full" method="post" action="/registrasi-konselor">
                             @csrf
                             <div class="border-b-2 border-gray-100 mt-3">
                                 <h1 class="font-roboto font-medium text-center text-2xl laptop:text-3xl laptop:pb-2">
-                                    Daftar Akun CareYou</h1>
+                                    Daftar Akun Konselor</h1>
                             </div>
                             <div class="grid grid-cols-6 content-between laptop:content-evenly gap-3 mt-5 w-full h-96">
                                 <div class="col-span-3">
@@ -99,7 +99,7 @@
                                             style="margin-bottom: -20px ">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <input type="hidden" name="level" value="konseli">
+                                <input type="hidden" name="level" value="konselor">
                                 {{-- <div class="col-span-3">
                                     <label for="level"
                                         class="block  text-sm font-poppins font-normal text-gray-700">Daftar

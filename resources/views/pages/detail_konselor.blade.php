@@ -120,6 +120,11 @@
 
                 {{-- Container Jadwal Konseling --}}
                 <div class="flex flex-col my-2">
+                <h3 class="font-roboto text-lg">Pendekatan</h3>
+                    <p class="font-roboto"> {{$konselor->kategori_pendekatan ?? 'Tidak Ada'}} </p>
+                </div>
+                {{-- Container Jadwal Konseling --}}
+                <div class="flex flex-col my-2">
                     <h3 class="font-roboto text-lg">Jadwal Konseling</h3>
                     {{-- todo: List Jadwal Konseling --}}
                     @foreach ($jadwal as $item)

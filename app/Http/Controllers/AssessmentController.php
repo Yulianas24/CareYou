@@ -74,6 +74,7 @@ class AssessmentController extends Controller
             'question_7' => $data[6]->answer,
             'question_8' => $data[7]->answer,
             'question_9' => $data[8]->answer,
+            'question_10' => $data[9]->answer,
         ]);
         return redirect()->intended('/assessment/kategori');
     }

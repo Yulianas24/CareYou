@@ -105,6 +105,7 @@
       value += convert(detail.question_7);
       value += convert(detail.question_8);
       value += convert(detail.question_9);
+      value += convert(detail.question_10);
       console.log(value);
 
       let result = '';

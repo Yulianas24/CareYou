@@ -19,18 +19,18 @@
         <div class="grid h-full justify-items-center items-center laptop:col-span-3 laptop:bg-blue-901 laptop:relative">
             <img src="/asset/theme/Ellipse1.svg" alt="" srcset=""
                 class="hidden laptop:block laptop:absolute laptop:right-0 laptop:top-0">
-            <div class="grid gap-4 justify-self-start laptop:justify-item-center mb-12 px-10 ">
-                <picture class="laptop:mx-auto">
-                    <source media="(min-width:1024px)" srcset="/asset/logo.svg">
-                    <source media="(min-width:320px)" srcset="/asset/mainLogo.svg">
-                    <img src="/asset/logo.svg" alt="LogoCareYou" class="h-14 laptop:h-16">
+                <div
+                class="flex justify-between mb-12 px-8
+            flex-col space-y-4 laptop:space-y-0 laptop:px-0 laptop:mb-0 laptop:h-32 laptop:absolute laptop:top-44 laptop:left-16">
+            <picture>
+                <a href="/">
+                        <source media="(min-width:1024px)" srcset="/asset/logo_blue.svg">
+                        <source media="(min-width:320px)" srcset="/asset/mainLogo.svg">
+                        <img src="/asset/logo.svg" alt="LogoCareYou" class="h-14 laptop:h-16">
+                    </a>
                 </picture>
-                <p class="font-poppins font-normal text-gray-901 text-center text-lg laptop:text-2xl">Care about your mental health</p>
-                <a href="/" class="laptop:fixed top-4 left-4 text-base bg-blue-901 
-                text-white w-fit p-2 rounded-lg font-poppins laptop:bg-white  laptop:hover:bg-blue-901 
-                laptop:hover:text-white laptop:text-black">
-                    Kembali Ke Beranda
-                </a>
+                <p class="font-poppins font-normal text-gray-901 text-lg laptop:text-white laptop:text-2xl">Care about your mental health</p>
+             
             </div>
 
             
