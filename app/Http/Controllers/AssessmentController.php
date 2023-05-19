@@ -23,10 +23,16 @@ class AssessmentController extends Controller
         ]);
     }
     public function indexBio(){
-        return view('pages.assessment_bio', [
-            'title' => 'Assessment Biodata',
-            'assessments' => Assessment::where('category', 'biodata')->get(),
-        ]);
+        $detail = UserProfile::where('user_id', auth()->user()->id)->get()->first();
+
+        if($detail) {
+            return redirect('/konselor');
+        } else {
+            return view('pages.assessment_bio', [
+                'title' => 'Assessment Biodata',
+                'assessments' => Assessment::where('category', 'biodata')->get(),
+            ]);
+        }
     }
     public function indexPss(){
         return view('pages.assessment_pss', [

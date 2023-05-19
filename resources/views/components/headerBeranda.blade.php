@@ -38,7 +38,7 @@
         <h1 class="font-bold text-[20px] pt-5">Apa yang ingin kamu lakukan?</h1>
         <p class="text-[#737373]">Pilih salah satu button dibawah ini</p>
         <div class="w-full flex justify-evenly gap-5 mt-10">
-            <a href="/konselor" class="bg-[#0661B0] text-white rounded-md px-3 py-1">Konsultasi</a>
+            <a href="/assessment/biodata" class="bg-[#0661B0] text-white rounded-md px-3 py-1">Konsultasi</a>
             <a href="/assessment" class="bg-[#0661B0] text-white rounded-md px-3 py-1">Ukur Kesehatan Mentalmu</a>
         </div>
     </div>
