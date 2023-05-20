@@ -17,6 +17,7 @@ use App\Http\Controllers\DashboardJadwalController;
 use Clockwork\Support\Twig\ProfilerClockworkDumper;
 use App\Http\Controllers\DashboardBookingController;
 use App\Http\Controllers\DashboardProfileController;
+use App\Http\Controllers\NotificationController;
 
 
 /*
@@ -71,9 +72,11 @@ Route::get('/categories', function () {
 });
 
 
-Route::get('/konselor', [KonselorController::class, 'index'])->middleware('auth');
-Route::get('/konselor/{user:username}', [KonselorController::class, 'show'])->middleware('auth');
+Route::get('/konselor', [KonselorController::class, 'index']);
+Route::get('/konselor/{user:username}', [KonselorController::class, 'show']);
 Route::post('/konselor/{user:username}/book', [KonselorController::class, 'booking'])->middleware('auth');
+
+route::get('/notification', [notificationController::class, 'index'])->middleware('auth');
 
 Route::get('/assessment', [AssessmentController::class, 'index']);
 Route::post('/assessment', [AssessmentController::class, 'store']);

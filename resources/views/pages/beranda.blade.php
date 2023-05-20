@@ -4,7 +4,7 @@
 
     @include('/components/headerBeranda')
     @include('/components/fitur')
-    @include('/components/konselorBeranda')
     @include('/components/tutorialBeranda')
+    @include('/components/konselorBeranda')
     @include('/components/artikelBeranda')
 @endsection
