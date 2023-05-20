@@ -35,6 +35,8 @@
                   <p class="font-semibold">
                     @if ($notification->keterangan =='mengajukan')
                       Sedang mengajukan konseling
+                    @elseif ($notification->keterangan =='batal')
+                    Konselingmu dibatalkan konselor
                     @else
                       Konselingmu telah selesai
                     @endif

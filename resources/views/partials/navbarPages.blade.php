@@ -99,6 +99,31 @@
         {{-- !: Profile image --}}
         <a href="#" class="peer px-1 block relative">
             @auth
+             <a href="/notification">
+            <svg class="" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_1846_7371)">
+                <path d="M12.0001 22C13.1001 22 14.0001 21.1 14.0001 20H10.0001C10.0001 21.1 10.8901 22 12.0001 22ZM18.0001 16V11C18.0001 7.93 16.3601 5.36 13.5001 4.68V4C13.5001 3.17 12.8301 2.5 12.0001 2.5C11.1701 2.5 10.5001 3.17 10.5001 4V4.68C7.63005 5.36 6.00005 7.92 6.00005 11V16L4.71005 17.29C4.08005 17.92 4.52005 19 5.41005 19H18.5801C19.4701 19 19.9201 17.92 19.2901 17.29L18.0001 16Z" fill="#2984D5"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_1846_7371">
+                <rect width="24" height="24" fill="#2984D5"/>
+                </clipPath>
+                </defs>
+            </svg>
+        </a>
+        <a href="/chatify" class="mx-5"  target="__blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_1846_7374)">
+                <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM19.6 8.25L12.53 12.67C12.21 12.87 11.79 12.87 11.47 12.67L4.4 8.25C4.15 8.09 4 7.82 4 7.53C4 6.86 4.73 6.46 5.3 6.81L12 11L18.7 6.81C19.27 6.46 20 6.86 20 7.53C20 7.82 19.85 8.09 19.6 8.25Z" fill="#2984D5"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_1846_7374">
+                <rect width="24" height="24" fill="#2984D5"/>
+                </clipPath>
+                </defs>
+            </svg>
+        </a>
+        
                 @if (auth()->user()->image)
                     <img alt="profil" src="{{ asset('storage/' . auth()->user()->image) }}"
                         class="object-cover rounded-full h-10 w-10 " />
