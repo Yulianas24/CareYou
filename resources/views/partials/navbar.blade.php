@@ -1,5 +1,7 @@
 <nav navigation class="duration-500 flex justify-between fixed items-center w-screen h-18 bg-transparent z-50 laptop:justify-evenly"
-    <img src="/asset/mainLogo.svg" alt="" srcset="" class="px-6 laptop:px-0">
+    <div class="fixed top-0 left-0 bg-white">
+        <img src="/asset/mainLogo.svg" alt="" srcset="" class="px-6 laptop:px-0">
+    </div>
     <ul class="flex flex-col absolute py-10 top-0 duration-500 z-30 h-screen -right-105 backdrop-blur-sm bg-blue-902/90 w-2/3 tablet:w-5/12 laptop:backdrop-blur-none laptop:z-auto laptop:w-2/3 laptop:py-0 laptop:justify-evenly laptop:h-auto laptop:static laptop:top-auto laptop:right-auto laptop:bg-transparent laptop:flex-row"
         mobileBar>
         {{-- todo: Container Profile --}}
